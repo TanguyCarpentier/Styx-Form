@@ -46,6 +46,7 @@
             pBCasque.Size = new Size(74, 72);
             pBCasque.TabIndex = 0;
             pBCasque.TabStop = false;
+            pBCasque.Click += pBCasque_Click;
             // 
             // groupBox1
             // 
@@ -78,6 +79,7 @@
             btnScoreBoard.TabIndex = 2;
             btnScoreBoard.Text = "ScoreBoard";
             btnScoreBoard.UseVisualStyleBackColor = true;
+            btnScoreBoard.Click += btnScoreBoard_Click;
             // 
             // btnJoueur
             // 

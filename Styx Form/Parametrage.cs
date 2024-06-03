@@ -19,5 +19,17 @@ namespace Styx_Form
             PSD.Show();
             this.Hide();
         }
+
+        private void btnScoreBoard_Click(object sender, EventArgs e)
+        {
+            Scoreboard score = new Scoreboard();
+            score.Show();
+            this.Hide();
+        }
+
+        private void pBCasque_Click(object sender, EventArgs e)
+        {
+            pBCasque.Image = Styx_Form.Properties.Resources.casque_on;
+        }
     }
 }
