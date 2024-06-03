@@ -83,9 +83,9 @@ namespace Styx_Form.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Logo_styx {
+        internal static System.Drawing.Bitmap logo_styx_petit {
             get {
-                object obj = ResourceManager.GetObject("Logo_styx", resourceCulture);
+                object obj = ResourceManager.GetObject("logo_styx_petit", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

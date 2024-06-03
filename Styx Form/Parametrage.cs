@@ -10,13 +10,14 @@ namespace Styx_Form
 
         private void button3_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Exit();
         }
 
         private void btnJoueur_Click(object sender, EventArgs e)
         {
             SelectPSD PSD = new SelectPSD();
             PSD.Show();
+            this.Hide();
         }
     }
 }

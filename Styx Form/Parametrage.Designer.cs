@@ -53,7 +53,7 @@
             groupBox1.Controls.Add(btnScoreBoard);
             groupBox1.Controls.Add(btnJoueur);
             groupBox1.Controls.Add(pBCasque);
-            groupBox1.Location = new Point(171, 12);
+            groupBox1.Location = new Point(149, 12);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(499, 426);
             groupBox1.TabIndex = 1;
@@ -89,13 +89,13 @@
             btnJoueur.UseVisualStyleBackColor = true;
             btnJoueur.Click += btnJoueur_Click;
             // 
-            // Form1
+            // Pseudo
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(groupBox1);
-            Name = "Form1";
+            Name = "Pseudo";
             Text = "Parametrage";
             ((System.ComponentModel.ISupportInitialize)pBCasque).EndInit();
             groupBox1.ResumeLayout(false);
