@@ -28,5 +28,12 @@ namespace Styx_Form
             Param.Show();
             this.Hide();
         }
+
+        private void btnPlay_Click(object sender, EventArgs e)
+        {
+            FormJeuStix formJeuStix = new FormJeuStix();
+            formJeuStix.Show();
+            this.Hide();
+        }
     }
 }
