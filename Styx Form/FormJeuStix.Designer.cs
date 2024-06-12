@@ -33,17 +33,19 @@
             // 
             // panel1
             // 
-            panel1.Location = new Point(72, 21);
+            panel1.Location = new Point(79, 97);
+            panel1.Margin = new Padding(4, 5, 4, 5);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1230, 571);
+            panel1.Size = new Size(1781, 890);
             panel1.TabIndex = 0;
             // 
             // FormJeuStix
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1383, 617);
+            ClientSize = new Size(1976, 1028);
             Controls.Add(panel1);
+            Margin = new Padding(4, 5, 4, 5);
             Name = "FormJeuStix";
             Text = "FormJeuStix";
             ResumeLayout(false);
