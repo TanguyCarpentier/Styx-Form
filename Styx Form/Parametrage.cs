@@ -1,4 +1,4 @@
-namespace Styx_Form
+  namespace Styx_Form
 {
     public partial class Pseudo : Form
     {
