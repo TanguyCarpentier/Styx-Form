@@ -28,23 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
-            panel1 = new Panel();
+            pnlLaby = new Panel();
             SuspendLayout();
             // 
-            // panel1
+            // pnlLaby
             // 
-            panel1.Location = new Point(79, 97);
-            panel1.Margin = new Padding(4, 5, 4, 5);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(1781, 890);
-            panel1.TabIndex = 0;
+            pnlLaby.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            pnlLaby.Location = new Point(328, 81);
+            pnlLaby.Margin = new Padding(4, 5, 4, 5);
+            pnlLaby.Name = "pnlLaby";
+            pnlLaby.Size = new Size(986, 690);
+            pnlLaby.TabIndex = 0;
             // 
             // FormJeuStix
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1976, 1028);
-            Controls.Add(panel1);
+            Controls.Add(pnlLaby);
             Margin = new Padding(4, 5, 4, 5);
             Name = "FormJeuStix";
             Text = "FormJeuStix";
@@ -53,6 +54,6 @@
 
         #endregion
 
-        private Panel panel1;
+        private Panel pnlLaby;
     }
 }

@@ -12,17 +12,17 @@ namespace Styx_Form
 {
     public partial class FormJeuStix : Form
     {
-        public FormJeuStix()
+        public FormJeuStix(string Pseudo)
         {
             int n = 0;
             InitializeComponent();
             for (int i = 0; i < 3600; i++)
             {
                 PictureBox maNouvellePictureBox; //déclaration d'un nouvel objet picturebox
-                int nbPicDansPanel = panel1.Controls.Count; // nombre de picturebox actuel dans le panel
+                int nbPicDansPanel = pnlLaby.Controls.Count; // nombre de picturebox actuel dans le panel
 
                 // suspension de la logique d'affichage du panel
-                panel1.SuspendLayout();
+                pnlLaby.SuspendLayout();
 
                 // instanciation et configuration de la nouvelle picturebox
                 maNouvellePictureBox = new PictureBox();
@@ -45,14 +45,14 @@ namespace Styx_Form
                     if (n == 60)
                     {
                         x = 0;
-                        y = panel1.Controls[nbPicDansPanel - 1].Location.Y + 10;
+                        y = pnlLaby.Controls[nbPicDansPanel - 1].Location.Y + 10;
                         n = 0;
                     }
                     // sinon, on prend récupère la localisation X de la dernière créée et on ajoute 50 (hauteur d'1 picturebox + 10 à sa localisation Y 
                     else
                     {
-                        x = panel1.Controls[nbPicDansPanel - 1].Location.X + 10;
-                        y = panel1.Controls[nbPicDansPanel - 1].Location.Y;
+                        x = pnlLaby.Controls[nbPicDansPanel - 1].Location.X + 10;
+                        y = pnlLaby.Controls[nbPicDansPanel - 1].Location.Y;
                         n++;
                     }
 
@@ -60,9 +60,9 @@ namespace Styx_Form
                 }
 
                 // ajout de la picturebox créée à la collection des contrôles du panel pour qu'elle apparaisse dans le formulaire
-                panel1.Controls.Add(maNouvellePictureBox);
+                pnlLaby.Controls.Add(maNouvellePictureBox);
 
-                panel1.ResumeLayout();
+                pnlLaby.ResumeLayout();
             }
         }
     }
