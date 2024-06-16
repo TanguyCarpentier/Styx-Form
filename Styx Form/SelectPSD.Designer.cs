@@ -28,91 +28,103 @@
         /// </summary>
         private void InitializeComponent()
         {
-            groupBox2 = new GroupBox();
-            btnQuit = new Button();
-            btnRetour = new Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SelectPSD));
             txtPseudo = new TextBox();
-            btnPlay = new Button();
-            groupBox2.SuspendLayout();
+            pictureBox1 = new PictureBox();
+            pictureBox2 = new PictureBox();
+            ptnQuitter = new PictureBox();
+            pictureBox3 = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)ptnQuitter).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             SuspendLayout();
-            // 
-            // groupBox2
-            // 
-            groupBox2.Controls.Add(btnQuit);
-            groupBox2.Controls.Add(btnRetour);
-            groupBox2.Controls.Add(txtPseudo);
-            groupBox2.Controls.Add(btnPlay);
-            groupBox2.Location = new Point(200, 15);
-            groupBox2.Margin = new Padding(4, 3, 4, 3);
-            groupBox2.Name = "groupBox2";
-            groupBox2.Padding = new Padding(4, 3, 4, 3);
-            groupBox2.Size = new Size(624, 533);
-            groupBox2.TabIndex = 2;
-            groupBox2.TabStop = false;
-            groupBox2.Text = "Pseudo";
-            // 
-            // btnQuit
-            // 
-            btnQuit.Location = new Point(514, 465);
-            btnQuit.Margin = new Padding(4, 3, 4, 3);
-            btnQuit.Name = "btnQuit";
-            btnQuit.Size = new Size(86, 48);
-            btnQuit.TabIndex = 5;
-            btnQuit.Text = "Quitter";
-            btnQuit.UseVisualStyleBackColor = true;
-            btnQuit.Click += button2_Click;
-            // 
-            // btnRetour
-            // 
-            btnRetour.Location = new Point(20, 465);
-            btnRetour.Margin = new Padding(4, 3, 4, 3);
-            btnRetour.Name = "btnRetour";
-            btnRetour.Size = new Size(86, 48);
-            btnRetour.TabIndex = 4;
-            btnRetour.Text = "Retour";
-            btnRetour.UseVisualStyleBackColor = true;
-            btnRetour.Click += button1_Click;
             // 
             // txtPseudo
             // 
-            txtPseudo.Location = new Point(184, 203);
-            txtPseudo.Margin = new Padding(4, 3, 4, 3);
+            txtPseudo.Location = new Point(285, 95);
+            txtPseudo.Margin = new Padding(3, 2, 3, 2);
             txtPseudo.Name = "txtPseudo";
-            txtPseudo.Size = new Size(275, 31);
-            txtPseudo.TabIndex = 0;
+            txtPseudo.Size = new Size(157, 23);
+            txtPseudo.TabIndex = 6;
             txtPseudo.Text = "Entrer Pseudo";
+            txtPseudo.TextChanged += txtPseudo_TextChanged;
             // 
-            // btnPlay
+            // pictureBox1
             // 
-            btnPlay.Location = new Point(184, 358);
-            btnPlay.Margin = new Padding(4, 3, 4, 3);
-            btnPlay.Name = "btnPlay";
-            btnPlay.Size = new Size(276, 63);
-            btnPlay.TabIndex = 3;
-            btnPlay.Text = "Jouer";
-            btnPlay.UseVisualStyleBackColor = true;
-            btnPlay.Click += btnPlay_Click;
+            pictureBox1.BackColor = Color.Transparent;
+            pictureBox1.BackgroundImage = (Image)resources.GetObject("pictureBox1.BackgroundImage");
+            pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
+            pictureBox1.Location = new Point(190, 69);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(354, 82);
+            pictureBox1.TabIndex = 10;
+            pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.BackColor = Color.Transparent;
+            pictureBox2.BackgroundImage = (Image)resources.GetObject("pictureBox2.BackgroundImage");
+            pictureBox2.BackgroundImageLayout = ImageLayout.Stretch;
+            pictureBox2.Location = new Point(190, 145);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(354, 117);
+            pictureBox2.TabIndex = 11;
+            pictureBox2.TabStop = false;
+            pictureBox2.Click += btnPlay_Click;
+            // 
+            // ptnQuitter
+            // 
+            ptnQuitter.BackColor = Color.Transparent;
+            ptnQuitter.BackgroundImage = (Image)resources.GetObject("ptnQuitter.BackgroundImage");
+            ptnQuitter.BackgroundImageLayout = ImageLayout.Stretch;
+            ptnQuitter.Location = new Point(541, 243);
+            ptnQuitter.Name = "ptnQuitter";
+            ptnQuitter.Size = new Size(131, 65);
+            ptnQuitter.TabIndex = 12;
+            ptnQuitter.TabStop = false;
+            ptnQuitter.Click += ptnQuitter_Click;
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.BackColor = Color.Transparent;
+            pictureBox3.BackgroundImage = (Image)resources.GetObject("pictureBox3.BackgroundImage");
+            pictureBox3.BackgroundImageLayout = ImageLayout.Stretch;
+            pictureBox3.Location = new Point(34, 243);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(131, 65);
+            pictureBox3.TabIndex = 13;
+            pictureBox3.TabStop = false;
+            pictureBox3.Click += pictureBox3_Click;
             // 
             // SelectPSD
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1000, 563);
-            Controls.Add(groupBox2);
-            Margin = new Padding(4, 3, 4, 3);
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            BackgroundImageLayout = ImageLayout.Stretch;
+            ClientSize = new Size(700, 338);
+            Controls.Add(pictureBox3);
+            Controls.Add(ptnQuitter);
+            Controls.Add(pictureBox2);
+            Controls.Add(txtPseudo);
+            Controls.Add(pictureBox1);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "SelectPSD";
             Text = "SelectPSD";
-            groupBox2.ResumeLayout(false);
-            groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)ptnQuitter).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
-
-        private GroupBox groupBox2;
-        private Button btnQuit;
-        private Button btnRetour;
         private TextBox txtPseudo;
-        private Button btnPlay;
+        private PictureBox pictureBox1;
+        private PictureBox pictureBox2;
+        private PictureBox ptnQuitter;
+        private PictureBox pictureBox3;
     }
 }
