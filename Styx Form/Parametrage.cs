@@ -1,4 +1,4 @@
-namespace Styx_Form
+  namespace Styx_Form
 {
     public partial class Pseudo : Form
     {
@@ -8,10 +8,20 @@ namespace Styx_Form
 
         }
 
-        private void button3_Click(object sender, EventArgs e)
+
+
+
+
+        private void pBCasque_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            if (pBCasque.Image != Styx_Form.Properties.Resources.casque_on)
+                pBCasque.Image = Styx_Form.Properties.Resources.casque_on;
+            else
+            {
+                pBCasque.Image = Styx_Form.Properties.Resources.casque_off;
+            }
         }
+
 
         private void btnJoueur_Click(object sender, EventArgs e)
         {
@@ -20,6 +30,8 @@ namespace Styx_Form
             this.Hide();
         }
 
+
+
         private void btnScoreBoard_Click(object sender, EventArgs e)
         {
             Scoreboard score = new Scoreboard();
@@ -27,9 +39,14 @@ namespace Styx_Form
             this.Hide();
         }
 
-        private void pBCasque_Click(object sender, EventArgs e)
+        private void btnClick(object sender, EventArgs e)
         {
-            pBCasque.Image = Styx_Form.Properties.Resources.casque_on;
+            Application.Exit();
+        }
+
+        private void pBCasque_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

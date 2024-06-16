@@ -5,6 +5,8 @@ VisualStudioVersion = 17.10.34928.147
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Styx Form", "Styx Form\Styx Form.csproj", "{776E1044-DA8D-4975-86CC-7D2D3EADD516}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Styx_Biblio_Jeu", "Styx_Biblio_Jeu\Styx_Biblio_Jeu.csproj", "{C5FCA98A-0428-42A5-B3C5-100786C205F8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{776E1044-DA8D-4975-86CC-7D2D3EADD516}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{776E1044-DA8D-4975-86CC-7D2D3EADD516}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{776E1044-DA8D-4975-86CC-7D2D3EADD516}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5FCA98A-0428-42A5-B3C5-100786C205F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5FCA98A-0428-42A5-B3C5-100786C205F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5FCA98A-0428-42A5-B3C5-100786C205F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5FCA98A-0428-42A5-B3C5-100786C205F8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

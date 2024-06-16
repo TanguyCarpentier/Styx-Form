@@ -28,72 +28,51 @@
         /// </summary>
         private void InitializeComponent()
         {
-            btnJoueur = new Button();
-            button1 = new Button();
-            button2 = new Button();
-            button3 = new Button();
-            button4 = new Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Scoreboard));
+            pictureBox1 = new PictureBox();
+            pictureBox2 = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
-            // btnJoueur
+            // pictureBox1
             // 
-            btnJoueur.Location = new Point(282, 97);
-            btnJoueur.Name = "btnJoueur";
-            btnJoueur.Size = new Size(221, 51);
-            btnJoueur.TabIndex = 2;
-            btnJoueur.Text = "Score 1";
-            btnJoueur.UseVisualStyleBackColor = true;
+            pictureBox1.BackColor = Color.Transparent;
+            pictureBox1.BackgroundImage = (Image)resources.GetObject("pictureBox1.BackgroundImage");
+            pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
+            pictureBox1.Location = new Point(-2, -1);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(700, 340);
+            pictureBox1.TabIndex = 0;
+            pictureBox1.TabStop = false;
             // 
-            // button1
+            // pictureBox2
             // 
-            button1.Location = new Point(282, 174);
-            button1.Name = "button1";
-            button1.Size = new Size(221, 51);
-            button1.TabIndex = 3;
-            button1.Text = "Score 2";
-            button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            button2.Location = new Point(282, 251);
-            button2.Name = "button2";
-            button2.Size = new Size(221, 51);
-            button2.TabIndex = 4;
-            button2.Text = "Score 3";
-            button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            button3.Location = new Point(63, 348);
-            button3.Name = "button3";
-            button3.Size = new Size(221, 51);
-            button3.TabIndex = 5;
-            button3.Text = "Retour";
-            button3.UseVisualStyleBackColor = true;
-            button3.Click += button3_Click;
-            // 
-            // button4
-            // 
-            button4.Location = new Point(508, 348);
-            button4.Name = "button4";
-            button4.Size = new Size(221, 51);
-            button4.TabIndex = 6;
-            button4.Text = "Quitter";
-            button4.UseVisualStyleBackColor = true;
-            button4.Click += button4_Click;
+            pictureBox2.BackColor = Color.Transparent;
+            pictureBox2.BackgroundImage = (Image)resources.GetObject("pictureBox2.BackgroundImage");
+            pictureBox2.BackgroundImageLayout = ImageLayout.Stretch;
+            pictureBox2.Location = new Point(12, 276);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(100, 50);
+            pictureBox2.TabIndex = 1;
+            pictureBox2.TabStop = false;
+            pictureBox2.Click += RETOUR_Click;
             // 
             // Scoreboard
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Controls.Add(button4);
-            Controls.Add(button3);
-            Controls.Add(button2);
-            Controls.Add(button1);
-            Controls.Add(btnJoueur);
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            BackgroundImageLayout = ImageLayout.Stretch;
+            ClientSize = new Size(700, 338);
+            Controls.Add(pictureBox2);
+            Controls.Add(pictureBox1);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "Scoreboard";
             Text = "Scoreboard";
+            Load += Scoreboard_Load;
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
         }
 
@@ -101,8 +80,7 @@
 
         private Button btnJoueur;
         private Button button1;
-        private Button button2;
-        private Button button3;
-        private Button button4;
+        private PictureBox pictureBox1;
+        private PictureBox pictureBox2;
     }
 }
