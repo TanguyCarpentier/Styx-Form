@@ -24,15 +24,7 @@ namespace Styx_Form
             // Initialisation de Joueur
             joueur = new Joueur(new Point(50, 50), Styx_Form.Properties.Resources.TestPlay, new Size(25, 25));
 
-            joueurPictureBox = new PictureBox
-            {
-                Size = joueur.Size,
-                Location = joueur.Position,
-                Image = joueur.Texture,
-                SizeMode = PictureBoxSizeMode.StretchImage
-            };
-            pnlLaby.Controls.Add(joueurPictureBox);
-            joueurPictureBox.BringToFront();
+            
 
             // Initialisation du Timer
             gameTimer = new Timer();
@@ -51,6 +43,15 @@ namespace Styx_Form
 
             // Création du quadrillage de PictureBox
             CreateGrid();
+
+            joueurPictureBox = new PictureBox
+            {
+                Size = joueur.Size,
+                Location = joueur.Position,
+                Image = joueur.Texture,
+                SizeMode = PictureBoxSizeMode.StretchImage
+            };
+            pnlLaby.Controls.Add(joueurPictureBox);
             joueurPictureBox.BringToFront();
 
         }
