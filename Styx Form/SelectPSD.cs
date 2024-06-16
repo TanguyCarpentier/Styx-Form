@@ -31,7 +31,7 @@ namespace Styx_Form
 
         private void btnPlay_Click(object sender, EventArgs e)
         {
-            FormJeuStix formJeuStix = new FormJeuStix(txtPseudo.Text);
+            FormJeuStyx formJeuStix = new FormJeuStyx(txtPseudo.Text);
             formJeuStix.Show();
             this.Hide();
         }
