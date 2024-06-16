@@ -2,10 +2,10 @@
 {
     public class Jeu
     {
-        //propriétées
+        //propriétés
         private string _pseudo;
         private int _score;
-        private int _nbArtefacs;
+        private int _nbArtefacts;
         private int _nbEnemies;
         private int _nbFlames;
 

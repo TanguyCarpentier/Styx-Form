@@ -41,9 +41,10 @@
             // pBCasque
             // 
             pBCasque.Image = Properties.Resources.casque_off;
-            pBCasque.Location = new Point(17, 337);
+            pBCasque.Location = new Point(6, 249);
+            pBCasque.Margin = new Padding(3, 2, 3, 2);
             pBCasque.Name = "pBCasque";
-            pBCasque.Size = new Size(74, 72);
+            pBCasque.Size = new Size(74, 71);
             pBCasque.TabIndex = 0;
             pBCasque.TabStop = false;
             pBCasque.Click += pBCasque_Click;
@@ -54,18 +55,21 @@
             groupBox1.Controls.Add(btnScoreBoard);
             groupBox1.Controls.Add(btnJoueur);
             groupBox1.Controls.Add(pBCasque);
-            groupBox1.Location = new Point(149, 12);
+            groupBox1.Location = new Point(130, 9);
+            groupBox1.Margin = new Padding(3, 2, 3, 2);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(499, 426);
+            groupBox1.Padding = new Padding(3, 2, 3, 2);
+            groupBox1.Size = new Size(437, 320);
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
             groupBox1.Text = "MenuPrincipal";
             // 
             // btnQuitter
             // 
-            btnQuitter.Location = new Point(147, 287);
+            btnQuitter.Location = new Point(129, 215);
+            btnQuitter.Margin = new Padding(3, 2, 3, 2);
             btnQuitter.Name = "btnQuitter";
-            btnQuitter.Size = new Size(221, 51);
+            btnQuitter.Size = new Size(193, 38);
             btnQuitter.TabIndex = 3;
             btnQuitter.Text = "Quitter";
             btnQuitter.UseVisualStyleBackColor = true;
@@ -73,9 +77,10 @@
             // 
             // btnScoreBoard
             // 
-            btnScoreBoard.Location = new Point(147, 205);
+            btnScoreBoard.Location = new Point(129, 154);
+            btnScoreBoard.Margin = new Padding(3, 2, 3, 2);
             btnScoreBoard.Name = "btnScoreBoard";
-            btnScoreBoard.Size = new Size(221, 51);
+            btnScoreBoard.Size = new Size(193, 38);
             btnScoreBoard.TabIndex = 2;
             btnScoreBoard.Text = "ScoreBoard";
             btnScoreBoard.UseVisualStyleBackColor = true;
@@ -83,9 +88,10 @@
             // 
             // btnJoueur
             // 
-            btnJoueur.Location = new Point(147, 126);
+            btnJoueur.Location = new Point(129, 94);
+            btnJoueur.Margin = new Padding(3, 2, 3, 2);
             btnJoueur.Name = "btnJoueur";
-            btnJoueur.Size = new Size(221, 51);
+            btnJoueur.Size = new Size(193, 38);
             btnJoueur.TabIndex = 1;
             btnJoueur.Text = "Jouer";
             btnJoueur.UseVisualStyleBackColor = true;
@@ -93,10 +99,11 @@
             // 
             // Pseudo
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(700, 338);
             Controls.Add(groupBox1);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "Pseudo";
             Text = "Parametrage";
             ((System.ComponentModel.ISupportInitialize)pBCasque).EndInit();
