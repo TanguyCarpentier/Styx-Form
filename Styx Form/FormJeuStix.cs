@@ -54,6 +54,12 @@ namespace Styx_Form
             pnlLaby.Controls.Add(joueurPictureBox);
             joueurPictureBox.BringToFront();
 
+            Plateau Laby = new Plateau(400, 400);
+
+            Laby.Generatelaby();
+
+            string test = Laby.tab[1, 1];
+
         }
 
         private void GameTimer_Tick(object sender, EventArgs e)

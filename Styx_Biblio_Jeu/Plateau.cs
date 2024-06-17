@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Styx_Biblio_Jeu
 {
-    class Plateau
+    public class Plateau
     {
-        private string[,] tab; // Grille du labyrinthe
+        public string[,] tab; // Grille du labyrinthe
         private int[,] pile; // Initialisation de la pile qui contiendra toutes les coordonnées des cases visitées
         int comptPile = 0; // Initialisation du compteur de la pile
         int compteurPorte = 0; // Initialisation du compteur de porte
