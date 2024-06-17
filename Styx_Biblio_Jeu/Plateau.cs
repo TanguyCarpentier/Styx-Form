@@ -14,8 +14,8 @@ namespace Styx_Biblio_Jeu
         int compteurPorte = 0; // Initialisation du compteur de porte
         int comptVisiteur = 0;// Initialisation du compteur du tableau visiteur
         private int[,] tabVisiteurs; // Initialisation du tableau visiteur qui contiendra toutes les coordonnées des cases visités
-        private int Hauteur; // Hauteur du labyrinthe
-        private int Largeur; // Largeur du labyrinthe
+        public int Hauteur; // Hauteur du labyrinthe
+        public int Largeur; // Largeur du labyrinthe
         private Random random = new Random(); // Générateur de nombres aléatoires
 
         // Constructeur initialisant la grille du labyrinthe avec sa taille
@@ -313,7 +313,7 @@ namespace Styx_Biblio_Jeu
         }
         public string AfficheCase(int ligne, int colonne)
         {
-            return this.tab[ligne, colonne];
+            return this.tab[colonne, ligne];
         }
 
     }

@@ -15,24 +15,31 @@ namespace Styx_Form
     {
         private Joueur joueur;
         private Timer gameTimer;
-        private PictureBox joueurPictureBox;
+        //private PictureBox joueurPictureBox;
+        private Plateau Laby;
+        private Point Spawn;
 
         public FormJeuStyx(string Pseudo)
         {
             InitializeComponent();
 
-            this.WindowState = FormWindowState.Maximized;
-            CenterPanel(pnlLaby);
+            Laby = new Plateau(40, 40);
+            
 
+            this.WindowState = FormWindowState.Maximized;
+            
+            Spawn = pnlLaby.Location;
+            Spawn.X += 10;
+            Spawn.Y += 10;
 
             // Initialisation de Joueur
-            joueur = new Joueur(new Point(50, 50), Styx_Form.Properties.Resources.TestPlay, new Size(25, 25));
+            joueur = new Joueur(Spawn, Styx_Form.Properties.Resources.over, new Size(30, 29));
 
 
 
             // Initialisation du Timer
             gameTimer = new Timer();
-            gameTimer.Interval = 50; // 100 ms = 0.1 seconde
+            gameTimer.Interval = 100; // 100 ms = 0.1 seconde
             gameTimer.Tick += GameTimer_Tick;
             gameTimer.Start();
 
@@ -48,26 +55,26 @@ namespace Styx_Form
             pnlLaby.BackColor = Color.Yellow;
 
             // Création du quadrillage de PictureBox
-            CreateGrid();
+            CreateGrid(Laby);
+            CenterPanel(pnlLaby);
 
-            /*joueurPictureBox = new PictureBox
-            {
-                Size = joueur.Size,
-                Location = joueur.Position,
-                Image = joueur.Texture,
-                SizeMode = PictureBoxSizeMode.StretchImage
-            };
-            pnlLaby.Controls.Add(joueurPictureBox);
-            joueurPictureBox.BringToFront();
-            */
+            //joueurPictureBox = new PictureBox
+            //{
+            //    Size = joueur.Size,
+            //    Location = joueur.Position,
+            //    Image = joueur.Texture,
+            //    SizeMode = PictureBoxSizeMode.StretchImage
+            //};
+            //pnlLaby.Controls.Add(joueurPictureBox);
+            //joueurPictureBox.BringToFront();
+
 
         }
 
         private void GameTimer_Tick(object sender, EventArgs e)
         {
             // Déplacement du Joueur
-            joueur.Move();
-
+            
             // Redessiner le panel
             pnlLaby.Invalidate();
         }
@@ -79,15 +86,19 @@ namespace Styx_Form
             {
                 case Keys.Up:
                     joueur.CurrentDirection = Direction.Up;
+                    joueur.Move(Laby);
                     break;
                 case Keys.Down:
                     joueur.CurrentDirection = Direction.Down;
+                    joueur.Move(Laby);
                     break;
                 case Keys.Left:
                     joueur.CurrentDirection = Direction.Left;
+                    joueur.Move(Laby);
                     break;
                 case Keys.Right:
                     joueur.CurrentDirection = Direction.Right;
+                    joueur.Move(Laby);
                     break;
             }
         }
@@ -95,6 +106,7 @@ namespace Styx_Form
         private void pnlLaby_Paint(object sender, PaintEventArgs e)
         {
             // Dessiner le Joueur
+            joueur.Draw(e.Graphics);
             //joueur.Draw(e.Graphics);
         }
         private void CenterPanel(Panel panel)
@@ -107,10 +119,10 @@ namespace Styx_Form
             panel.Location = new Point(x, y);
         }
 
-        private void CreateGrid()
+        private void CreateGrid(Plateau Laby)
         {
             pnlLaby.SuspendLayout();
-            Plateau Laby = new Plateau(40, 40);
+            
 
 
             Laby.Generatelaby();
@@ -145,7 +157,7 @@ namespace Styx_Form
                                 {
                                     // positionnement de la première picturebox en fonction de la largeur interne (ClientSize) du panel
 
-                                    maNouvellePictureBox.Location = new Point(0, Y1 += 25);
+                                    maNouvellePictureBox.Location = new Point(0, Y1 += 30);
                                     l++;
                                 }
 
@@ -182,7 +194,7 @@ namespace Styx_Form
                                 {
                                     // positionnement de la première picturebox en fonction de la largeur interne (ClientSize) du panel
 
-                                    maNouvellePictureBox.Location = new Point(0, Y1 += 25);
+                                    maNouvellePictureBox.Location = new Point(0, Y1 += 30);
                                     l++;
                                 }
                                 else
@@ -229,7 +241,7 @@ namespace Styx_Form
                                     maNouvellePictureBox = new PictureBox();
 
                                     maNouvellePictureBox.Name = $"pic{nbPicDansPanel + 1}"; // définition du nom de la picturebox en fonction du nombre de picturebox dans le panel
-                                    maNouvellePictureBox.Size = new Size(10, 25); //définition de la taille 
+                                    maNouvellePictureBox.Size = new Size(10, 30); //définition de la taille 
                                                                                   //maNouvellePictureBox.BorderStyle = BorderStyle.Fixed3D; // définition du type de bordure
                                     maNouvellePictureBox.Image = Properties.Resources.mur;
                                     if (l == 0)
@@ -263,7 +275,7 @@ namespace Styx_Form
                                     maNouvellePictureBox = new PictureBox();
 
                                     maNouvellePictureBox.Name = $"pic{nbPicDansPanel + 1}"; // définition du nom de la picturebox en fonction du nombre de picturebox dans le panel
-                                    maNouvellePictureBox.Size = new Size(10, 25);
+                                    maNouvellePictureBox.Size = new Size(10, 30);
 
                                     x = pnlLaby.Controls[nbPicDansPanel - 1].Location.X + 40;
                                     y = pnlLaby.Controls[nbPicDansPanel - 1].Location.Y;
@@ -275,7 +287,7 @@ namespace Styx_Form
                                     maNouvellePictureBox = new PictureBox();
 
                                     maNouvellePictureBox.Name = $"pic{nbPicDansPanel + 1}"; // définition du nom de la picturebox en fonction du nombre de picturebox dans le panel
-                                    maNouvellePictureBox.Size = new Size(40, 25);
+                                    maNouvellePictureBox.Size = new Size(40, 30);
                                     x = pnlLaby.Controls[nbPicDansPanel - 1].Location.X + 10;
                                     y = pnlLaby.Controls[nbPicDansPanel - 1].Location.Y;
                                     maNouvellePictureBox.Location = new Point(x, y);

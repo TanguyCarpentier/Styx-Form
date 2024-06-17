@@ -36,18 +36,23 @@ namespace Styx_Biblio_Jeu
                     calculPos.X -= 1;
                     break;
                 case Direction.Up: 
-                    calculPos.Y += 1;
+                    calculPos.Y -= 1;
                     break;
                 case Direction.Down:
-                    calculPos.Y -= 1;
+                    calculPos.Y += 1;
                     break;
                 default :
                     throw new Exception("La direction est introuvable");
             }
 
+            if (calculPos.X < 0 || calculPos.X >= Lab.Largeur || calculPos.Y < 0 || calculPos.Y >= Lab.Hauteur)
+            {
+                return false; // Considérer comme une collision si hors limites
+            }
+
             string parcour = Lab.AfficheCase(calculPos.X, calculPos.Y);
 
-            if (parcour!=" " || parcour!= "   ")
+            if (parcour!="|" && parcour!= "---")
             {
                 return true;
             }
