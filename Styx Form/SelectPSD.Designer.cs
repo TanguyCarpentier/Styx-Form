@@ -42,10 +42,10 @@
             // 
             // txtPseudo
             // 
-            txtPseudo.Location = new Point(285, 95);
+            txtPseudo.Location = new Point(303, 79);
             txtPseudo.Margin = new Padding(3, 2, 3, 2);
             txtPseudo.Name = "txtPseudo";
-            txtPseudo.Size = new Size(157, 23);
+            txtPseudo.Size = new Size(114, 23);
             txtPseudo.TabIndex = 6;
             txtPseudo.Text = "Entrer Pseudo";
             txtPseudo.TextChanged += txtPseudo_TextChanged;
@@ -55,9 +55,9 @@
             pictureBox1.BackColor = Color.Transparent;
             pictureBox1.BackgroundImage = (Image)resources.GetObject("pictureBox1.BackgroundImage");
             pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
-            pictureBox1.Location = new Point(190, 69);
+            pictureBox1.Location = new Point(232, 50);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(354, 82);
+            pictureBox1.Size = new Size(258, 84);
             pictureBox1.TabIndex = 10;
             pictureBox1.TabStop = false;
             // 
@@ -66,9 +66,9 @@
             pictureBox2.BackColor = Color.Transparent;
             pictureBox2.BackgroundImage = (Image)resources.GetObject("pictureBox2.BackgroundImage");
             pictureBox2.BackgroundImageLayout = ImageLayout.Stretch;
-            pictureBox2.Location = new Point(190, 145);
+            pictureBox2.Location = new Point(232, 140);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(354, 117);
+            pictureBox2.Size = new Size(258, 141);
             pictureBox2.TabIndex = 11;
             pictureBox2.TabStop = false;
             pictureBox2.Click += btnPlay_Click;
@@ -104,11 +104,13 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(700, 338);
+            ControlBox = false;
             Controls.Add(pictureBox3);
             Controls.Add(ptnQuitter);
             Controls.Add(pictureBox2);
             Controls.Add(txtPseudo);
             Controls.Add(pictureBox1);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Margin = new Padding(3, 2, 3, 2);
             Name = "SelectPSD";
             Text = "SelectPSD";
