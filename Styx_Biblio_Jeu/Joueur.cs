@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Windows.Forms;
+using System.ComponentModel;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -9,21 +11,22 @@ using Image = System.Drawing.Image;
 
 namespace Styx_Biblio_Jeu
 {
-    public class Joueur
+    public class Joueur : Entite
     {
-        public Point Position { get; set; }
-        public Image Texture { get; set; }
-        public Direction CurrentDirection { get; set; }
-        public Size Size { get; set; }
+
+        public bool estMort;
         public int Speed { get; set; }
 
-        public Joueur(Point initialPosition, Image texture, Size size)
+        public Joueur(Point initialPosition, Image texture, Size size) :base (initialPosition, texture, size)
         {
-            Position = initialPosition;
-            Texture = texture;
-            CurrentDirection = Direction.Right;
-            Size = size;
-            Speed = 5;
+
+            this.Speed = 1;
+            Speed = 1;
+            estMort = false;
+            this.Position = initialPosition;
+            this.Size = size;
+            this.Texture = texture;
+
         }
 
         public void Move()

@@ -312,5 +312,10 @@ namespace Styx_Biblio_Jeu
             }
         }
 
+        public string AfficheCase(int ligne, int colonne)
+        {
+            return tab[ligne, colonne];
+        }
+
     }
 }

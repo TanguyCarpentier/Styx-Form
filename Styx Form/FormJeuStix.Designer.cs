@@ -15,26 +15,29 @@
         }
         private void InitializeComponent()
         {
-            this.pnlLaby = new System.Windows.Forms.Panel();
-            this.SuspendLayout();
+            pnlLaby = new Panel();
+            SuspendLayout();
             // 
             // pnlLaby
             // 
-            this.pnlLaby.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlLaby.Location = new System.Drawing.Point(0, 0);
-            this.pnlLaby.Name = "pnlLaby";
-            this.pnlLaby.Size = new System.Drawing.Size(800, 600);
-            this.pnlLaby.TabIndex = 0;
+            pnlLaby.Anchor = AnchorStyles.None;
+            pnlLaby.AutoSize = true;
+            pnlLaby.Location = new Point(0, 0);
+            pnlLaby.Name = "pnlLaby";
+            pnlLaby.Size = new Size(700, 562);
+            pnlLaby.TabIndex = 0;
             // 
             // FormJeuStyx
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 600);
-            this.Controls.Add(this.pnlLaby);
-            this.Name = "FormJeuStyx";
-            this.Text = "FormJeuStyx";
-            this.ResumeLayout(false);
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            AutoSize = true;
+            ClientSize = new Size(700, 562);
+            Controls.Add(pnlLaby);
+            Name = "FormJeuStyx";
+            Text = "FormJeuStyx";
+            ResumeLayout(false);
+            PerformLayout();
         }
     }
 }

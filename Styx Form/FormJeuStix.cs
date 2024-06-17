@@ -46,9 +46,9 @@ namespace Styx_Form
 
             joueurPictureBox = new PictureBox
             {
-                Size = joueur.Size,
-                Location = joueur.Position,
-                Image = joueur.Texture,
+                Size = joueur.RecupSize(),
+                Location = joueur.RecupPosition(),
+                Image = joueur.RecupTexture(),
                 SizeMode = PictureBoxSizeMode.StretchImage
             };
             pnlLaby.Controls.Add(joueurPictureBox);
@@ -64,8 +64,6 @@ namespace Styx_Form
 
         private void GameTimer_Tick(object sender, EventArgs e)
         {
-            // Déplacement du Joueur
-            joueur.Move();
 
             // Redessiner le panel
             pnlLaby.Invalidate();
@@ -89,6 +87,7 @@ namespace Styx_Form
                     joueur.CurrentDirection = Direction.Right;
                     break;
             }
+            
         }
 
         private void pnlLaby_Paint(object sender, PaintEventArgs e)
