@@ -69,7 +69,7 @@ namespace Styx_Biblio_Jeu
                     tab[hauteur, 0] = "|";
                     for (int largeur = 1; largeur < 40; largeur += 2)
                     {
-                        tab[hauteur, largeur] = "   ";
+                        tab[hauteur, largeur] = "esp";
                         tab[hauteur, largeur + 1] = "|";
                     }
                 }
@@ -311,10 +311,9 @@ namespace Styx_Biblio_Jeu
                 Console.WriteLine(); // Aller à la ligne pour la prochaine rangée
             }
         }
-
         public string AfficheCase(int ligne, int colonne)
         {
-            return tab[ligne, colonne];
+            return this.tab[ligne, colonne];
         }
 
     }
