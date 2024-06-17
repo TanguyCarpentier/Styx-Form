@@ -65,8 +65,11 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(700, 338);
+            ControlBox = false;
             Controls.Add(pictureBox2);
             Controls.Add(pictureBox1);
+            DoubleBuffered = true;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Margin = new Padding(3, 2, 3, 2);
             Name = "Scoreboard";
             Text = "Scoreboard";

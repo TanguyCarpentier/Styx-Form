@@ -8,21 +8,6 @@
 
         }
 
-
-
-
-
-        private void pBCasque_Click(object sender, EventArgs e)
-        {
-            if (pBCasque.Image != Styx_Form.Properties.Resources.casque_on)
-                pBCasque.Image = Styx_Form.Properties.Resources.casque_on;
-            else
-            {
-                pBCasque.Image = Styx_Form.Properties.Resources.casque_off;
-            }
-        }
-
-
         private void btnJoueur_Click(object sender, EventArgs e)
         {
             SelectPSD PSD = new SelectPSD();
@@ -44,9 +29,15 @@
             Application.Exit();
         }
 
-        private void pBCasque_Click_1(object sender, EventArgs e)
+       
+        private void pb_Casque_Click(object sender, EventArgs e)
         {
-
+            if (pb_Casque.Image != Styx_Form.Properties.Resources.son)
+                pb_Casque.Image = Styx_Form.Properties.Resources.son;
+            else
+            {
+                pb_Casque.Image = Styx_Form.Properties.Resources.son_coupé;
+            }
         }
     }
 }
