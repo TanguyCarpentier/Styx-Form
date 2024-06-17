@@ -13,10 +13,10 @@ namespace Styx_Biblio_Jeu
 {
     public class Joueur : Entite
     {
-        public Point posPixel;
+        
         public bool estMort;
-        public int Speed { get; set; }
-        public Point StartLaby;
+        public int Speed;
+        
 
         public Joueur(Point initialPosition, Image texture, Size size) : base(initialPosition, texture, size)
         {
@@ -53,17 +53,12 @@ namespace Styx_Biblio_Jeu
             }
         }
 
-        private void ConversionCoo()
-        {
-            posPixel.X = StartLaby.X + (20 * (Position.X-1));
-
-            posPixel.Y = StartLaby.Y + (20 * (Position.Y-1));
-
-        }
-
         public void Draw(Graphics g)
         {
-            g.DrawImage(Texture, new Rectangle(posPixel, Size));
+            if (!estMort)
+                g.DrawImage(Texture, new Rectangle(posPixel, Size));
         }
+
+     
     }
 }

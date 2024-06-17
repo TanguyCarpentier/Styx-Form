@@ -10,10 +10,12 @@ namespace Styx_Biblio_Jeu
 {
     public abstract class Entite
     {
-        public Point Position { get; set; }
-        public Direction CurrentDirection { get; set; }
-        public Image Texture { get; set; }
-        public Size Size { get; set; }
+        public Point posPixel;
+        public Point Position;
+        public Direction CurrentDirection;
+        public Image Texture;
+        public Size Size;
+        public Point StartLaby;
 
         public Entite(Point initialPosition, Image texture, Size size)
         {
@@ -23,6 +25,13 @@ namespace Styx_Biblio_Jeu
             Size = size;
         }
 
+        public void ConversionCoo()
+        {
+            posPixel.X = StartLaby.X + (20 * (Position.X - 1));
+
+            posPixel.Y = StartLaby.Y + (20 * (Position.Y - 1));
+
+        }
         public bool CollisionMur(Plateau Lab)
         {
             
@@ -61,22 +70,7 @@ namespace Styx_Biblio_Jeu
                 return false;
             }
         }
-        public Size RecupSize()
-        {
-            return Size;
-        }
-        public Point RecupPosition()
-        {
-            return Position;
-        }
-        public Image RecupTexture()
-        {
-            return Texture;
-        }
-        public Direction RecupDirection()
-        {
-            return CurrentDirection;
-        }
+
     }
     
 }

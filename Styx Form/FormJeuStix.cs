@@ -58,17 +58,6 @@ namespace Styx_Form
             CreateGrid(Laby);
             CenterPanel(pnlLaby);
 
-            //joueurPictureBox = new PictureBox
-            //{
-            //    Size = joueur.Size,
-            //    Location = joueur.Position,
-            //    Image = joueur.Texture,
-            //    SizeMode = PictureBoxSizeMode.StretchImage
-            //};
-            //pnlLaby.Controls.Add(joueurPictureBox);
-            //joueurPictureBox.BringToFront();
-
-
         }
 
         private void GameTimer_Tick(object sender, EventArgs e)
