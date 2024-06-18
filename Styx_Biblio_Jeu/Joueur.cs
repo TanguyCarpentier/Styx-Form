@@ -7,7 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using static System.Net.Mime.MediaTypeNames;
-using Timer = System.Windows.Forms.Timer;
+using Timer = System.Timers.Timer;
+
 
 namespace Styx_Biblio_Jeu
 {
@@ -23,7 +24,7 @@ namespace Styx_Biblio_Jeu
         public int MultiplicateurScore;
         
 
-        public Joueur(Point initialPosition, Image texture, Size size) : base(initialPosition, texture, size)
+        public Joueur(Point initialPosition, System.Drawing.Image texture, Size size) : base(initialPosition, texture, size)
         {
             posPixel = initialPosition;
             Speed = 2;
@@ -90,35 +91,28 @@ namespace Styx_Biblio_Jeu
             }
         }
 
-        public void Bonus_Lyre()
+        public async Task Bonus_Lyre()
         {
             if (!estMort)
             {
-                Timer gameTimer = new Timer();
-                gameTimer.Interval = 300; // 300 ms
+                Invincible = true;
+                ModeTueur = true;
 
-                int tempEcoule = 0;
-                int tempArret = 10000; // 10 secondes
+                await Task.Delay(10000); // Attendre 10 secondes
 
-                gameTimer.Tick += (sender, e) =>
-                {
-                    if (tempEcoule >= tempArret)
-                    {
-                        // cas où le tempEcoule est supérieur ou égal à tempArret
-                        gameTimer.Stop();
-                        Invincible = false;
-                        ModeTueur = false;
-                    }
-                    else
-                    {
-                        // cas où le timer n'est pas fini
-                        Invincible = true;
-                        ModeTueur = true;
-                        tempEcoule += gameTimer.Interval;
-                    }
-                };
+                Invincible = false;
+                ModeTueur = false;
+            }
+        }
+        public async Task Bonus_Exp()
+        {
+            if (!estMort)
+            {
+                MultiplicateurScore = 2;
 
-                gameTimer.Start();
+                await Task.Delay(10000); // Attendre 10 secondes
+
+                MultiplicateurScore = 1;
             }
         }
 
@@ -157,8 +151,9 @@ namespace Styx_Biblio_Jeu
                     Lab.tab[Position.Y, Position.X] = "esp";
                     jeu.score += 1 * MultiplicateurScore;
                     Lab.compArtefact -= 1;
-                    Bonus_Lyre();
+                    Bonus_Exp();
                     return(Position);
+
             }       
             
             return Position;
