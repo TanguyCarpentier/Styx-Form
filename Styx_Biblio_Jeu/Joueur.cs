@@ -22,6 +22,7 @@ namespace Styx_Biblio_Jeu
         public bool Invincible;
         public bool ModeTueur;
         public int MultiplicateurScore;
+        public int vie;
         
 
         public Joueur(Point initialPosition, System.Drawing.Image texture, Size size) : base(initialPosition, texture, size)
@@ -38,6 +39,7 @@ namespace Styx_Biblio_Jeu
             Invincible = false;
             ModeTueur = false;
             MultiplicateurScore = 1;
+            vie = 3;
 
         }
 
@@ -71,6 +73,35 @@ namespace Styx_Biblio_Jeu
                 g.DrawImage(Texture, new Rectangle(posPixel, Size));
         }
 
+        public bool VerifMort()
+        {
+            if (vie < 1)
+            {
+                estMort= true;
+
+            }
+            else
+            {
+                estMort = false;
+            }
+            return estMort;
+        }
+
+        public void InterractionMob(Ennemie mob)
+        {
+            if (!estMort) 
+            {
+                if (!Invincible)
+                {
+                    vie -= 1;
+                }
+                else if (ModeTueur)
+                {
+                    mob.estMort = true;
+                }
+            }
+        }
+
         public void Dash(Plateau ptab)
         {
             if (!estMort && Dash1PickUp)
@@ -83,6 +114,7 @@ namespace Styx_Biblio_Jeu
 
                 while(i < DashSpeed)
                 {
+                    i++;
                     Move(ptab);
                 }
                 Invincible = false;
@@ -114,6 +146,51 @@ namespace Styx_Biblio_Jeu
 
                 MultiplicateurScore = 1;
             }
+        }
+
+        public async Task Bonus_Bou()
+        {
+            if (!estMort)
+            {
+                Invincible = true;
+
+                await Task.Delay(10000); // Attendre 10 secondes
+
+                Invincible = false;
+            }
+        }
+
+        public void Bonus_Vitesse()
+        {
+
+
+        }
+
+        public void Bonus_Flocon()
+        {
+
+
+        }
+        public void Bonus_Balance()
+        {
+            if (!estMort)
+            {
+                Random rand = new Random();
+
+                int entre1Et2 = rand.Next(2);
+
+                if (entre1Et2 == 0)
+                {
+                    vie += 1;
+                }
+                else
+                {
+                    vie -= 1;
+                }
+            }
+            VerifMort();
+
+
         }
 
 
@@ -154,9 +231,46 @@ namespace Styx_Biblio_Jeu
                     Bonus_Exp();
                     return(Position);
 
+                case "bou":
+                    Lab.tab[Position.Y, Position.X] = "esp";
+                    jeu.score += 1 * MultiplicateurScore;
+                    Lab.compArtefact -= 1;
+                    Bonus_Bou();
+                    return (Position);
+
+                case "coe":
+                    Lab.tab[Position.Y, Position.X] = "esp";
+                    jeu.score += 1 * MultiplicateurScore;
+                    Lab.compArtefact -= 1;
+                    vie += 1;
+                    return (Position);
+
+                case "vit":
+                    Lab.tab[Position.Y, Position.X] = "esp";
+                    jeu.score += 1 * MultiplicateurScore;
+                    Lab.compArtefact -= 1;
+                    Bonus_Vitesse();
+                    return (Position);
+
+                case "bal":
+                    Lab.tab[Position.Y, Position.X] = "esp";
+                    jeu.score += 1 * MultiplicateurScore;
+                    Lab.compArtefact -= 1;
+                    Bonus_Balance();
+                    return (Position);
+
+                case "flo":
+                    Lab.tab[Position.Y, Position.X] = "esp";
+                    jeu.score += 1 * MultiplicateurScore;
+                    Lab.compArtefact -= 1;
+                    Bonus_Flocon();
+                    return (Position);
+
+                default:
+                    Point point = new Point(0,0);
+                    return (point);
             }       
             
-            return Position;
         }
 
     }

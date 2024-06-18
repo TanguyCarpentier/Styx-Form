@@ -27,7 +27,8 @@ namespace Styx_Form
         public FormJeuStyx(string Pseudo)
         {
             InitializeComponent();
-
+            
+            partie = new Jeu();
 
             Laby = new Plateau(40, 40);
 
@@ -66,12 +67,40 @@ namespace Styx_Form
             CenterPanel(pnlLaby);
 
         }
+        private void RemovePictureBoxByName(Panel panel, string pictureBoxName)
+        {
+            // Trouver le contrôle avec le nom spécifié
+            Control[] controls = panel.Controls.Find(pictureBoxName, true);
+
+            // Si un contrôle est trouvé et c'est une PictureBox, le supprimer
+            if (controls.Length > 0 && controls[0] is PictureBox)
+            {
+                PictureBox pictureBoxToRemove = (PictureBox)controls[0];
+                panel.Controls.Remove(pictureBoxToRemove);
+
+                // Facultatif: Dispose du PictureBox pour libérer les ressources
+                pictureBoxToRemove.Dispose();
+            }
+            else
+            {
+                // Optionnel: Gérer le cas où le PictureBox n'a pas été trouvé
+                Console.WriteLine("PictureBox not found.");
+            }
+        }
 
         private void GameTimer_Tick(object sender, EventArgs e)
         {
             partie.tempEcoule += gameTimer.Interval;
             // Déplacement du Joueur
             joueur.Move(Laby);
+
+            Point Collision;
+            Collision = joueur.CollisionEntiteNM(Laby, partie);
+
+            if (Collision.X > 0)
+            {
+                RemovePictureBoxByName(pnlLaby, $"pic{Collision.Y}{Collision.X}");
+            }
             // Redessiner le panel
             pnlLaby.Invalidate();
         }
@@ -96,6 +125,9 @@ namespace Styx_Form
                 case Keys.Right:
                     joueur.CurrentDirection = Direction.Right;
                     
+                    break;
+                case Keys.Space:
+                    joueur.Dash(Laby);
                     break;
             }
         }

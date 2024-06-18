@@ -3,6 +3,8 @@
     public class Jeu
     {
         //propriétés
+        public List<Ennemie> EnnemieList;
+
         public int score;
         public int nbArtefacts;
         public int nbEnemis;
@@ -12,6 +14,7 @@
 
         public Jeu()
         {
+
             niveauEnCour = 0;
             score = 0;
             nbArtefacts = 0;
