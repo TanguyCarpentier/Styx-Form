@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Windows.Forms.Design;
 using Timer = System.Windows.Forms.Timer;
 
 namespace Styx_Form
@@ -18,6 +19,8 @@ namespace Styx_Form
         //private PictureBox joueurPictureBox;
         private Plateau Laby;
         private Point Spawn;
+        private int compt1=0;
+        private int compt2 = 0;
 
         public FormJeuStyx(string Pseudo)
         {
@@ -29,11 +32,11 @@ namespace Styx_Form
             this.WindowState = FormWindowState.Maximized;
 
             Spawn = pnlLaby.Location;
-            Spawn.X += 10;
+            Spawn.X += -280;
             Spawn.Y += 10;
 
             // Initialisation de Joueur
-            joueur = new Joueur(Spawn, Styx_Form.Properties.Resources.over, new Size(30, 29));
+            joueur = new Joueur(Spawn, Styx_Form.Properties.Resources.over, new Size(30, 28));
 
 
 
@@ -243,6 +246,7 @@ namespace Styx_Form
                                 maNouvellePictureBox.Location = new Point(x, y);
                                 pnlLaby.Controls.Add(maNouvellePictureBox);
                                 pnlLaby.ResumeLayout();
+                                compt1++;
                                 break;
                             case "flo":
                                 maNouvellePictureBox = new PictureBox();
@@ -257,6 +261,7 @@ namespace Styx_Form
                                 maNouvellePictureBox.Location = new Point(x, y);
                                 pnlLaby.Controls.Add(maNouvellePictureBox);
                                 pnlLaby.ResumeLayout();
+                                compt1++;
                                 break;
                             case "bal":
                                 maNouvellePictureBox = new PictureBox();
@@ -271,6 +276,7 @@ namespace Styx_Form
                                 maNouvellePictureBox.Location = new Point(x, y);
                                 pnlLaby.Controls.Add(maNouvellePictureBox);
                                 pnlLaby.ResumeLayout();
+                                compt1++;
                                 break;
                             case "vit":
                                 maNouvellePictureBox = new PictureBox();
@@ -285,6 +291,7 @@ namespace Styx_Form
                                 maNouvellePictureBox.Location = new Point(x, y);
                                 pnlLaby.Controls.Add(maNouvellePictureBox);
                                 pnlLaby.ResumeLayout();
+                                compt1++;
                                 break;
                             case "coe":
                                 maNouvellePictureBox = new PictureBox();
@@ -299,6 +306,7 @@ namespace Styx_Form
                                 maNouvellePictureBox.Location = new Point(x, y);
                                 pnlLaby.Controls.Add(maNouvellePictureBox);
                                 pnlLaby.ResumeLayout();
+                                compt1++;
                                 break;
                             case "bou":
                                 maNouvellePictureBox = new PictureBox();
@@ -313,6 +321,7 @@ namespace Styx_Form
                                 maNouvellePictureBox.Location = new Point(x, y);
                                 pnlLaby.Controls.Add(maNouvellePictureBox);
                                 pnlLaby.ResumeLayout();
+                                compt1++;
                                 break;
                             case "exp":
                                 maNouvellePictureBox = new PictureBox();
@@ -327,6 +336,7 @@ namespace Styx_Form
                                 maNouvellePictureBox.Location = new Point(x, y);
                                 pnlLaby.Controls.Add(maNouvellePictureBox);
                                 pnlLaby.ResumeLayout();
+                                compt1++;
                                 break;
                             case "lyre":
                                 maNouvellePictureBox = new PictureBox();
@@ -341,6 +351,7 @@ namespace Styx_Form
                                 maNouvellePictureBox.Location = new Point(x, y);
                                 pnlLaby.Controls.Add(maNouvellePictureBox);
                                 pnlLaby.ResumeLayout();
+                                compt1++;
                                 break;
                             case "dash":
                                 maNouvellePictureBox = new PictureBox();
@@ -355,6 +366,7 @@ namespace Styx_Form
                                 maNouvellePictureBox.Location = new Point(x, y);
                                 pnlLaby.Controls.Add(maNouvellePictureBox);
                                 pnlLaby.ResumeLayout();
+                                compt1++;
                                 break;
                             case "|":
                                 maNouvellePictureBox = new PictureBox();
@@ -374,14 +386,20 @@ namespace Styx_Form
                                 else
                                 {
 
-                                    if (i % 2 == 0)
+                                    if (compt1==0)
                                     {
 
-                                        x = pnlLaby.Controls[nbPicDansPanel - 1].Location.X + 30;
+                                        x = pnlLaby.Controls[nbPicDansPanel - 1].Location.X + 40;
                                         y = pnlLaby.Controls[nbPicDansPanel - 1].Location.Y;
+                                        compt1 = 0;
 
                                     }
-                                    // sinon, on prend récupère la localisation X de la dernière créée et on ajoute 50 (hauteur d'1 picturebox + 10 à sa localisation Y 
+                                    else {
+                                        x = pnlLaby.Controls[nbPicDansPanel - 1].Location.X + 30;
+                                        y = pnlLaby.Controls[nbPicDansPanel - 1].Location.Y;
+                                        compt1 = 0;
+                                    }
+                                    
 
 
                                     maNouvellePictureBox.Location = new Point(x, y);
@@ -397,22 +415,27 @@ namespace Styx_Form
                                 maNouvellePictureBox.Name = $"pic{j}{i}"; // définition du nom de la picturebox en fonction du nombre de picturebox dans le panel
                                 maNouvellePictureBox.Size = new Size(10, 30);
 
-                                x = pnlLaby.Controls[nbPicDansPanel - 1].Location.X + 30;
-                                y = pnlLaby.Controls[nbPicDansPanel - 1].Location.Y;
+                                if (compt1 == 0)
+                                {
+
+                                    x = pnlLaby.Controls[nbPicDansPanel - 1].Location.X + 40;
+                                    y = pnlLaby.Controls[nbPicDansPanel - 1].Location.Y;
+                                    compt1 = 0;
+
+                                }
+                                else
+                                {
+                                    x = pnlLaby.Controls[nbPicDansPanel - 1].Location.X + 30;
+                                    y = pnlLaby.Controls[nbPicDansPanel - 1].Location.Y;
+                                    compt1 = 0;
+                                }
                                 maNouvellePictureBox.Location = new Point(x, y);
                                 pnlLaby.Controls.Add(maNouvellePictureBox);
                                 pnlLaby.ResumeLayout();
+                                
                                 break;
                             case "esp":
-                                maNouvellePictureBox = new PictureBox();
-
-                                maNouvellePictureBox.Name = $"pic{j}{i}"; // définition du nom de la picturebox en fonction du nombre de picturebox dans le panel
-                                maNouvellePictureBox.Size = new Size(30, 30);
-                                x = pnlLaby.Controls[nbPicDansPanel - 1].Location.X + 10;
-                                y = pnlLaby.Controls[nbPicDansPanel - 1].Location.Y;
-                                maNouvellePictureBox.Location = new Point(x, y);
-                                pnlLaby.Controls.Add(maNouvellePictureBox);
-                                pnlLaby.ResumeLayout();
+                                compt2++;
 
                                 break;
 
