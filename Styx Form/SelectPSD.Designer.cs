@@ -42,21 +42,22 @@
             groupBox2.Controls.Add(btnRetour);
             groupBox2.Controls.Add(txtPseudo);
             groupBox2.Controls.Add(btnPlay);
-            groupBox2.Location = new Point(200, 15);
-            groupBox2.Margin = new Padding(4, 3, 4, 3);
+            groupBox2.Location = new Point(140, 9);
+            groupBox2.Margin = new Padding(3, 2, 3, 2);
             groupBox2.Name = "groupBox2";
-            groupBox2.Padding = new Padding(4, 3, 4, 3);
-            groupBox2.Size = new Size(624, 533);
+            groupBox2.Padding = new Padding(3, 2, 3, 2);
+            groupBox2.Size = new Size(437, 320);
             groupBox2.TabIndex = 2;
             groupBox2.TabStop = false;
             groupBox2.Text = "Pseudo";
+            groupBox2.Enter += groupBox2_Enter;
             // 
             // btnQuit
             // 
-            btnQuit.Location = new Point(514, 465);
-            btnQuit.Margin = new Padding(4, 3, 4, 3);
+            btnQuit.Location = new Point(360, 279);
+            btnQuit.Margin = new Padding(3, 2, 3, 2);
             btnQuit.Name = "btnQuit";
-            btnQuit.Size = new Size(86, 48);
+            btnQuit.Size = new Size(60, 29);
             btnQuit.TabIndex = 5;
             btnQuit.Text = "Quitter";
             btnQuit.UseVisualStyleBackColor = true;
@@ -64,10 +65,10 @@
             // 
             // btnRetour
             // 
-            btnRetour.Location = new Point(20, 465);
-            btnRetour.Margin = new Padding(4, 3, 4, 3);
+            btnRetour.Location = new Point(14, 279);
+            btnRetour.Margin = new Padding(3, 2, 3, 2);
             btnRetour.Name = "btnRetour";
-            btnRetour.Size = new Size(86, 48);
+            btnRetour.Size = new Size(60, 29);
             btnRetour.TabIndex = 4;
             btnRetour.Text = "Retour";
             btnRetour.UseVisualStyleBackColor = true;
@@ -75,19 +76,19 @@
             // 
             // txtPseudo
             // 
-            txtPseudo.Location = new Point(184, 203);
-            txtPseudo.Margin = new Padding(4, 3, 4, 3);
+            txtPseudo.Location = new Point(129, 122);
+            txtPseudo.Margin = new Padding(3, 2, 3, 2);
             txtPseudo.Name = "txtPseudo";
-            txtPseudo.Size = new Size(275, 31);
+            txtPseudo.Size = new Size(194, 23);
             txtPseudo.TabIndex = 0;
             txtPseudo.Text = "Entrer Pseudo";
             // 
             // btnPlay
             // 
-            btnPlay.Location = new Point(184, 358);
-            btnPlay.Margin = new Padding(4, 3, 4, 3);
+            btnPlay.Location = new Point(129, 215);
+            btnPlay.Margin = new Padding(3, 2, 3, 2);
             btnPlay.Name = "btnPlay";
-            btnPlay.Size = new Size(276, 63);
+            btnPlay.Size = new Size(193, 38);
             btnPlay.TabIndex = 3;
             btnPlay.Text = "Jouer";
             btnPlay.UseVisualStyleBackColor = true;
@@ -95,11 +96,11 @@
             // 
             // SelectPSD
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1000, 563);
+            ClientSize = new Size(700, 338);
             Controls.Add(groupBox2);
-            Margin = new Padding(4, 3, 4, 3);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "SelectPSD";
             Text = "SelectPSD";
             groupBox2.ResumeLayout(false);

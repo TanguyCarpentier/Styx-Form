@@ -20,14 +20,15 @@ namespace Styx_Form
         private Plateau Laby;
         private Point Spawn;
 
-        private int compt1=0;
+        private int compt1 = 0;
         private int compt2 = 0;
         private Jeu partie;
 
         public FormJeuStyx(string Pseudo)
         {
-            InitializeComponent();
 
+            InitializeComponent();
+            partie = new Jeu();
 
             Laby = new Plateau(40, 40);
 
@@ -65,6 +66,7 @@ namespace Styx_Form
             CreateGrid(Laby);
             CenterPanel(pnlLaby);
 
+
         }
 
         private void GameTimer_Tick(object sender, EventArgs e)
@@ -83,19 +85,19 @@ namespace Styx_Form
             {
                 case Keys.Up:
                     joueur.CurrentDirection = Direction.Up;
-                    
+
                     break;
                 case Keys.Down:
                     joueur.CurrentDirection = Direction.Down;
-                    
+
                     break;
                 case Keys.Left:
                     joueur.CurrentDirection = Direction.Left;
-                    
+
                     break;
                 case Keys.Right:
                     joueur.CurrentDirection = Direction.Right;
-                    
+
                     break;
             }
         }
@@ -121,12 +123,12 @@ namespace Styx_Form
             pnlLaby.SuspendLayout();
 
 
-            
+
             Laby.Generatelaby();// appel tab
             int Y1 = 0;
             for (int j = 0; j < 41; j++)
             {
-                
+
                 int l = 0;
                 for (int i = 0; i < 41; i++)
                 {
@@ -390,7 +392,7 @@ namespace Styx_Form
                                 else
                                 {
 
-                                    if (compt1==0)
+                                    if (compt1 == 0)
                                     {
 
                                         x = pnlLaby.Controls[nbPicDansPanel - 1].Location.X + 40;
@@ -398,12 +400,13 @@ namespace Styx_Form
                                         compt1 = 0;
 
                                     }
-                                    else {
+                                    else
+                                    {
                                         x = pnlLaby.Controls[nbPicDansPanel - 1].Location.X + 30;
                                         y = pnlLaby.Controls[nbPicDansPanel - 1].Location.Y;
                                         compt1 = 0;
                                     }
-                                    
+
 
 
                                     maNouvellePictureBox.Location = new Point(x, y);
@@ -436,7 +439,7 @@ namespace Styx_Form
                                 maNouvellePictureBox.Location = new Point(x, y);
                                 pnlLaby.Controls.Add(maNouvellePictureBox);
                                 pnlLaby.ResumeLayout();
-                                
+
                                 break;
                             case "esp":
                                 compt2++;
@@ -451,9 +454,13 @@ namespace Styx_Form
             }
         }
 
-        private void FormJeuStyx_Load(object sender, EventArgs e)
-        {
+        
 
+        private void paramètre_Click(object sender, EventArgs e)
+        {
+            //FormBoss formboss = new FormBoss();
+            //formboss.Show();
+            
         }
     }
 }

@@ -35,5 +35,10 @@ namespace Styx_Form
             formJeuStix.Show();
             this.Hide();
         }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }
