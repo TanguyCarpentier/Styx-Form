@@ -103,9 +103,9 @@ namespace Styx_Form.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap son_coupé {
+        internal static System.Drawing.Bitmap son_coupe {
             get {
-                object obj = ResourceManager.GetObject("son_coupé", resourceCulture);
+                object obj = ResourceManager.GetObject("son_coupe", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
