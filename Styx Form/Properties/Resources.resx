@@ -124,11 +124,20 @@
   <data name="casque_on" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\casque_on.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="flamme" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\flamme.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="flamme2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\flamme2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="logo_styx_petit" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logo styx petit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="mur" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\mur.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mur1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mur1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="over" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\over.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

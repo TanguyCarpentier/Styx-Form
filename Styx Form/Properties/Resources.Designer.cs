@@ -83,6 +83,26 @@ namespace Styx_Form.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap flamme {
+            get {
+                object obj = ResourceManager.GetObject("flamme", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap flamme2 {
+            get {
+                object obj = ResourceManager.GetObject("flamme2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap logo_styx_petit {
             get {
                 object obj = ResourceManager.GetObject("logo_styx_petit", resourceCulture);
@@ -96,6 +116,16 @@ namespace Styx_Form.Properties {
         internal static System.Drawing.Bitmap mur {
             get {
                 object obj = ResourceManager.GetObject("mur", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap mur1 {
+            get {
+                object obj = ResourceManager.GetObject("mur1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

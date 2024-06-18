@@ -38,7 +38,7 @@ namespace Styx_Biblio_Jeu
             // Commencer le parcours en profondeur 
             parcourProfondeur(1, 1);
             creationPorteAleatoire();
-
+            creationflammeAleatoire();
             //affichage des statistiques 
             Console.WriteLine($"nombre de portes : {compteurPorte}");
             Console.WriteLine($"pourcentage de portes : {compteurPorte * 100 / (760)}%");
@@ -270,6 +270,39 @@ namespace Styx_Biblio_Jeu
                     }
                     // Sortir de la boucle while si le flag est égale à 2 (on a retirer 2 murs par ligne)
                 } while (flag != 2);
+
+
+            }
+        }
+        private void creationflammeAleatoire()
+        {
+            for (int parcourHauteur = 1; parcourHauteur < Hauteur - 2; parcourHauteur += 2)
+            {
+                int flag = 0;
+                do
+                {
+                    //tableau qui possède toutes les valeur ou il y a possiblement des espaces
+                    int[] listeMurs = { 1, 3, 5, 7, 9, 11, 13, 15, 17, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39 };
+
+                    //on choisie un des murs aléatoirement 
+                    melangeTableau(listeMurs);
+
+                    foreach (int flamme in listeMurs)
+                    {
+                        //on retire le premier élément de la liste aléatoire et on sort de la boucle
+                        if (tab[parcourHauteur, flamme] == "esp")
+                        {
+                            tab[parcourHauteur, flamme] = "fla";
+                            flag++;
+                            compteurPorte++;
+                        }
+                        if (flag == 4)
+                        {
+                            break; // Sortir de la boucle foreach si le flag est égale à 1
+                        }
+
+                    }
+                } while (flag != 4);
 
 
             }

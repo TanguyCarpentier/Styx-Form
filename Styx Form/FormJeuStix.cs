@@ -24,10 +24,10 @@ namespace Styx_Form
             InitializeComponent();
 
             Laby = new Plateau(40, 40);
-            
+
 
             this.WindowState = FormWindowState.Maximized;
-            
+
             Spawn = pnlLaby.Location;
             Spawn.X += 10;
             Spawn.Y += 10;
@@ -63,7 +63,7 @@ namespace Styx_Form
         private void GameTimer_Tick(object sender, EventArgs e)
         {
             // Déplacement du Joueur
-            
+
             // Redessiner le panel
             pnlLaby.Invalidate();
         }
@@ -111,9 +111,9 @@ namespace Styx_Form
         private void CreateGrid(Plateau Laby)
         {
             pnlLaby.SuspendLayout();
-            
 
 
+            int h = 0;
             Laby.Generatelaby();
             int Y1 = 0;
             for (int j = 0; j < 41; j++)
@@ -220,73 +220,93 @@ namespace Styx_Form
                     else
                     {
 
+
                         PictureBox maNouvellePictureBox; //déclaration d'un nouvel objet picturebox
                         int nbPicDansPanel = pnlLaby.Controls.Count; // nombre de picturebox actuel dans le panel
-                        if (i % 2 == 0)
+
+
+                        string cellValue = Laby.tab[j, i];
+                        switch (Laby.tab[j, i])
                         {
-                            switch (Laby.tab[j, i])
-                            {
-                                case "|":
-                                    maNouvellePictureBox = new PictureBox();
 
-                                    maNouvellePictureBox.Name = $"pic{nbPicDansPanel + 1}"; // définition du nom de la picturebox en fonction du nombre de picturebox dans le panel
-                                    maNouvellePictureBox.Size = new Size(10, 30); //définition de la taille 
-                                                                                  //maNouvellePictureBox.BorderStyle = BorderStyle.Fixed3D; // définition du type de bordure
-                                    maNouvellePictureBox.Image = Properties.Resources.mur;
-                                    if (l == 0)
+                            case "fla":
+                                maNouvellePictureBox = new PictureBox();
+                                maNouvellePictureBox.Image = Properties.Resources.flamme;
+                                maNouvellePictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+                                maNouvellePictureBox.Height = 30;
+                                maNouvellePictureBox.Width = 30;
+                                maNouvellePictureBox.Name = $"pic{nbPicDansPanel + 1}"; // définition du nom de la picturebox en fonction du nombre de picturebox dans le panel
+                               
+                                x = pnlLaby.Controls[nbPicDansPanel - 1].Location.X + 10;
+                                y = pnlLaby.Controls[nbPicDansPanel - 1].Location.Y;
+                                maNouvellePictureBox.Location = new Point(x, y);
+                                pnlLaby.Controls.Add(maNouvellePictureBox);
+                                pnlLaby.ResumeLayout();
+                                break;
+                            case "|":
+                                maNouvellePictureBox = new PictureBox();
+
+                                maNouvellePictureBox.Name = $"pic{nbPicDansPanel + 1}"; // définition du nom de la picturebox en fonction du nombre de picturebox dans le panel
+                                maNouvellePictureBox.Size = new Size(10, 30); //définition de la taille 
+                                                                              //maNouvellePictureBox.BorderStyle = BorderStyle.Fixed3D; // définition du type de bordure
+                                maNouvellePictureBox.Image = Properties.Resources.mur;
+                                if (l == 0)
+                                {
+                                    // positionnement de la première picturebox en fonction de la largeur interne (ClientSize) du panel
+
+                                    maNouvellePictureBox.Location = new Point(0, Y1 += 10);
+                                    l++;
+                                }
+                                
+                                else
+                                {
+
+                                    if (i % 2 == 0)
                                     {
-                                        // positionnement de la première picturebox en fonction de la largeur interne (ClientSize) du panel
 
-                                        maNouvellePictureBox.Location = new Point(0, Y1 += 10);
-                                        l++;
-                                    }
-                                    else
-                                    {
-
-                                        if (i % 2 == 0)
-                                        {
-
-                                            x = pnlLaby.Controls[nbPicDansPanel - 1].Location.X + 40;
-                                            y = pnlLaby.Controls[nbPicDansPanel - 1].Location.Y;
-
-                                        }
-                                        // sinon, on prend récupère la localisation X de la dernière créée et on ajoute 50 (hauteur d'1 picturebox + 10 à sa localisation Y 
-
-
-                                        maNouvellePictureBox.Location = new Point(x, y);
+                                        x = pnlLaby.Controls[nbPicDansPanel - 1].Location.X + 30;
+                                        y = pnlLaby.Controls[nbPicDansPanel - 1].Location.Y;
 
                                     }
+                                    // sinon, on prend récupère la localisation X de la dernière créée et on ajoute 50 (hauteur d'1 picturebox + 10 à sa localisation Y 
 
-                                    pnlLaby.Controls.Add(maNouvellePictureBox);
-                                    pnlLaby.ResumeLayout();
-                                    break;
-                                case " ":
-                                    maNouvellePictureBox = new PictureBox();
 
-                                    maNouvellePictureBox.Name = $"pic{nbPicDansPanel + 1}"; // définition du nom de la picturebox en fonction du nombre de picturebox dans le panel
-                                    maNouvellePictureBox.Size = new Size(10, 30);
-
-                                    x = pnlLaby.Controls[nbPicDansPanel - 1].Location.X + 40;
-                                    y = pnlLaby.Controls[nbPicDansPanel - 1].Location.Y;
                                     maNouvellePictureBox.Location = new Point(x, y);
-                                    pnlLaby.Controls.Add(maNouvellePictureBox);
-                                    pnlLaby.ResumeLayout();
-                                    break;
-                                case "esp":
-                                    maNouvellePictureBox = new PictureBox();
 
-                                    maNouvellePictureBox.Name = $"pic{nbPicDansPanel + 1}"; // définition du nom de la picturebox en fonction du nombre de picturebox dans le panel
-                                    maNouvellePictureBox.Size = new Size(40, 30);
-                                    x = pnlLaby.Controls[nbPicDansPanel - 1].Location.X + 10;
-                                    y = pnlLaby.Controls[nbPicDansPanel - 1].Location.Y;
-                                    maNouvellePictureBox.Location = new Point(x, y);
-                                    pnlLaby.Controls.Add(maNouvellePictureBox);
-                                    pnlLaby.ResumeLayout();
-                                    break;
-                            }
+                                }
+
+                                pnlLaby.Controls.Add(maNouvellePictureBox);
+                                pnlLaby.ResumeLayout();
+                                break;
+                            case " ":
+                                maNouvellePictureBox = new PictureBox();
+
+                                maNouvellePictureBox.Name = $"pic{nbPicDansPanel + 1}"; // définition du nom de la picturebox en fonction du nombre de picturebox dans le panel
+                                maNouvellePictureBox.Size = new Size(10, 30);
+
+                                x = pnlLaby.Controls[nbPicDansPanel - 1].Location.X + 30;
+                                y = pnlLaby.Controls[nbPicDansPanel - 1].Location.Y;
+                                maNouvellePictureBox.Location = new Point(x, y);
+                                pnlLaby.Controls.Add(maNouvellePictureBox);
+                                pnlLaby.ResumeLayout();
+                                break;
+                            case "esp":
+                                maNouvellePictureBox = new PictureBox();
+                                
+                                maNouvellePictureBox.Name = $"pic{nbPicDansPanel + 1}"; // définition du nom de la picturebox en fonction du nombre de picturebox dans le panel
+                                maNouvellePictureBox.Size = new Size(30, 30);
+                                x = pnlLaby.Controls[nbPicDansPanel - 1].Location.X + 10;
+                                y = pnlLaby.Controls[nbPicDansPanel - 1].Location.Y;
+                                maNouvellePictureBox.Location = new Point(x, y);
+                                pnlLaby.Controls.Add(maNouvellePictureBox);
+                                pnlLaby.ResumeLayout();
+                                
+                                break;
+
                         }
-
                     }
+
+
                 }
             }
         }
