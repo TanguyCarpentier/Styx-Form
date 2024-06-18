@@ -15,6 +15,7 @@
         }
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormJeuStyx));
             pnlLaby = new Panel();
             SuspendLayout();
             // 
@@ -22,7 +23,7 @@
             // 
             pnlLaby.Anchor = AnchorStyles.None;
             pnlLaby.AutoSize = true;
-            pnlLaby.Location = new Point(0, 0);
+            pnlLaby.Location = new Point(289, 0);
             pnlLaby.Name = "pnlLaby";
             pnlLaby.Size = new Size(700, 562);
             pnlLaby.TabIndex = 0;
@@ -32,10 +33,14 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
-            ClientSize = new Size(700, 562);
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            BackgroundImageLayout = ImageLayout.Stretch;
+            ClientSize = new Size(1278, 562);
             Controls.Add(pnlLaby);
+            DoubleBuffered = true;
             Name = "FormJeuStyx";
             Text = "FormJeuStyx";
+            Load += FormJeuStyx_Load;
             ResumeLayout(false);
             PerformLayout();
         }

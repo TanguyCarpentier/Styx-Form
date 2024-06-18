@@ -39,6 +39,9 @@ namespace Styx_Biblio_Jeu
             parcourProfondeur(1, 1);
             creationPorteAleatoire();
             creationflammeAleatoire();
+            creationdashAleatoire();
+            creationlyreAleatoire();
+            creationmultAleatoire();
             //affichage des statistiques 
             Console.WriteLine($"nombre de portes : {compteurPorte}");
             Console.WriteLine($"pourcentage de portes : {compteurPorte * 100 / (760)}%");
@@ -247,7 +250,7 @@ namespace Styx_Biblio_Jeu
                             flag++;
                             compteurPorte++;
                         }
-                        if (flag == 1)
+                        if (flag == 2)
                         {
                             break; // Sortir de la boucle foreach si le flag est égale à 1
                         }
@@ -262,14 +265,14 @@ namespace Styx_Biblio_Jeu
                             flag++;
                             compteurPorte++;
                         }
-                        if (flag == 2)
+                        if (flag == 4)
                         {
                             break; // Sortir de la boucle foreach si le flag est égale à 2
                         }
 
                     }
                     // Sortir de la boucle while si le flag est égale à 2 (on a retirer 2 murs par ligne)
-                } while (flag != 2);
+                } while (flag != 4);
 
 
             }
@@ -282,12 +285,12 @@ namespace Styx_Biblio_Jeu
                 do
                 {
                     //tableau qui possède toutes les valeur ou il y a possiblement des espaces
-                    int[] listeMurs = { 1, 3, 5, 7, 9, 11, 13, 15, 17, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39 };
+                    int[] listeflamme = { 1, 3, 5, 7, 9, 11, 13, 15, 17, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39 };
 
                     //on choisie un des murs aléatoirement 
-                    melangeTableau(listeMurs);
+                    melangeTableau(listeflamme);
 
-                    foreach (int flamme in listeMurs)
+                    foreach (int flamme in listeflamme)
                     {
                         //on retire le premier élément de la liste aléatoire et on sort de la boucle
                         if (tab[parcourHauteur, flamme] == "esp")
@@ -305,6 +308,113 @@ namespace Styx_Biblio_Jeu
                 } while (flag != 4);
 
 
+            }
+        }
+
+        private void creationdashAleatoire()
+        {
+
+
+            int[] tableau = { 1, 3, 5, 7, 9, 11, 13, 15, 17, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39 };
+            Random random = new Random();
+            int indiceAleatoire = random.Next(tableau.Length);
+            int nombreAleatoire = tableau[indiceAleatoire];
+            int flag = 0;
+            do
+            {
+                //tableau qui possède toutes les valeur ou il y a possiblement des espaces
+                int[] listeMurs = { 1, 3, 5, 7, 9, 11, 13, 15, 17, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39 };
+
+                //on choisie un des murs aléatoirement 
+                melangeTableau(listeMurs);
+
+                foreach (int flamme in listeMurs)
+                {
+                    //on retire le premier élément de la liste aléatoire et on sort de la boucle
+                    if (tab[nombreAleatoire, flamme] == "esp")
+                    {
+                        tab[nombreAleatoire, flamme] = "dash";
+                        flag++;
+
+                    }
+                    if (flag == 1)
+                    {
+                        break; // Sortir de la boucle foreach si le flag est égale à 1
+                    }
+
+                }
+            } while (flag != 1);
+        }
+        private void creationlyreAleatoire()
+        {
+
+            for (int i = 0; i < 4; i++)
+            {
+                int[] tableau = { 1, 3, 5, 7, 9, 11, 13, 15, 17, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39 };
+                Random random = new Random();
+                int indiceAleatoire = random.Next(tableau.Length);
+                int nombreAleatoire = tableau[indiceAleatoire];
+                int flag = 0;
+                do
+                {
+                    //tableau qui possède toutes les valeur ou il y a possiblement des espaces
+                    int[] listeMurs = { 1, 3, 5, 7, 9, 11, 13, 15, 17, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39 };
+
+                    //on choisie un des murs aléatoirement 
+                    melangeTableau(listeMurs);
+
+                    foreach (int flamme in listeMurs)
+                    {
+                        //on retire le premier élément de la liste aléatoire et on sort de la boucle
+                        if (tab[nombreAleatoire, flamme] == "esp")
+                        {
+                            tab[nombreAleatoire, flamme] = "lyre";
+                            flag++;
+
+                        }
+                        if (flag == 1)
+                        {
+                            break; // Sortir de la boucle foreach si le flag est égale à 1
+                        }
+
+                    }
+                } while (flag != 1);
+            }
+        }
+        private void creationmultAleatoire()
+        {
+
+            for (int i = 0; i < 3; i++)
+            {
+                int[] tableau = { 1, 3, 5, 7, 9, 11, 13, 15, 17, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39 };
+                Random random = new Random();
+                int indiceAleatoire = random.Next(tableau.Length);
+                int nombreAleatoire = tableau[indiceAleatoire];
+                int flag = 0;
+                do
+                {
+                    //tableau qui possède toutes les valeur ou il y a possiblement des espaces
+                    int[] listeExp = { 1, 3, 5, 7, 9, 11, 13, 15, 17, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39 };
+
+                    //on choisie un des murs aléatoirement 
+                    melangeTableau(listeExp);
+
+                    foreach (int flamme in listeExp)
+                    {
+                        //on retire le premier élément de la liste aléatoire et on sort de la boucle
+                        if (tab[nombreAleatoire, flamme] == "esp")
+                        {
+                            tab[nombreAleatoire, flamme] = "exp";
+                            flag++;
+
+                        }
+                        if (flag == 1)
+                        {
+                            break; // Sortir de la boucle foreach si le flag est égale à 1
+                        }
+
+                    }
+                } while (flag != 1);
             }
         }
         //sous programme qui mélange un tableau
