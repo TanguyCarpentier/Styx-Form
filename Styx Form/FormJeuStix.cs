@@ -19,12 +19,15 @@ namespace Styx_Form
         //private PictureBox joueurPictureBox;
         private Plateau Laby;
         private Point Spawn;
+
         private int compt1=0;
         private int compt2 = 0;
+        private Jeu partie;
 
         public FormJeuStyx(string Pseudo)
         {
             InitializeComponent();
+
 
             Laby = new Plateau(40, 40);
 
@@ -42,7 +45,7 @@ namespace Styx_Form
 
             // Initialisation du Timer
             gameTimer = new Timer();
-            gameTimer.Interval = 100; // 100 ms = 0.1 seconde
+            gameTimer.Interval = 300; // 100 ms = 0.1 seconde
             gameTimer.Tick += GameTimer_Tick;
             gameTimer.Start();
 
@@ -66,8 +69,9 @@ namespace Styx_Form
 
         private void GameTimer_Tick(object sender, EventArgs e)
         {
+            partie.tempEcoule += gameTimer.Interval;
             // Déplacement du Joueur
-
+            joueur.Move(Laby);
             // Redessiner le panel
             pnlLaby.Invalidate();
         }
@@ -79,19 +83,19 @@ namespace Styx_Form
             {
                 case Keys.Up:
                     joueur.CurrentDirection = Direction.Up;
-                    joueur.Move(Laby);
+                    
                     break;
                 case Keys.Down:
                     joueur.CurrentDirection = Direction.Down;
-                    joueur.Move(Laby);
+                    
                     break;
                 case Keys.Left:
                     joueur.CurrentDirection = Direction.Left;
-                    joueur.Move(Laby);
+                    
                     break;
                 case Keys.Right:
                     joueur.CurrentDirection = Direction.Right;
-                    joueur.Move(Laby);
+                    
                     break;
             }
         }

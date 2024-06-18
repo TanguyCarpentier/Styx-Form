@@ -33,8 +33,8 @@ namespace Styx_Biblio_Jeu
 
         }
         public bool CollisionMur(Plateau Lab)
-        {
-            
+        {            
+
             Point calculPos = Position;
             switch (CurrentDirection)
             {

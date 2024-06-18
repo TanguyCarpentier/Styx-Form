@@ -11,8 +11,8 @@ namespace Styx_Biblio_Jeu
         public string[,] tab; // Grille du labyrinthe
         private int[,] pile; // Initialisation de la pile qui contiendra toutes les coordonnées des cases visitées
         int comptPile = 0; // Initialisation du compteur de la pile
-        public int compartefact = 0;
-        public int compflamme = 0;
+        public int compArtefact = 0;
+        public int compFlamme = 0;
         int compteurPorte = 0; // Initialisation du compteur de porte
         int comptVisiteur = 0;// Initialisation du compteur du tableau visiteur
         private int[,] tabVisiteurs; // Initialisation du tableau visiteur qui contiendra toutes les coordonnées des cases visités
@@ -304,7 +304,7 @@ namespace Styx_Biblio_Jeu
                         {
                             tab[parcourHauteur, flamme] = "fla";
                             flag++;
-                            compflamme++;
+                            compFlamme++;
                         }
                         if (flag == 4)
                         {
@@ -342,7 +342,7 @@ namespace Styx_Biblio_Jeu
                     {
                         tab[nombreAleatoire, flamme] = "dash";
                         flag++;
-                        compartefact++;
+                        compArtefact++;
                     }
                     if (flag == 1)
                     {
@@ -377,7 +377,7 @@ namespace Styx_Biblio_Jeu
                         {
                             tab[nombreAleatoire, flamme] = "lyre";
                             flag++;
-                            compartefact++;
+                            compArtefact++;
                         }
                         if (flag == 1)
                         {
@@ -413,7 +413,7 @@ namespace Styx_Biblio_Jeu
                         {
                             tab[nombreAleatoire, flamme] = "exp";
                             flag++;
-                            compartefact++;
+                            compArtefact++;
                         }
                         if (flag == 1)
                         {
@@ -449,7 +449,7 @@ namespace Styx_Biblio_Jeu
                         {
                             tab[nombreAleatoire, flamme] = "bou";
                             flag++;
-                            compartefact++;
+                            compArtefact++;
                         }
                         if (flag == 1)
                         {
@@ -485,7 +485,7 @@ namespace Styx_Biblio_Jeu
                         {
                             tab[nombreAleatoire, flamme] = "coe";
                             flag++;
-                            compartefact++;
+                            compArtefact++;
                         }
                         if (flag == 1)
                         {
@@ -521,7 +521,7 @@ namespace Styx_Biblio_Jeu
                         {
                             tab[nombreAleatoire, flamme] = "vit";
                             flag++;
-                            compartefact++;
+                            compArtefact++;
                         }
                         if (flag == 1)
                         {
@@ -557,7 +557,7 @@ namespace Styx_Biblio_Jeu
                         {
                             tab[nombreAleatoire, flamme] = "bal";
                             flag++;
-                            compartefact++;
+                            compArtefact++;
                         }
                         if (flag == 1)
                         {
@@ -593,7 +593,7 @@ namespace Styx_Biblio_Jeu
                         {
                             tab[nombreAleatoire, flamme] = "flo";
                             flag++;
-                            compartefact++;
+                            compArtefact++;
                         }
                         if (flag == 1)
                         {
