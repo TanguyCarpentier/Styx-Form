@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using static System.Net.Mime.MediaTypeNames;
-using Image = System.Drawing.Image;
 using Timer = System.Windows.Forms.Timer;
 
 namespace Styx_Biblio_Jeu
@@ -21,6 +20,7 @@ namespace Styx_Biblio_Jeu
         public int DashSpeed;
         public bool Invincible;
         public bool ModeTueur;
+        public int MultiplicateurScore;
         
 
         public Joueur(Point initialPosition, Image texture, Size size) : base(initialPosition, texture, size)
@@ -36,6 +36,7 @@ namespace Styx_Biblio_Jeu
             DashSpeed = 4;
             Invincible = false;
             ModeTueur = false;
+            MultiplicateurScore = 1;
 
         }
 
@@ -131,13 +132,13 @@ namespace Styx_Biblio_Jeu
             {
                 case "fla":
                     Lab.tab[Position.Y, Position.X] = "esp";
-                    jeu.score += 1;
+                    jeu.score += 1*MultiplicateurScore;
                     Lab.compFlamme -= 1;
                     return (Position);
 
                 case "dash":
                     Lab.tab[Position.Y, Position.X] = "esp";
-                    jeu.score += 1;
+                    jeu.score += 1*MultiplicateurScore;
                     Lab.compArtefact -= 1;
                     if (!Dash1PickUp)
                     {
@@ -147,11 +148,18 @@ namespace Styx_Biblio_Jeu
 
                 case "lyre":
                     Lab.tab[Position.Y, Position.X] = "esp";
-                    jeu.score += 1;
+                    jeu.score += 1*MultiplicateurScore;
                     Lab.compArtefact -= 1;
                     Bonus_Lyre();
                     return (Position);
-            }   
+
+                case "exp":
+                    Lab.tab[Position.Y, Position.X] = "esp";
+                    jeu.score += 1 * MultiplicateurScore;
+                    Lab.compArtefact -= 1;
+                    Bonus_Lyre();
+                    return(Position);
+            }       
             
             return Position;
         }
