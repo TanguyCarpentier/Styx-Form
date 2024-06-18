@@ -21,8 +21,29 @@
             nbEnemis = 0;
             nbFlammeRestant = 0;
             tempEcoule = 0;
+            EnnemieList = new List<Ennemie>();
 
-            
+        }
+        public Jeu(int niveau, int Score, int NbArtefact, int NbEnemis, int NbFlammes, int TempEcoule, List<Ennemie> ListEnnemis)
+        {
+
+            niveauEnCour = niveau;
+            score = Score;
+            nbArtefacts = NbArtefact;
+            nbEnemis = NbEnemis;
+            nbFlammeRestant = NbFlammes;
+            tempEcoule = TempEcoule;
+            EnnemieList = ListEnnemis;
+        }
+        public void MoveAllEnemies(Plateau ptab, Joueur joueur)
+        {
+            foreach (var ennemi in EnnemieList)
+            {
+                if (!ennemi.estMort)
+                {
+                    ennemi.Move(ptab, joueur);
+                }
+            }
         }
 
     }
