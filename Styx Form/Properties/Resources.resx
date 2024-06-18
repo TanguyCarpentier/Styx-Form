@@ -142,6 +142,9 @@
   <data name="flamme2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\flamme2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="flocon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\flocon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="FormJeuBack" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\FormJeuBack.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

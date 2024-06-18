@@ -114,12 +114,12 @@ namespace Styx_Form
             pnlLaby.SuspendLayout();
 
 
-            int h = 0;
+            
             Laby.Generatelaby();
             int Y1 = 0;
             for (int j = 0; j < 41; j++)
             {
-                int comp = 0;
+                
                 int l = 0;
                 for (int i = 0; i < 41; i++)
                 {
@@ -133,7 +133,7 @@ namespace Styx_Form
                             case "+":
                                 maNouvellePictureBox = new PictureBox();
 
-                                maNouvellePictureBox.Name = $"pic{nbPicDansPanel + 1}"; // définition du nom de la picturebox en fonction du nombre de picturebox dans le panel
+                                maNouvellePictureBox.Name = $"pic{j}{i}"; // définition du nom de la picturebox en fonction du nombre de picturebox dans le panel
                                 maNouvellePictureBox.Size = new Size(10, 10); //définition de la taille                                           
                                 maNouvellePictureBox.Image = Properties.Resources.mur3;
                                 if (l == 0 && j == 0)
@@ -170,7 +170,7 @@ namespace Styx_Form
                             case "---":
                                 maNouvellePictureBox = new PictureBox();
 
-                                maNouvellePictureBox.Name = $"pic{nbPicDansPanel + 1}"; // définition du nom de la picturebox en fonction du nombre de picturebox dans le panel
+                                maNouvellePictureBox.Name = $"pic{j}{i}"; // définition du nom de la picturebox en fonction du nombre de picturebox dans le panel
                                 maNouvellePictureBox.Size = new Size(30, 10); //définition de la taille                                           
                                 maNouvellePictureBox.Image = Properties.Resources.mur3;
                                 if (l == 0 && j == 0)
@@ -204,7 +204,7 @@ namespace Styx_Form
                             case "   ":
                                 maNouvellePictureBox = new PictureBox();
 
-                                maNouvellePictureBox.Name = $"pic{nbPicDansPanel + 1}"; // définition du nom de la picturebox en fonction du nombre de picturebox dans le panel
+                                maNouvellePictureBox.Name = $"pic{j}{i}"; // définition du nom de la picturebox en fonction du nombre de picturebox dans le panel
                                 maNouvellePictureBox.Size = new Size(30, 10);
                                 x = pnlLaby.Controls[nbPicDansPanel - 1].Location.X + 10;
                                 y = pnlLaby.Controls[nbPicDansPanel - 1].Location.Y;
@@ -236,7 +236,21 @@ namespace Styx_Form
                                 maNouvellePictureBox.SizeMode = PictureBoxSizeMode.Zoom;
                                 maNouvellePictureBox.Height = 30;
                                 maNouvellePictureBox.Width = 30;
-                                maNouvellePictureBox.Name = $"pic{nbPicDansPanel + 1}"; // définition du nom de la picturebox en fonction du nombre de picturebox dans le panel
+                                maNouvellePictureBox.Name = $"pic{j}{i}"; // définition du nom de la picturebox en fonction du nombre de picturebox dans le panel
+
+                                x = pnlLaby.Controls[nbPicDansPanel - 1].Location.X + 10;
+                                y = pnlLaby.Controls[nbPicDansPanel - 1].Location.Y;
+                                maNouvellePictureBox.Location = new Point(x, y);
+                                pnlLaby.Controls.Add(maNouvellePictureBox);
+                                pnlLaby.ResumeLayout();
+                                break;
+                            case "flo":
+                                maNouvellePictureBox = new PictureBox();
+                                maNouvellePictureBox.Image = Properties.Resources.flocon;
+                                maNouvellePictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+                                maNouvellePictureBox.Height = 30;
+                                maNouvellePictureBox.Width = 30;
+                                maNouvellePictureBox.Name = $"pic{j}{i}"; // définition du nom de la picturebox en fonction du nombre de picturebox dans le panel
 
                                 x = pnlLaby.Controls[nbPicDansPanel - 1].Location.X + 10;
                                 y = pnlLaby.Controls[nbPicDansPanel - 1].Location.Y;
@@ -250,7 +264,7 @@ namespace Styx_Form
                                 maNouvellePictureBox.SizeMode = PictureBoxSizeMode.Zoom;
                                 maNouvellePictureBox.Height = 30;
                                 maNouvellePictureBox.Width = 30;
-                                maNouvellePictureBox.Name = $"pic{nbPicDansPanel + 1}"; // définition du nom de la picturebox en fonction du nombre de picturebox dans le panel
+                                maNouvellePictureBox.Name = $"pic{j}{i}"; // définition du nom de la picturebox en fonction du nombre de picturebox dans le panel
 
                                 x = pnlLaby.Controls[nbPicDansPanel - 1].Location.X + 10;
                                 y = pnlLaby.Controls[nbPicDansPanel - 1].Location.Y;
@@ -264,7 +278,7 @@ namespace Styx_Form
                                 maNouvellePictureBox.SizeMode = PictureBoxSizeMode.Zoom;
                                 maNouvellePictureBox.Height = 30;
                                 maNouvellePictureBox.Width = 30;
-                                maNouvellePictureBox.Name = $"pic{nbPicDansPanel + 1}"; // définition du nom de la picturebox en fonction du nombre de picturebox dans le panel
+                                maNouvellePictureBox.Name = $"pic{j}{i}"; // définition du nom de la picturebox en fonction du nombre de picturebox dans le panel
 
                                 x = pnlLaby.Controls[nbPicDansPanel - 1].Location.X + 10;
                                 y = pnlLaby.Controls[nbPicDansPanel - 1].Location.Y;
@@ -278,7 +292,7 @@ namespace Styx_Form
                                 maNouvellePictureBox.SizeMode = PictureBoxSizeMode.Zoom;
                                 maNouvellePictureBox.Height = 30;
                                 maNouvellePictureBox.Width = 30;
-                                maNouvellePictureBox.Name = $"pic{nbPicDansPanel + 1}"; // définition du nom de la picturebox en fonction du nombre de picturebox dans le panel
+                                maNouvellePictureBox.Name = $"pic{j}{i}"; // définition du nom de la picturebox en fonction du nombre de picturebox dans le panel
 
                                 x = pnlLaby.Controls[nbPicDansPanel - 1].Location.X + 10;
                                 y = pnlLaby.Controls[nbPicDansPanel - 1].Location.Y;
@@ -292,7 +306,7 @@ namespace Styx_Form
                                 maNouvellePictureBox.SizeMode = PictureBoxSizeMode.Zoom;
                                 maNouvellePictureBox.Height = 30;
                                 maNouvellePictureBox.Width = 30;
-                                maNouvellePictureBox.Name = $"pic{nbPicDansPanel + 1}"; // définition du nom de la picturebox en fonction du nombre de picturebox dans le panel
+                                maNouvellePictureBox.Name = $"pic{j}{i}"; // définition du nom de la picturebox en fonction du nombre de picturebox dans le panel
 
                                 x = pnlLaby.Controls[nbPicDansPanel - 1].Location.X + 10;
                                 y = pnlLaby.Controls[nbPicDansPanel - 1].Location.Y;
@@ -306,7 +320,7 @@ namespace Styx_Form
                                 maNouvellePictureBox.SizeMode = PictureBoxSizeMode.Zoom;
                                 maNouvellePictureBox.Height = 30;
                                 maNouvellePictureBox.Width = 30;
-                                maNouvellePictureBox.Name = $"pic{nbPicDansPanel + 1}"; // définition du nom de la picturebox en fonction du nombre de picturebox dans le panel
+                                maNouvellePictureBox.Name = $"pic{j}{i}"; // définition du nom de la picturebox en fonction du nombre de picturebox dans le panel
 
                                 x = pnlLaby.Controls[nbPicDansPanel - 1].Location.X + 10;
                                 y = pnlLaby.Controls[nbPicDansPanel - 1].Location.Y;
@@ -320,7 +334,7 @@ namespace Styx_Form
                                 maNouvellePictureBox.SizeMode = PictureBoxSizeMode.Zoom;
                                 maNouvellePictureBox.Height = 30;
                                 maNouvellePictureBox.Width = 30;
-                                maNouvellePictureBox.Name = $"pic{nbPicDansPanel + 1}"; // définition du nom de la picturebox en fonction du nombre de picturebox dans le panel
+                                maNouvellePictureBox.Name = $"pic{j}{i}"; // définition du nom de la picturebox en fonction du nombre de picturebox dans le panel
 
                                 x = pnlLaby.Controls[nbPicDansPanel - 1].Location.X + 10;
                                 y = pnlLaby.Controls[nbPicDansPanel - 1].Location.Y;
@@ -334,7 +348,7 @@ namespace Styx_Form
                                 maNouvellePictureBox.SizeMode = PictureBoxSizeMode.Zoom;
                                 maNouvellePictureBox.Height = 30;
                                 maNouvellePictureBox.Width = 30;
-                                maNouvellePictureBox.Name = $"pic{nbPicDansPanel + 1}"; // définition du nom de la picturebox en fonction du nombre de picturebox dans le panel
+                                maNouvellePictureBox.Name = $"pic{j}{i}"; // définition du nom de la picturebox en fonction du nombre de picturebox dans le panel
 
                                 x = pnlLaby.Controls[nbPicDansPanel - 1].Location.X + 10;
                                 y = pnlLaby.Controls[nbPicDansPanel - 1].Location.Y;
@@ -345,7 +359,7 @@ namespace Styx_Form
                             case "|":
                                 maNouvellePictureBox = new PictureBox();
 
-                                maNouvellePictureBox.Name = $"pic{nbPicDansPanel + 1}"; // définition du nom de la picturebox en fonction du nombre de picturebox dans le panel
+                                maNouvellePictureBox.Name = $"pic{j}{i}"; // définition du nom de la picturebox en fonction du nombre de picturebox dans le panel
                                 maNouvellePictureBox.Size = new Size(10, 30); //définition de la taille 
                                                                               //maNouvellePictureBox.BorderStyle = BorderStyle.Fixed3D; // définition du type de bordure
                                 maNouvellePictureBox.Image = Properties.Resources.mur3;
@@ -380,7 +394,7 @@ namespace Styx_Form
                             case " ":
                                 maNouvellePictureBox = new PictureBox();
 
-                                maNouvellePictureBox.Name = $"pic{nbPicDansPanel + 1}"; // définition du nom de la picturebox en fonction du nombre de picturebox dans le panel
+                                maNouvellePictureBox.Name = $"pic{j}{i}"; // définition du nom de la picturebox en fonction du nombre de picturebox dans le panel
                                 maNouvellePictureBox.Size = new Size(10, 30);
 
                                 x = pnlLaby.Controls[nbPicDansPanel - 1].Location.X + 30;
@@ -392,7 +406,7 @@ namespace Styx_Form
                             case "esp":
                                 maNouvellePictureBox = new PictureBox();
 
-                                maNouvellePictureBox.Name = $"pic{nbPicDansPanel + 1}"; // définition du nom de la picturebox en fonction du nombre de picturebox dans le panel
+                                maNouvellePictureBox.Name = $"pic{j}{i}"; // définition du nom de la picturebox en fonction du nombre de picturebox dans le panel
                                 maNouvellePictureBox.Size = new Size(30, 30);
                                 x = pnlLaby.Controls[nbPicDansPanel - 1].Location.X + 10;
                                 y = pnlLaby.Controls[nbPicDansPanel - 1].Location.Y;
