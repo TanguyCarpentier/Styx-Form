@@ -115,7 +115,7 @@ namespace Styx_Form
 
 
             
-            Laby.Generatelaby();
+            Laby.Generatelaby();// appel tab
             int Y1 = 0;
             for (int j = 0; j < 41; j++)
             {
