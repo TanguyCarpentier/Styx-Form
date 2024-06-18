@@ -11,7 +11,8 @@ namespace Styx_Biblio_Jeu
         public string[,] tab; // Grille du labyrinthe
         private int[,] pile; // Initialisation de la pile qui contiendra toutes les coordonnées des cases visitées
         int comptPile = 0; // Initialisation du compteur de la pile
-        int compartefact = 0;
+        public int compartefact = 0;
+        public int compflamme = 0;
         int compteurPorte = 0; // Initialisation du compteur de porte
         int comptVisiteur = 0;// Initialisation du compteur du tableau visiteur
         private int[,] tabVisiteurs; // Initialisation du tableau visiteur qui contiendra toutes les coordonnées des cases visités
@@ -303,7 +304,7 @@ namespace Styx_Biblio_Jeu
                         {
                             tab[parcourHauteur, flamme] = "fla";
                             flag++;
-                            compartefact++;
+                            compflamme++;
                         }
                         if (flag == 4)
                         {
