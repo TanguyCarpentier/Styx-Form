@@ -11,6 +11,7 @@ namespace Styx_Biblio_Jeu
         public string[,] tab; // Grille du labyrinthe
         private int[,] pile; // Initialisation de la pile qui contiendra toutes les coordonnées des cases visitées
         int comptPile = 0; // Initialisation du compteur de la pile
+        int compartefact = 0;
         int compteurPorte = 0; // Initialisation du compteur de porte
         int comptVisiteur = 0;// Initialisation du compteur du tableau visiteur
         private int[,] tabVisiteurs; // Initialisation du tableau visiteur qui contiendra toutes les coordonnées des cases visités
@@ -42,6 +43,10 @@ namespace Styx_Biblio_Jeu
             creationdashAleatoire();
             creationlyreAleatoire();
             creationmultAleatoire();
+            creationbouclierAleatoire();
+            creationcoeurAleatoire();
+            creationvitesseAleatoire();
+            creationbalanceAleatoire();
             //affichage des statistiques 
             Console.WriteLine($"nombre de portes : {compteurPorte}");
             Console.WriteLine($"pourcentage de portes : {compteurPorte * 100 / (760)}%");
@@ -297,7 +302,7 @@ namespace Styx_Biblio_Jeu
                         {
                             tab[parcourHauteur, flamme] = "fla";
                             flag++;
-                            compteurPorte++;
+                            compartefact++;
                         }
                         if (flag == 4)
                         {
@@ -335,7 +340,7 @@ namespace Styx_Biblio_Jeu
                     {
                         tab[nombreAleatoire, flamme] = "dash";
                         flag++;
-
+                        compartefact++;
                     }
                     if (flag == 1)
                     {
@@ -370,7 +375,7 @@ namespace Styx_Biblio_Jeu
                         {
                             tab[nombreAleatoire, flamme] = "lyre";
                             flag++;
-
+                            compartefact++;
                         }
                         if (flag == 1)
                         {
@@ -406,7 +411,151 @@ namespace Styx_Biblio_Jeu
                         {
                             tab[nombreAleatoire, flamme] = "exp";
                             flag++;
+                            compartefact++;
+                        }
+                        if (flag == 1)
+                        {
+                            break; // Sortir de la boucle foreach si le flag est égale à 1
+                        }
 
+                    }
+                } while (flag != 1);
+            }
+        }
+        private void creationbouclierAleatoire()
+        {
+
+            for (int i = 0; i < 2; i++)
+            {
+                int[] tableau = { 1, 3, 5, 7, 9, 11, 13, 15, 17, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39 };
+                Random random = new Random();
+                int indiceAleatoire = random.Next(tableau.Length);
+                int nombreAleatoire = tableau[indiceAleatoire];
+                int flag = 0;
+                do
+                {
+                    //tableau qui possède toutes les valeur ou il y a possiblement des espaces
+                    int[] listeBouclier = { 1, 3, 5, 7, 9, 11, 13, 15, 17, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39 };
+
+                    //on choisie un des murs aléatoirement 
+                    melangeTableau(listeBouclier);
+
+                    foreach (int flamme in listeBouclier)
+                    {
+                        //on retire le premier élément de la liste aléatoire et on sort de la boucle
+                        if (tab[nombreAleatoire, flamme] == "esp")
+                        {
+                            tab[nombreAleatoire, flamme] = "bou";
+                            flag++;
+                            compartefact++;
+                        }
+                        if (flag == 1)
+                        {
+                            break; // Sortir de la boucle foreach si le flag est égale à 1
+                        }
+
+                    }
+                } while (flag != 1);
+            }
+        }
+        private void creationcoeurAleatoire()
+        {
+
+            for (int i = 0; i < 1; i++)
+            {
+                int[] tableau = { 1, 3, 5, 7, 9, 11, 13, 15, 17, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39 };
+                Random random = new Random();
+                int indiceAleatoire = random.Next(tableau.Length);
+                int nombreAleatoire = tableau[indiceAleatoire];
+                int flag = 0;
+                do
+                {
+                    //tableau qui possède toutes les valeur ou il y a possiblement des espaces
+                    int[] listecoeur = { 1, 3, 5, 7, 9, 11, 13, 15, 17, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39 };
+
+                    //on choisie un des murs aléatoirement 
+                    melangeTableau(listecoeur);
+
+                    foreach (int flamme in listecoeur)
+                    {
+                        //on retire le premier élément de la liste aléatoire et on sort de la boucle
+                        if (tab[nombreAleatoire, flamme] == "esp")
+                        {
+                            tab[nombreAleatoire, flamme] = "coe";
+                            flag++;
+                            compartefact++;
+                        }
+                        if (flag == 1)
+                        {
+                            break; // Sortir de la boucle foreach si le flag est égale à 1
+                        }
+
+                    }
+                } while (flag != 1);
+            }
+        }
+        private void creationvitesseAleatoire()
+        {
+
+            for (int i = 0; i < 3; i++)
+            {
+                int[] tableau = { 1, 3, 5, 7, 9, 11, 13, 15, 17, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39 };
+                Random random = new Random();
+                int indiceAleatoire = random.Next(tableau.Length);
+                int nombreAleatoire = tableau[indiceAleatoire];
+                int flag = 0;
+                do
+                {
+                    //tableau qui possède toutes les valeur ou il y a possiblement des espaces
+                    int[] listevitesse = { 1, 3, 5, 7, 9, 11, 13, 15, 17, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39 };
+
+                    //on choisie un des murs aléatoirement 
+                    melangeTableau(listevitesse);
+
+                    foreach (int flamme in listevitesse)
+                    {
+                        //on retire le premier élément de la liste aléatoire et on sort de la boucle
+                        if (tab[nombreAleatoire, flamme] == "esp")
+                        {
+                            tab[nombreAleatoire, flamme] = "vit";
+                            flag++;
+                            compartefact++;
+                        }
+                        if (flag == 1)
+                        {
+                            break; // Sortir de la boucle foreach si le flag est égale à 1
+                        }
+
+                    }
+                } while (flag != 1);
+            }
+        }
+        private void creationbalanceAleatoire()
+        {
+
+            for (int i = 0; i < 1; i++)
+            {
+                int[] tableau = { 1, 3, 5, 7, 9, 11, 13, 15, 17, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39 };
+                Random random = new Random();
+                int indiceAleatoire = random.Next(tableau.Length);
+                int nombreAleatoire = tableau[indiceAleatoire];
+                int flag = 0;
+                do
+                {
+                    //tableau qui possède toutes les valeur ou il y a possiblement des espaces
+                    int[] listebalance = { 1, 3, 5, 7, 9, 11, 13, 15, 17, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39 };
+
+                    //on choisie un des murs aléatoirement 
+                    melangeTableau(listebalance);
+
+                    foreach (int flamme in listebalance)
+                    {
+                        //on retire le premier élément de la liste aléatoire et on sort de la boucle
+                        if (tab[nombreAleatoire, flamme] == "esp")
+                        {
+                            tab[nombreAleatoire, flamme] = "bal";
+                            flag++;
+                            compartefact++;
                         }
                         if (flag == 1)
                         {

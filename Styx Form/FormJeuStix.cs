@@ -135,7 +135,7 @@ namespace Styx_Form
 
                                 maNouvellePictureBox.Name = $"pic{nbPicDansPanel + 1}"; // définition du nom de la picturebox en fonction du nombre de picturebox dans le panel
                                 maNouvellePictureBox.Size = new Size(10, 10); //définition de la taille                                           
-                                maNouvellePictureBox.Image = Properties.Resources.labytestY;
+                                maNouvellePictureBox.Image = Properties.Resources.mur3;
                                 if (l == 0 && j == 0)
                                 {
                                     // positionnement de la première picturebox en fonction de la largeur interne (ClientSize) du panel
@@ -172,7 +172,7 @@ namespace Styx_Form
 
                                 maNouvellePictureBox.Name = $"pic{nbPicDansPanel + 1}"; // définition du nom de la picturebox en fonction du nombre de picturebox dans le panel
                                 maNouvellePictureBox.Size = new Size(30, 10); //définition de la taille                                           
-                                maNouvellePictureBox.Image = Properties.Resources.labytestY;
+                                maNouvellePictureBox.Image = Properties.Resources.mur3;
                                 if (l == 0 && j == 0)
                                 {
                                     // positionnement de la première picturebox en fonction de la largeur interne (ClientSize) du panel
@@ -244,6 +244,62 @@ namespace Styx_Form
                                 pnlLaby.Controls.Add(maNouvellePictureBox);
                                 pnlLaby.ResumeLayout();
                                 break;
+                            case "bal":
+                                maNouvellePictureBox = new PictureBox();
+                                maNouvellePictureBox.Image = Properties.Resources.balance;
+                                maNouvellePictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+                                maNouvellePictureBox.Height = 30;
+                                maNouvellePictureBox.Width = 30;
+                                maNouvellePictureBox.Name = $"pic{nbPicDansPanel + 1}"; // définition du nom de la picturebox en fonction du nombre de picturebox dans le panel
+
+                                x = pnlLaby.Controls[nbPicDansPanel - 1].Location.X + 10;
+                                y = pnlLaby.Controls[nbPicDansPanel - 1].Location.Y;
+                                maNouvellePictureBox.Location = new Point(x, y);
+                                pnlLaby.Controls.Add(maNouvellePictureBox);
+                                pnlLaby.ResumeLayout();
+                                break;
+                            case "vit":
+                                maNouvellePictureBox = new PictureBox();
+                                maNouvellePictureBox.Image = Properties.Resources.chaussure;
+                                maNouvellePictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+                                maNouvellePictureBox.Height = 30;
+                                maNouvellePictureBox.Width = 30;
+                                maNouvellePictureBox.Name = $"pic{nbPicDansPanel + 1}"; // définition du nom de la picturebox en fonction du nombre de picturebox dans le panel
+
+                                x = pnlLaby.Controls[nbPicDansPanel - 1].Location.X + 10;
+                                y = pnlLaby.Controls[nbPicDansPanel - 1].Location.Y;
+                                maNouvellePictureBox.Location = new Point(x, y);
+                                pnlLaby.Controls.Add(maNouvellePictureBox);
+                                pnlLaby.ResumeLayout();
+                                break;
+                            case "coe":
+                                maNouvellePictureBox = new PictureBox();
+                                maNouvellePictureBox.Image = Properties.Resources.coeur;
+                                maNouvellePictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+                                maNouvellePictureBox.Height = 30;
+                                maNouvellePictureBox.Width = 30;
+                                maNouvellePictureBox.Name = $"pic{nbPicDansPanel + 1}"; // définition du nom de la picturebox en fonction du nombre de picturebox dans le panel
+
+                                x = pnlLaby.Controls[nbPicDansPanel - 1].Location.X + 10;
+                                y = pnlLaby.Controls[nbPicDansPanel - 1].Location.Y;
+                                maNouvellePictureBox.Location = new Point(x, y);
+                                pnlLaby.Controls.Add(maNouvellePictureBox);
+                                pnlLaby.ResumeLayout();
+                                break;
+                            case "bou":
+                                maNouvellePictureBox = new PictureBox();
+                                maNouvellePictureBox.Image = Properties.Resources.bouclier;
+                                maNouvellePictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+                                maNouvellePictureBox.Height = 30;
+                                maNouvellePictureBox.Width = 30;
+                                maNouvellePictureBox.Name = $"pic{nbPicDansPanel + 1}"; // définition du nom de la picturebox en fonction du nombre de picturebox dans le panel
+
+                                x = pnlLaby.Controls[nbPicDansPanel - 1].Location.X + 10;
+                                y = pnlLaby.Controls[nbPicDansPanel - 1].Location.Y;
+                                maNouvellePictureBox.Location = new Point(x, y);
+                                pnlLaby.Controls.Add(maNouvellePictureBox);
+                                pnlLaby.ResumeLayout();
+                                break;
                             case "exp":
                                 maNouvellePictureBox = new PictureBox();
                                 maNouvellePictureBox.Image = Properties.Resources.multiplicateur_exp;
@@ -260,7 +316,7 @@ namespace Styx_Form
                                 break;
                             case "lyre":
                                 maNouvellePictureBox = new PictureBox();
-                                maNouvellePictureBox.Image = Properties.Resources.Lyre;
+                                maNouvellePictureBox.Image = Properties.Resources.lyre2;
                                 maNouvellePictureBox.SizeMode = PictureBoxSizeMode.Zoom;
                                 maNouvellePictureBox.Height = 30;
                                 maNouvellePictureBox.Width = 30;
@@ -274,7 +330,7 @@ namespace Styx_Form
                                 break;
                             case "dash":
                                 maNouvellePictureBox = new PictureBox();
-                                maNouvellePictureBox.Image = Properties.Resources.dash;
+                                maNouvellePictureBox.Image = Properties.Resources.plume;
                                 maNouvellePictureBox.SizeMode = PictureBoxSizeMode.Zoom;
                                 maNouvellePictureBox.Height = 30;
                                 maNouvellePictureBox.Width = 30;
@@ -292,7 +348,7 @@ namespace Styx_Form
                                 maNouvellePictureBox.Name = $"pic{nbPicDansPanel + 1}"; // définition du nom de la picturebox en fonction du nombre de picturebox dans le panel
                                 maNouvellePictureBox.Size = new Size(10, 30); //définition de la taille 
                                                                               //maNouvellePictureBox.BorderStyle = BorderStyle.Fixed3D; // définition du type de bordure
-                                maNouvellePictureBox.Image = Properties.Resources.labytestY;
+                                maNouvellePictureBox.Image = Properties.Resources.mur3;
                                 if (l == 0)
                                 {
                                     // positionnement de la première picturebox en fonction de la largeur interne (ClientSize) du panel
