@@ -20,6 +20,10 @@ namespace Styx_Form
 
         private void btnPlay_Click(object sender, EventArgs e)
         {
+            if (txtPseudo.Text == "Entrer Pseudo")
+            {
+                txtPseudo.Text = "Inconnu";
+            }
             Jeu partie = new Jeu(txtPseudo.Text);
             FormJeuStyx formJeuStix = new FormJeuStyx(partie);
             formJeuStix.Show();

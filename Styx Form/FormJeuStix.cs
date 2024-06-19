@@ -23,7 +23,7 @@ namespace Styx_Form
         private int compt2 = 0;
         private int compt1 = 0;
         private Jeu partie;
-        private SoundPlayer sonWin = new SoundPlayer(Styx_Form.Properties.Resources.hit);
+        private SoundPlayer sonWin = new SoundPlayer(Styx_Form.Properties.Resources.sonWin);
 
 
         public FormJeuStyx(Jeu jeu)

@@ -99,6 +99,7 @@
             Controls.Add(pbMenuPrincipal);
             Controls.Add(pictureBox1);
             Controls.Add(pb_soncoupe);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "PauseJeu";
             Text = "PauseJeu";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
