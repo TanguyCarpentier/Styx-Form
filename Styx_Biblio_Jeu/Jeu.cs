@@ -5,6 +5,7 @@
         //propriétés
         public List<Ennemie> EnnemieList;
 
+        public string Pseudo;
         public int score;
         public int nbArtefacts;
         public int nbEnemis;
@@ -13,9 +14,9 @@
         public int niveauEnCour;
         public int TickSpeed;
 
-        public Jeu()
+        public Jeu(string pseudo)
         {
-
+            Pseudo = pseudo;
             niveauEnCour = 0;
             score = 0;
             nbArtefacts = 0;
@@ -37,15 +38,44 @@
             tempEcoule = TempEcoule;
             EnnemieList = ListEnnemis;
         }
+
+        public void MajNbEntite(Plateau tab, int nbEnnemis)
+        {
+            nbFlammeRestant = tab.compFlamme;
+            nbArtefacts = tab.compArtefact;
+            nbEnemis = nbEnnemis;
+        }
+
+        public void passageNiveau()
+        {
+            niveauEnCour += 1;
+        }
+
+
         public void MoveAllEnemies(Plateau ptab, Joueur joueur)
         {
             foreach (var ennemi in EnnemieList)
             {
                 if (!ennemi.estMort)
                 {
-                    ennemi.Move(ptab, joueur);
+                    ennemi.Move(ptab, joueur, this);
                 }
             }
+        }
+
+        public bool VerifFinJeu(Joueur joueur)
+        {
+            if (!joueur.estMort)
+            {
+                if (nbArtefacts == 0)
+                {
+                    if (nbFlammeRestant == 0)
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
         }
 
     }

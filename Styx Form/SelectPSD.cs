@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Styx_Biblio_Jeu;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,7 +20,8 @@ namespace Styx_Form
 
         private void btnPlay_Click(object sender, EventArgs e)
         {
-            FormJeuStyx formJeuStix = new FormJeuStyx(txtPseudo.Text);
+            Jeu partie = new Jeu(txtPseudo.Text);
+            FormJeuStyx formJeuStix = new FormJeuStyx(partie);
             formJeuStix.Show();
             this.Hide();
         }

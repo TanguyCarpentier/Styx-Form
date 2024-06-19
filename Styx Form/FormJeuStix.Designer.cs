@@ -17,32 +17,74 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormJeuStyx));
             pnlLaby = new Panel();
+            lblPseudoJoueur = new Label();
+            lblNbVie = new Label();
+            lblScoreJoueur = new Label();
             SuspendLayout();
             // 
             // pnlLaby
             // 
             pnlLaby.Anchor = AnchorStyles.None;
             pnlLaby.AutoSize = true;
-            pnlLaby.Location = new Point(289, 0);
+            pnlLaby.Location = new Point(330, 0);
+            pnlLaby.Margin = new Padding(3, 4, 3, 4);
             pnlLaby.Name = "pnlLaby";
-            pnlLaby.Size = new Size(700, 562);
+            pnlLaby.Size = new Size(800, 749);
             pnlLaby.TabIndex = 0;
+            // 
+            // lblPseudoJoueur
+            // 
+            lblPseudoJoueur.AutoSize = true;
+            lblPseudoJoueur.BackColor = Color.SandyBrown;
+            lblPseudoJoueur.Location = new Point(76, 552);
+            lblPseudoJoueur.Name = "lblPseudoJoueur";
+            lblPseudoJoueur.Size = new Size(128, 20);
+            lblPseudoJoueur.TabIndex = 1;
+            lblPseudoJoueur.Text = "Pseudo du Joueur:";
+            // 
+            // lblNbVie
+            // 
+            lblNbVie.AutoSize = true;
+            lblNbVie.BackColor = Color.SandyBrown;
+            lblNbVie.Location = new Point(76, 591);
+            lblNbVie.Name = "lblNbVie";
+            lblNbVie.Size = new Size(113, 20);
+            lblNbVie.TabIndex = 2;
+            lblNbVie.Text = "Nombre de Vie:";
+            // 
+            // lblScoreJoueur
+            // 
+            lblScoreJoueur.AutoSize = true;
+            lblScoreJoueur.BackColor = Color.SandyBrown;
+            lblScoreJoueur.Location = new Point(76, 629);
+            lblScoreJoueur.Name = "lblScoreJoueur";
+            lblScoreJoueur.Size = new Size(117, 20);
+            lblScoreJoueur.TabIndex = 3;
+            lblScoreJoueur.Text = "Score du Joueur:";
             // 
             // FormJeuStyx
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(1278, 562);
+            ClientSize = new Size(1461, 749);
+            Controls.Add(lblScoreJoueur);
+            Controls.Add(lblNbVie);
+            Controls.Add(lblPseudoJoueur);
             Controls.Add(pnlLaby);
             DoubleBuffered = true;
+            Margin = new Padding(3, 4, 3, 4);
             Name = "FormJeuStyx";
             Text = "FormJeuStyx";
             Load += FormJeuStyx_Load;
             ResumeLayout(false);
             PerformLayout();
         }
+
+        private Label lblPseudoJoueur;
+        private Label lblNbVie;
+        private Label lblScoreJoueur;
     }
 }

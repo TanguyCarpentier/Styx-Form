@@ -15,19 +15,18 @@ namespace Styx_Form
     public partial class FormJeuStyx : Form
     {
         private Joueur joueur;
-        private Timer gameTimer;
+        public Timer gameTimer;
         private Plateau Laby;
         private Point Spawn;
-
-        private int compt1=0;
         private int compt2 = 0;
+        private int compt1 = 0;
         private Jeu partie;
 
-        public FormJeuStyx(string Pseudo)
+        public FormJeuStyx(Jeu jeu)
         {
             InitializeComponent();
-            
-            partie = new Jeu();
+
+            partie = jeu;
 
             Laby = new Plateau(40, 40);
 
@@ -35,12 +34,17 @@ namespace Styx_Form
             this.WindowState = FormWindowState.Maximized;
 
             Spawn = pnlLaby.Location;
-            Spawn.X += - 280;
+            Spawn.X += -280;
             Spawn.Y += 10;
 
             // Initialisation de Joueur
             joueur = new Joueur(Spawn, Styx_Form.Properties.Resources.Oedype_sansfond, new Size(30, 28));
 
+            //Initialisation Scoreboard
+            lblPseudoJoueur.Text = "Pseudo du joueur: "+partie.Pseudo;
+            lblNbVie.Text = "Nombre de vie du joueur: "+joueur.vie.ToString();
+            lblScoreJoueur.Text ="Score du joueur: "+partie.score.ToString();
+            
 
             initialisationEnnemis();
 
@@ -65,14 +69,18 @@ namespace Styx_Form
             CreateGrid(Laby);
             CenterPanel(pnlLaby);
 
-            
+            partie.MajNbEntite(Laby, 5);
+
+
 
         }
         private void initialisationEnnemis()
         {
-            partie.EnnemieList.Add(new Ennemie("1",Spawn, new Point (15,1), Styx_Form.Properties.Resources.Squelette_Sprite, new Size(40,40)));
-            partie.EnnemieList.Add(new Ennemie("2",Spawn, new Point (1,15), Styx_Form.Properties.Resources.Squelette_Sprite, new Size(40, 40)));
-            partie.EnnemieList.Add(new Ennemie("3",Spawn, new Point (15,15), Styx_Form.Properties.Resources.Squelette_Sprite, new Size(40, 40)));
+            partie.EnnemieList.Add(new Ennemie("1", Spawn, new Point(15, 1), Styx_Form.Properties.Resources.Squelette_Sprite, new Size(40, 40)));
+            partie.EnnemieList.Add(new Ennemie("2", Spawn, new Point(1, 15), Styx_Form.Properties.Resources.Squelette_Sprite, new Size(40, 40)));
+            partie.EnnemieList.Add(new Ennemie("3", Spawn, new Point(15, 15), Styx_Form.Properties.Resources.Squelette_Sprite, new Size(40, 40)));
+            partie.EnnemieList.Add(new Ennemie("4", Spawn, new Point(31, 31), Styx_Form.Properties.Resources.Squelette_Sprite, new Size(40, 40)));
+            partie.EnnemieList.Add(new Ennemie("5", Spawn, new Point(31, 15), Styx_Form.Properties.Resources.Squelette_Sprite, new Size(40, 40)));
         }
         private void RemovePictureBoxByName(Panel panel, string pictureBoxName)
         {
@@ -97,6 +105,10 @@ namespace Styx_Form
 
         private void GameTimer_Tick(object sender, EventArgs e)
         {
+            lblNbVie.Text = "Nombre de vie du joueur: " + joueur.vie.ToString();
+            lblScoreJoueur.Text = "Score du joueur: " + partie.score.ToString();
+
+            gameTimer.Interval = partie.TickSpeed;
             partie.tempEcoule += gameTimer.Interval;
             // Déplacement du Joueur
             joueur.Move(Laby);
@@ -114,6 +126,26 @@ namespace Styx_Form
             if (joueur.VerifMort())
             {
                 MortDuJoueur();
+            }
+
+            if (partie.VerifFinJeu(joueur))
+            {
+                DialogResult result = MessageBox.Show(
+                    "Vous passez au niveau supérieur!",
+                    "Niveau Supérieur",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information
+                );
+
+                // Vérifie si le bouton "Continuer" (OK) est cliqué
+                if (result == DialogResult.OK)
+                {
+                    // Code pour continuer au niveau suivant
+                    partie.passageNiveau();
+                    FormJeuStyx FormJeu = new FormJeuStyx(partie);
+                    FormJeu.Show();
+                    this.Hide();
+                }
             }
             // Redessiner le panel
             pnlLaby.Invalidate();
@@ -147,26 +179,26 @@ namespace Styx_Form
             {
                 case Keys.Up:
                     joueur.CurrentDirection = Direction.Up;
-                    
+
                     break;
                 case Keys.Down:
                     joueur.CurrentDirection = Direction.Down;
-                    
+
                     break;
                 case Keys.Left:
                     joueur.CurrentDirection = Direction.Left;
-                    
+
                     break;
                 case Keys.Right:
                     joueur.CurrentDirection = Direction.Right;
-                    
+
                     break;
                 case Keys.Space:
                     joueur.Dash(Laby, partie);
                     break;
                 case Keys.Escape:
-                    //paramètre paramètre = new paramètre();
-                    //paramètre.Show();
+                    PauseJeu pausejeu = new PauseJeu(this);
+                    pausejeu.Show();
                     gameTimer.Stop();
                     break;
             }
@@ -197,12 +229,12 @@ namespace Styx_Form
             pnlLaby.SuspendLayout();
 
 
-            
+
             Laby.Generatelaby();// appel tab
             int Y1 = 0;
             for (int j = 0; j < 41; j++)
             {
-                
+
                 int l = 0;
                 for (int i = 0; i < 41; i++)
                 {
@@ -466,7 +498,7 @@ namespace Styx_Form
                                 else
                                 {
 
-                                    if (compt1==0)
+                                    if (compt1 == 0)
                                     {
 
                                         x = pnlLaby.Controls[nbPicDansPanel - 1].Location.X + 40;
@@ -474,12 +506,13 @@ namespace Styx_Form
                                         compt1 = 0;
 
                                     }
-                                    else {
+                                    else
+                                    {
                                         x = pnlLaby.Controls[nbPicDansPanel - 1].Location.X + 30;
                                         y = pnlLaby.Controls[nbPicDansPanel - 1].Location.Y;
                                         compt1 = 0;
                                     }
-                                    
+
 
 
                                     maNouvellePictureBox.Location = new Point(x, y);
@@ -512,7 +545,7 @@ namespace Styx_Form
                                 maNouvellePictureBox.Location = new Point(x, y);
                                 pnlLaby.Controls.Add(maNouvellePictureBox);
                                 pnlLaby.ResumeLayout();
-                                
+
                                 break;
                             case "esp":
                                 compt2++;

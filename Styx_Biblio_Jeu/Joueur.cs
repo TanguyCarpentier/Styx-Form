@@ -24,6 +24,7 @@ namespace Styx_Biblio_Jeu
         public bool ModeTueur;
         public int MultiplicateurScore;
         public int vie;
+        public bool BonusSpeedEnCour;
 
 
         public Joueur(Point initialPosition, System.Drawing.Image texture, Size size) : base(initialPosition, texture, size)
@@ -41,6 +42,7 @@ namespace Styx_Biblio_Jeu
             ModeTueur = false;
             MultiplicateurScore = 1;
             vie = 2;
+            BonusSpeedEnCour = false;
 
         }
 
@@ -88,7 +90,7 @@ namespace Styx_Biblio_Jeu
             return estMort;
         }
 
-        public async Task InterractionMob(Ennemie mob)
+        public async Task InterractionMob(Ennemie mob, Jeu partie)
         {
             if (!estMort)
             {
@@ -106,6 +108,7 @@ namespace Styx_Biblio_Jeu
                 else if (ModeTueur)
                 {
                     mob.estMort = true;
+                    partie.nbEnemis -= 1;
                 }
             }
         }
@@ -130,7 +133,7 @@ namespace Styx_Biblio_Jeu
                         {
                             if (Position == mob.Position)
                             {
-                                InterractionMob(mob);
+                                InterractionMob(mob, partie);
                             }
                         }
                     }
@@ -178,16 +181,32 @@ namespace Styx_Biblio_Jeu
             }
         }
 
-        public void Bonus_Vitesse()
+        public async Task Bonus_Vitesse(Jeu partie)
         {
+            if (!estMort && !BonusSpeedEnCour)
+            {
+                BonusSpeedEnCour = true;
+                partie.TickSpeed -= 200;
 
+                await Task.Delay(10000);
 
+                partie.TickSpeed += 200;
+                BonusSpeedEnCour = false;
+            }
         }
 
-        public void Bonus_Flocon()
+        public async Task Bonus_Flocon(Jeu partie)
         {
+            if (!estMort && !BonusSpeedEnCour)
+            {
+                BonusSpeedEnCour = true;
+                partie.TickSpeed += 200;
 
+                await Task.Delay(10000);
 
+                partie.TickSpeed -= 200;
+                BonusSpeedEnCour = false;
+            }
         }
         public void Bonus_Balance()
         {
@@ -223,13 +242,13 @@ namespace Styx_Biblio_Jeu
                     case "fla":
                         Lab.tab[Position.Y, Position.X] = "esp";
                         jeu.score += 1 * MultiplicateurScore;
-                        Lab.compFlamme -= 1;
+                        jeu.nbFlammeRestant -= 1;
                         return (Position);
 
                     case "dash":
                         Lab.tab[Position.Y, Position.X] = "esp";
                         jeu.score += 1 * MultiplicateurScore;
-                        Lab.compArtefact -= 1;
+                        jeu.nbArtefacts -= 1;
                         if (!Dash1PickUp)
                         {
                             Dash1PickUp = true;
@@ -239,50 +258,50 @@ namespace Styx_Biblio_Jeu
                     case "lyre":
                         Lab.tab[Position.Y, Position.X] = "esp";
                         jeu.score += 1 * MultiplicateurScore;
-                        Lab.compArtefact -= 1;
+                        jeu.nbArtefacts -= 1;
                         Bonus_Lyre();
                         return (Position);
 
                     case "exp":
                         Lab.tab[Position.Y, Position.X] = "esp";
                         jeu.score += 1 * MultiplicateurScore;
-                        Lab.compArtefact -= 1;
+                        jeu.nbArtefacts -= 1;
                         Bonus_Exp();
                         return (Position);
 
                     case "bou":
                         Lab.tab[Position.Y, Position.X] = "esp";
                         jeu.score += 1 * MultiplicateurScore;
-                        Lab.compArtefact -= 1;
+                        jeu.nbArtefacts -= 1;
                         Bonus_Bou();
                         return (Position);
 
                     case "coe":
                         Lab.tab[Position.Y, Position.X] = "esp";
                         jeu.score += 1 * MultiplicateurScore;
-                        Lab.compArtefact -= 1;
+                        jeu.nbArtefacts -= 1;
                         vie += 1;
                         return (Position);
 
                     case "vit":
                         Lab.tab[Position.Y, Position.X] = "esp";
                         jeu.score += 1 * MultiplicateurScore;
-                        Lab.compArtefact -= 1;
-                        Bonus_Vitesse();
+                        jeu.nbArtefacts -= 1;
+                        Bonus_Vitesse(jeu);
                         return (Position);
 
                     case "bal":
                         Lab.tab[Position.Y, Position.X] = "esp";
                         jeu.score += 1 * MultiplicateurScore;
-                        Lab.compArtefact -= 1;
+                        jeu.nbArtefacts -= 1;
                         Bonus_Balance();
                         return (Position);
 
                     case "flo":
                         Lab.tab[Position.Y, Position.X] = "esp";
                         jeu.score += 1 * MultiplicateurScore;
-                        Lab.compArtefact -= 1;
-                        Bonus_Flocon();
+                        jeu.nbArtefacts -= 1;
+                        Bonus_Flocon(jeu);
                         return (Position);
 
                     default:

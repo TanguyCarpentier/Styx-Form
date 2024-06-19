@@ -29,7 +29,7 @@ namespace Styx_Biblio_Jeu
 
         }
 
-        public void Move(Plateau ptab, Joueur joueur)
+        public void Move(Plateau ptab, Joueur joueur, Jeu partie)
         {
             if (!estMort)
             {
@@ -53,10 +53,31 @@ namespace Styx_Biblio_Jeu
                             break;
                     }
                     ConversionCoo();
-                    if (Position == joueur.Position)
+
+                    Point[] tabPos = new Point[5];
+
+                    tabPos[0] = Position;
+                    CurrentDirection=Direction.Right;
+                    if (CollisionMur(ptab))
+                        tabPos[1] = new Point(Position.X + 2, Position.Y);
+                    CurrentDirection = Direction.Down;
+                    if (CollisionMur(ptab))
+                        tabPos[2] = new Point(Position.X, Position.Y + 2);
+                    CurrentDirection = Direction.Up;
+                    if (CollisionMur(ptab))
+                        tabPos[3] = new Point(Position.X, Position.Y - 2);
+                    CurrentDirection = Direction.Left;
+                    if (CollisionMur(ptab))
+                        tabPos[4] = new Point(Position.X - 2, Position.Y);
+
+                    foreach (Point p in tabPos)
                     {
-                        joueur.InterractionMob(this);
+                        if (p == joueur.Position)
+                        {
+                            joueur.InterractionMob(this, partie);
+                        }
                     }
+                    
                 }
             }
         }
@@ -65,7 +86,32 @@ namespace Styx_Biblio_Jeu
         {
 
             Direction[] directions = [Direction.Up, Direction.Down, Direction.Left, Direction.Right];
-            return directions[random.Next(directions.Length)];
+            List<Direction> directionList = new List<Direction>(directions);
+
+            CurrentDirection = Direction.Right;
+            if (!CollisionMur(ptab))
+                directionList.Remove(Direction.Right);
+            CurrentDirection = Direction.Down;
+            if (!CollisionMur(ptab))
+                directionList.Remove(Direction.Down);
+            CurrentDirection = Direction.Up;
+            if (!CollisionMur(ptab) )
+                directionList.Remove(Direction.Up);
+            CurrentDirection = Direction.Left;
+            if (!CollisionMur(ptab))
+                directionList.Remove(Direction.Left);
+
+
+            return directionList[random.Next(directionList.Count)];
+        }
+
+        public Direction GetOppositeDirection(Direction dir)
+        {
+            if (dir==Direction.Left) return Direction.Right;
+            if (dir==Direction.Right) return Direction.Left;
+            if (dir==Direction.Up) return Direction.Down;
+            if (dir==Direction.Down) return Direction.Up;
+            return Direction.Right;
         }
 
         public void Draw(Graphics g)

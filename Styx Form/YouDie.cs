@@ -21,13 +21,19 @@ namespace Styx_Form
         {
             this.BackgroundImage = Properties.Resources.You_died; // Assurez-vous d'ajouter une image GameOverBackground dans vos ressources
             this.BackgroundImageLayout = ImageLayout.Stretch;
-            this.ClientSize = new Size(400, 300);
+            this.WindowState = FormWindowState.Maximized;
+            Rectangle screenRectangle = Screen.PrimaryScreen.Bounds;
+            int width = screenRectangle.Width;
+            int height = screenRectangle.Height;
+
+            // Mettez à jour la ClientSize avec les dimensions de l'écran
+            this.ClientSize = new Size(width, height);
             this.FormBorderStyle = FormBorderStyle.None;
 
             Button btnReturnToMenu = new Button();
             btnReturnToMenu.Text = "Retour au menu principal";
             btnReturnToMenu.Size = new Size(200, 50);
-            btnReturnToMenu.Location = new Point((this.ClientSize.Width - btnReturnToMenu.Width) / 2, (this.ClientSize.Height - btnReturnToMenu.Height) / 2);
+            btnReturnToMenu.Location = new Point((this.ClientSize.Width - btnReturnToMenu.Width) / 2, ((this.ClientSize.Height - btnReturnToMenu.Height) / 2)+400);
             btnReturnToMenu.Click += new EventHandler(this.BtnReturnToMenu_Click);
             this.Controls.Add(btnReturnToMenu);
         }

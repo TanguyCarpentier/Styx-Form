@@ -106,6 +106,7 @@
             pb_soncoupe.TabIndex = 12;
             pb_soncoupe.TabStop = false;
             pb_soncoupe.Click += pb_soncoupe_Click;
+
             // 
             // pbReference
             // 
@@ -118,6 +119,7 @@
             pbReference.TabIndex = 13;
             pbReference.TabStop = false;
             pbReference.Click += pbReference_Click;
+
             // 
             // Pseudo
             // 
