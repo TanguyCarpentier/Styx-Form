@@ -19,6 +19,7 @@
             pnlLaby = new Panel();
             lblPseudoJoueur = new Label();
             lblNbVie = new Label();
+            lblScoreJoueur = new Label();
             SuspendLayout();
             // 
             // pnlLaby
@@ -37,9 +38,9 @@
             lblPseudoJoueur.BackColor = Color.SandyBrown;
             lblPseudoJoueur.Location = new Point(76, 552);
             lblPseudoJoueur.Name = "lblPseudoJoueur";
-            lblPseudoJoueur.Size = new Size(132, 20);
+            lblPseudoJoueur.Size = new Size(128, 20);
             lblPseudoJoueur.TabIndex = 1;
-            lblPseudoJoueur.Text = "Pseudo du Joueur :";
+            lblPseudoJoueur.Text = "Pseudo du Joueur:";
             // 
             // lblNbVie
             // 
@@ -47,9 +48,19 @@
             lblNbVie.BackColor = Color.SandyBrown;
             lblNbVie.Location = new Point(76, 591);
             lblNbVie.Name = "lblNbVie";
-            lblNbVie.Size = new Size(117, 20);
+            lblNbVie.Size = new Size(113, 20);
             lblNbVie.TabIndex = 2;
-            lblNbVie.Text = "Nombre de Vie: ";
+            lblNbVie.Text = "Nombre de Vie:";
+            // 
+            // lblScoreJoueur
+            // 
+            lblScoreJoueur.AutoSize = true;
+            lblScoreJoueur.BackColor = Color.SandyBrown;
+            lblScoreJoueur.Location = new Point(76, 629);
+            lblScoreJoueur.Name = "lblScoreJoueur";
+            lblScoreJoueur.Size = new Size(117, 20);
+            lblScoreJoueur.TabIndex = 3;
+            lblScoreJoueur.Text = "Score du Joueur:";
             // 
             // FormJeuStyx
             // 
@@ -59,6 +70,7 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1461, 749);
+            Controls.Add(lblScoreJoueur);
             Controls.Add(lblNbVie);
             Controls.Add(lblPseudoJoueur);
             Controls.Add(pnlLaby);
@@ -73,5 +85,6 @@
 
         private Label lblPseudoJoueur;
         private Label lblNbVie;
+        private Label lblScoreJoueur;
     }
 }

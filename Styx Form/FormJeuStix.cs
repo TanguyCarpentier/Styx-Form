@@ -44,6 +44,8 @@ namespace Styx_Form
             //Initialisation Scoreboard
             lblPseudoJoueur.Text = "Pseudo du joueur: "+Pseudo;
             lblNbVie.Text = "Nombre de vie du joueur: "+joueur.vie.ToString();
+            lblScoreJoueur.Text ="Score du joueur: "+partie.score.ToString();
+            
 
             initialisationEnnemis();
 
