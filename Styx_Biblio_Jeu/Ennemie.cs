@@ -54,13 +54,21 @@ namespace Styx_Biblio_Jeu
                     }
                     ConversionCoo();
 
-                    Point[] tabPos = new Point[4];
+                    Point[] tabPos = new Point[5];
 
                     tabPos[0] = Position;
-                    tabPos[1] = new Point(Position.X + 2, Position.Y);
-                    tabPos[2] = new Point(Position.X, Position.Y + 2);
-                    tabPos[3] = new Point(Position.X, Position.Y - 2);
-                    tabPos[4] = new Point(Position.X - 2, Position.Y);
+                    CurrentDirection=Direction.Right;
+                    if (CollisionMur(ptab))
+                        tabPos[1] = new Point(Position.X + 2, Position.Y);
+                    CurrentDirection = Direction.Down;
+                    if (CollisionMur(ptab))
+                        tabPos[2] = new Point(Position.X, Position.Y + 2);
+                    CurrentDirection = Direction.Up;
+                    if (CollisionMur(ptab))
+                        tabPos[3] = new Point(Position.X, Position.Y - 2);
+                    CurrentDirection = Direction.Left;
+                    if (CollisionMur(ptab))
+                        tabPos[4] = new Point(Position.X - 2, Position.Y);
 
                     foreach (Point p in tabPos)
                     {
