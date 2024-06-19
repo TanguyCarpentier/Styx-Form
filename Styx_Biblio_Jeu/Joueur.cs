@@ -24,6 +24,7 @@ namespace Styx_Biblio_Jeu
         public bool ModeTueur;
         public int MultiplicateurScore;
         public int vie;
+        public bool BonusSpeedEnCour;
 
 
         public Joueur(Point initialPosition, System.Drawing.Image texture, Size size) : base(initialPosition, texture, size)
@@ -41,6 +42,7 @@ namespace Styx_Biblio_Jeu
             ModeTueur = false;
             MultiplicateurScore = 1;
             vie = 2;
+            BonusSpeedEnCour = false;
 
         }
 
@@ -181,25 +183,29 @@ namespace Styx_Biblio_Jeu
 
         public async Task Bonus_Vitesse(Jeu partie)
         {
-            if (!estMort)
+            if (!estMort && !BonusSpeedEnCour)
             {
+                BonusSpeedEnCour = true;
                 partie.TickSpeed -= 200;
 
                 await Task.Delay(10000);
 
                 partie.TickSpeed += 200;
+                BonusSpeedEnCour = false;
             }
         }
 
         public async Task Bonus_Flocon(Jeu partie)
         {
-            if (!estMort)
+            if (!estMort && !BonusSpeedEnCour)
             {
+                BonusSpeedEnCour = true;
                 partie.TickSpeed += 200;
 
                 await Task.Delay(10000);
 
-                partie.TickSpeed += 200;
+                partie.TickSpeed -= 200;
+                BonusSpeedEnCour = false;
             }
         }
         public void Bonus_Balance()
