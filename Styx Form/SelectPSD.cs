@@ -34,11 +34,6 @@ namespace Styx_Form
             FormJeuStyx formJeuStix = new FormJeuStyx(txtPseudo.Text);
             formJeuStix.Show();
             this.Hide();
-
-
-
-
-
         }
 
         private void txtPseudo_TextChanged(object sender, EventArgs e)

@@ -25,7 +25,6 @@ namespace Styx_Form
 
             Laby = new Plateau(40, 40);
 
-
             this.WindowState = FormWindowState.Maximized;
 
             Spawn = pnlLaby.Location;
@@ -34,8 +33,7 @@ namespace Styx_Form
 
             // Initialisation de Joueur
             joueur = new Joueur(Spawn, Styx_Form.Properties.Resources.over, new Size(30, 29));
-
-
+            lblPseudoJoueur.Text = "Pseudo du Joueur: "+Pseudo;
 
             // Initialisation du Timer
             gameTimer = new Timer();
