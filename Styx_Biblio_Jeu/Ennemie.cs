@@ -14,9 +14,9 @@ namespace Styx_Biblio_Jeu
         private Random random;
         public int Speed;
 
-        public Ennemie(string name, Point PosLaby,Point initialPosition, System.Drawing.Image texture, Size size) : base(PosLaby, texture, size)
+        public Ennemie(string name, Point PosLaby, Point initialPosition, System.Drawing.Image texture, Size size) : base(PosLaby, texture, size)
         {
-            
+
             Name = name;
             posPixel = initialPosition;
             Speed = 2;
@@ -31,29 +31,32 @@ namespace Styx_Biblio_Jeu
 
         public void Move(Plateau ptab, Joueur joueur)
         {
-            CurrentDirection = GetNextDirection(ptab);
-            if (CollisionMur(ptab))
+            if (!estMort)
             {
-                
-                switch (CurrentDirection)
+                CurrentDirection = GetNextDirection(ptab);
+                if (CollisionMur(ptab))
                 {
-                    case Direction.Up:
-                        Position = new Point(Position.X, Position.Y - Speed);
-                        break;
-                    case Direction.Down:
-                        Position = new Point(Position.X, Position.Y + Speed);
-                        break;
-                    case Direction.Left:
-                        Position = new Point(Position.X - Speed, Position.Y);
-                        break;
-                    case Direction.Right:
-                        Position = new Point(Position.X + Speed, Position.Y);
-                        break;
-                }
-                ConversionCoo();
-                if (Position == joueur.Position)
-                {
-                    joueur.InterractionMob(this);
+
+                    switch (CurrentDirection)
+                    {
+                        case Direction.Up:
+                            Position = new Point(Position.X, Position.Y - Speed);
+                            break;
+                        case Direction.Down:
+                            Position = new Point(Position.X, Position.Y + Speed);
+                            break;
+                        case Direction.Left:
+                            Position = new Point(Position.X - Speed, Position.Y);
+                            break;
+                        case Direction.Right:
+                            Position = new Point(Position.X + Speed, Position.Y);
+                            break;
+                    }
+                    ConversionCoo();
+                    if (Position == joueur.Position)
+                    {
+                        joueur.InterractionMob(this);
+                    }
                 }
             }
         }

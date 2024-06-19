@@ -62,7 +62,6 @@ namespace Styx_Form
             pnlLaby.BorderStyle = BorderStyle.FixedSingle;
             pnlLaby.BackColor = ColorTranslator.FromHtml("#0c1015");
 
-
             // Création du quadrillage de PictureBox
             CreateGrid(Laby);
             CenterPanel(pnlLaby);
@@ -72,7 +71,9 @@ namespace Styx_Form
         }
         private void initialisationEnnemis()
         {
-            partie.EnnemieList.Add(new Ennemie("1",Spawn, new Point (15,1), Styx_Form.Properties.Resources.over, new Size(30,30)));
+            partie.EnnemieList.Add(new Ennemie("1",Spawn, new Point (15,1), Styx_Form.Properties.Resources.Squelette_Sprite, new Size(40,40)));
+            partie.EnnemieList.Add(new Ennemie("2",Spawn, new Point (1,15), Styx_Form.Properties.Resources.Squelette_Sprite, new Size(40, 40)));
+            partie.EnnemieList.Add(new Ennemie("3",Spawn, new Point (15,15), Styx_Form.Properties.Resources.Squelette_Sprite, new Size(40, 40)));
         }
         private void RemovePictureBoxByName(Panel panel, string pictureBoxName)
         {
@@ -137,6 +138,11 @@ namespace Styx_Form
                     break;
                 case Keys.Space:
                     joueur.Dash(Laby, partie);
+                    break;
+                case Keys.Escape:
+                    //paramètre paramètre = new paramètre();
+                    //paramètre.Show();
+                    gameTimer.Stop();
                     break;
             }
         }

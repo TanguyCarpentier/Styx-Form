@@ -92,7 +92,7 @@ namespace Styx_Biblio_Jeu
         {
             if (!estMort) 
             {
-                if (!Invincible)
+                if (!Invincible||mob.estMort)
                 {
                     vie -= 1;
                     VerifMort();
