@@ -41,7 +41,7 @@ namespace Styx_Form
             joueur = new Joueur(Spawn, Styx_Form.Properties.Resources.Oedype_sansfond, new Size(30, 28));
 
             //Initialisation Scoreboard
-            lblPseudoJoueur.Text = "Pseudo du joueur: "+Pseudo;
+            lblPseudoJoueur.Text = "Pseudo du joueur: "+partie.Pseudo;
             lblNbVie.Text = "Nombre de vie du joueur: "+joueur.vie.ToString();
             lblScoreJoueur.Text ="Score du joueur: "+partie.score.ToString();
             
@@ -105,6 +105,9 @@ namespace Styx_Form
 
         private void GameTimer_Tick(object sender, EventArgs e)
         {
+            lblNbVie.Text = "Nombre de vie du joueur: " + joueur.vie.ToString();
+            lblScoreJoueur.Text = "Score du joueur: " + partie.score.ToString();
+
             gameTimer.Interval = partie.TickSpeed;
             partie.tempEcoule += gameTimer.Interval;
             // Déplacement du Joueur

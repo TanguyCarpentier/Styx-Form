@@ -242,13 +242,13 @@ namespace Styx_Biblio_Jeu
                     case "fla":
                         Lab.tab[Position.Y, Position.X] = "esp";
                         jeu.score += 1 * MultiplicateurScore;
-                        Lab.compFlamme -= 1;
+                        jeu.nbFlammeRestant -= 1;
                         return (Position);
 
                     case "dash":
                         Lab.tab[Position.Y, Position.X] = "esp";
                         jeu.score += 1 * MultiplicateurScore;
-                        Lab.compArtefact -= 1;
+                        jeu.nbArtefacts -= 1;
                         if (!Dash1PickUp)
                         {
                             Dash1PickUp = true;
@@ -258,49 +258,49 @@ namespace Styx_Biblio_Jeu
                     case "lyre":
                         Lab.tab[Position.Y, Position.X] = "esp";
                         jeu.score += 1 * MultiplicateurScore;
-                        Lab.compArtefact -= 1;
+                        jeu.nbArtefacts -= 1;
                         Bonus_Lyre();
                         return (Position);
 
                     case "exp":
                         Lab.tab[Position.Y, Position.X] = "esp";
                         jeu.score += 1 * MultiplicateurScore;
-                        Lab.compArtefact -= 1;
+                        jeu.nbArtefacts -= 1;
                         Bonus_Exp();
                         return (Position);
 
                     case "bou":
                         Lab.tab[Position.Y, Position.X] = "esp";
                         jeu.score += 1 * MultiplicateurScore;
-                        Lab.compArtefact -= 1;
+                        jeu.nbArtefacts -= 1;
                         Bonus_Bou();
                         return (Position);
 
                     case "coe":
                         Lab.tab[Position.Y, Position.X] = "esp";
                         jeu.score += 1 * MultiplicateurScore;
-                        Lab.compArtefact -= 1;
+                        jeu.nbArtefacts -= 1;
                         vie += 1;
                         return (Position);
 
                     case "vit":
                         Lab.tab[Position.Y, Position.X] = "esp";
                         jeu.score += 1 * MultiplicateurScore;
-                        Lab.compArtefact -= 1;
+                        jeu.nbArtefacts -= 1;
                         Bonus_Vitesse(jeu);
                         return (Position);
 
                     case "bal":
                         Lab.tab[Position.Y, Position.X] = "esp";
                         jeu.score += 1 * MultiplicateurScore;
-                        Lab.compArtefact -= 1;
+                        jeu.nbArtefacts -= 1;
                         Bonus_Balance();
                         return (Position);
 
                     case "flo":
                         Lab.tab[Position.Y, Position.X] = "esp";
                         jeu.score += 1 * MultiplicateurScore;
-                        Lab.compArtefact -= 1;
+                        jeu.nbArtefacts -= 1;
                         Bonus_Flocon(jeu);
                         return (Position);
 
