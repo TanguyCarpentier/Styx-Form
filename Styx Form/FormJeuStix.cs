@@ -64,6 +64,8 @@ namespace Styx_Form
             CreateGrid(Laby);
             CenterPanel(pnlLaby);
 
+            partie.MajNbEntite(Laby, 5);
+
 
 
         }
@@ -72,6 +74,8 @@ namespace Styx_Form
             partie.EnnemieList.Add(new Ennemie("1", Spawn, new Point(15, 1), Styx_Form.Properties.Resources.Squelette_Sprite, new Size(40, 40)));
             partie.EnnemieList.Add(new Ennemie("2", Spawn, new Point(1, 15), Styx_Form.Properties.Resources.Squelette_Sprite, new Size(40, 40)));
             partie.EnnemieList.Add(new Ennemie("3", Spawn, new Point(15, 15), Styx_Form.Properties.Resources.Squelette_Sprite, new Size(40, 40)));
+            partie.EnnemieList.Add(new Ennemie("4", Spawn, new Point(31, 31), Styx_Form.Properties.Resources.Squelette_Sprite, new Size(40, 40)));
+            partie.EnnemieList.Add(new Ennemie("5", Spawn, new Point(31, 15), Styx_Form.Properties.Resources.Squelette_Sprite, new Size(40, 40)));
         }
         private void RemovePictureBoxByName(Panel panel, string pictureBoxName)
         {
@@ -129,6 +133,7 @@ namespace Styx_Form
                 if (result == DialogResult.OK)
                 {
                     // Code pour continuer au niveau suivant
+                    partie.passageNiveau();
                     FormJeuStyx FormJeu = new FormJeuStyx(partie);
                     FormJeu.Show();
                     this.Hide();

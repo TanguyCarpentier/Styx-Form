@@ -39,11 +39,18 @@
             EnnemieList = ListEnnemis;
         }
 
-        public void MajNbEntite(Plateau tab)
+        public void MajNbEntite(Plateau tab, int nbEnnemis)
         {
             nbFlammeRestant = tab.compFlamme;
             nbArtefacts = tab.compArtefact;
-        }   
+            nbEnemis = nbEnnemis;
+        }
+
+        public void passageNiveau()
+        {
+            niveauEnCour += 1;
+        }
+
 
         public void MoveAllEnemies(Plateau ptab, Joueur joueur)
         {
@@ -51,7 +58,7 @@
             {
                 if (!ennemi.estMort)
                 {
-                    ennemi.Move(ptab, joueur);
+                    ennemi.Move(ptab, joueur, this);
                 }
             }
         }

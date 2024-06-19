@@ -29,7 +29,7 @@ namespace Styx_Biblio_Jeu
 
         }
 
-        public void Move(Plateau ptab, Joueur joueur)
+        public void Move(Plateau ptab, Joueur joueur, Jeu partie)
         {
             if (!estMort)
             {
@@ -74,7 +74,7 @@ namespace Styx_Biblio_Jeu
                     {
                         if (p == joueur.Position)
                         {
-                            joueur.InterractionMob(this);
+                            joueur.InterractionMob(this, partie);
                         }
                     }
                     

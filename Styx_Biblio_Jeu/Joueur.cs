@@ -88,7 +88,7 @@ namespace Styx_Biblio_Jeu
             return estMort;
         }
 
-        public async Task InterractionMob(Ennemie mob)
+        public async Task InterractionMob(Ennemie mob, Jeu partie)
         {
             if (!estMort)
             {
@@ -106,6 +106,7 @@ namespace Styx_Biblio_Jeu
                 else if (ModeTueur)
                 {
                     mob.estMort = true;
+                    partie.nbEnemis -= 1;
                 }
             }
         }
@@ -130,7 +131,7 @@ namespace Styx_Biblio_Jeu
                         {
                             if (Position == mob.Position)
                             {
-                                InterractionMob(mob);
+                                InterractionMob(mob, partie);
                             }
                         }
                     }
