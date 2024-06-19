@@ -189,8 +189,8 @@ namespace Styx_Form
                     joueur.Dash(Laby, partie);
                     break;
                 case Keys.Escape:
-                    //paramètre paramètre = new paramètre();
-                    //paramètre.Show();
+                    PauseJeu pausejeu = new PauseJeu(this);
+                    pausejeu.Show();
                     gameTimer.Stop();
                     break;
             }
