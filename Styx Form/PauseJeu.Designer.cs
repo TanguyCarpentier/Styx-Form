@@ -44,7 +44,7 @@
             pictureBox1.BackColor = Color.Transparent;
             pictureBox1.BackgroundImage = (Image)resources.GetObject("pictureBox1.BackgroundImage");
             pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
-            pictureBox1.Location = new Point(210, 12);
+            pictureBox1.Location = new Point(222, 12);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(258, 153);
             pictureBox1.TabIndex = 0;
@@ -56,7 +56,7 @@
             pbMenuPrincipal.BackColor = Color.Transparent;
             pbMenuPrincipal.BackgroundImage = (Image)resources.GetObject("pbMenuPrincipal.BackgroundImage");
             pbMenuPrincipal.BackgroundImageLayout = ImageLayout.Stretch;
-            pbMenuPrincipal.Location = new Point(210, 143);
+            pbMenuPrincipal.Location = new Point(222, 143);
             pbMenuPrincipal.Name = "pbMenuPrincipal";
             pbMenuPrincipal.Size = new Size(258, 153);
             pbMenuPrincipal.TabIndex = 1;
