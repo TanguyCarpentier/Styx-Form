@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Windows.Forms;
 using System.Windows.Forms.Design;
@@ -22,11 +23,14 @@ namespace Styx_Form
         private int compt2 = 0;
         private int compt1 = 0;
         private Jeu partie;
+        private SoundPlayer sonWin = new SoundPlayer(Styx_Form.Properties.Resources.hit);
 
 
         public FormJeuStyx(Jeu jeu)
         {
             InitializeComponent();
+
+            
 
             partie = jeu;
 
@@ -40,14 +44,14 @@ namespace Styx_Form
             Spawn.Y += 10;
 
             // Initialisation de Joueur
-            joueur = new Joueur(Spawn, Styx_Form.Properties.Resources.Oedype_sansfond, new Size(30, 28));
+            joueur = new Joueur(Spawn, Styx_Form.Properties.Resources.orphee2, new Size(30, 28));
 
             //Initialisation Scoreboard
             lblPseudoJoueur.Text = "Pseudo du joueur: "+partie.Pseudo;
             lblNbVie.Text = "Nombre de vie du joueur: "+joueur.vie.ToString();
             lblScoreJoueur.Text ="Score du joueur: "+partie.score.ToString();
-            
 
+            InitSons();
             initialisationEnnemis();
 
             // Initialisation du Timer
@@ -82,14 +86,31 @@ namespace Styx_Form
 
 
         }
+        private void InitSons()
+        {
+            //Charger fichiers sons
+            SoundPlayer sonAttaque = new SoundPlayer(Styx_Form.Properties.Resources.dash);
+            SoundPlayer sonBlesse = new SoundPlayer(Styx_Form.Properties.Resources.hit);
+            SoundPlayer sonPickUp = new SoundPlayer(Styx_Form.Properties.Resources.pickUpBonus);
+            SoundPlayer sonFlamme = new SoundPlayer(Styx_Form.Properties.Resources.pause);
+
+
+
+            //S'abboner aux événements
+            joueur.AttaqueJoueur += () => sonAttaque.Play();
+            joueur.BlesseJoueur += () => sonBlesse.Play();
+            joueur.PickUpBonus += () => sonPickUp.Play();
+            joueur.PickFlamme += () => sonFlamme.Play();
+
+        }
         private void initialisationEnnemis()
         {
 
-            partie.EnnemieList.Add(new Ennemie("1", Spawn, new Point(15, 1), Styx_Form.Properties.Resources.Squelette_Sprite, new Size(40, 40)));
-            partie.EnnemieList.Add(new Ennemie("2", Spawn, new Point(1, 15), Styx_Form.Properties.Resources.Squelette_Sprite, new Size(40, 40)));
-            partie.EnnemieList.Add(new Ennemie("3", Spawn, new Point(15, 15), Styx_Form.Properties.Resources.Squelette_Sprite, new Size(40, 40)));
-            partie.EnnemieList.Add(new Ennemie("4", Spawn, new Point(31, 31), Styx_Form.Properties.Resources.Squelette_Sprite, new Size(40, 40)));
-            partie.EnnemieList.Add(new Ennemie("5", Spawn, new Point(31, 15), Styx_Form.Properties.Resources.Squelette_Sprite, new Size(40, 40)));
+            partie.EnnemieList.Add(new Ennemie("1", Spawn, new Point(21, 1), Styx_Form.Properties.Resources.SquelTest2, new Size(40, 40)));
+            partie.EnnemieList.Add(new Ennemie("2", Spawn, new Point(1, 21), Styx_Form.Properties.Resources.SquelTest2, new Size(40, 40)));
+            partie.EnnemieList.Add(new Ennemie("3", Spawn, new Point(21, 21), Styx_Form.Properties.Resources.SquelTest2, new Size(40, 40)));
+            partie.EnnemieList.Add(new Ennemie("4", Spawn, new Point(31, 31), Styx_Form.Properties.Resources.SquelTest2, new Size(40, 40)));
+            partie.EnnemieList.Add(new Ennemie("5", Spawn, new Point(31, 15), Styx_Form.Properties.Resources.SquelTest2, new Size(40, 40)));
         }
         private void RemovePictureBoxByName(Panel panel, string pictureBoxName)
         {
@@ -143,13 +164,13 @@ namespace Styx_Form
 
             if (partie.VerifFinJeu(joueur))
             {
+                sonWin.Play();
                 gameTimer.Stop();
                 DialogResult result = MessageBox.Show(
                     "Vous passez au niveau supérieur!",
                     "Niveau Supérieur",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Information
-                );
+                    MessageBoxButtons.OK
+                ); 
 
                 // Vérifie si le bouton "Continuer" (OK) est cliqué
                 if (result == DialogResult.OK)

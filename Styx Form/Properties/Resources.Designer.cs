@@ -121,6 +121,15 @@ namespace Styx_Form.Properties {
         }
         
         /// <summary>
+        ///   Recherche une ressource localisée de type System.IO.UnmanagedMemoryStream semblable à System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream dash {
+            get {
+                return ResourceManager.GetStream("dash", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap flamme {
@@ -166,6 +175,15 @@ namespace Styx_Form.Properties {
         internal static System.IO.UnmanagedMemoryStream Hell {
             get {
                 return ResourceManager.GetStream("Hell", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.IO.UnmanagedMemoryStream semblable à System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream hit {
+            get {
+                return ResourceManager.GetStream("hit", resourceCulture);
             }
         }
         
@@ -262,10 +280,38 @@ namespace Styx_Form.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap orphee2 {
+            get {
+                object obj = ResourceManager.GetObject("orphee2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap over {
             get {
                 object obj = ResourceManager.GetObject("over", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.IO.UnmanagedMemoryStream semblable à System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream pause {
+            get {
+                return ResourceManager.GetStream("pause", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.IO.UnmanagedMemoryStream semblable à System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream pickUpBonus {
+            get {
+                return ResourceManager.GetStream("pickUpBonus", resourceCulture);
             }
         }
         
@@ -312,10 +358,30 @@ namespace Styx_Form.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap SquelTest2 {
+            get {
+                object obj = ResourceManager.GetObject("SquelTest2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap TestPlay {
             get {
                 object obj = ResourceManager.GetObject("TestPlay", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Byte[].
+        /// </summary>
+        internal static byte[] win {
+            get {
+                object obj = ResourceManager.GetObject("win", resourceCulture);
+                return ((byte[])(obj));
             }
         }
         

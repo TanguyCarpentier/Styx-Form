@@ -6,16 +6,16 @@ namespace Styx_Form
 {
     public partial class Pseudo : Form
     {
-        SoundPlayer player = new SoundPlayer(Styx_Form.Properties.Resources.Hell);
+        SoundPlayer sonJeu = new SoundPlayer(Styx_Form.Properties.Resources.Hell);
         bool isSoundPlaying = false;
 
         public Pseudo()
         {
             InitializeComponent();
-            player.Load();
+            sonJeu.Load();
 
             // Démarrer la lecture du son au démarrage de l'application
-            player.PlayLooping();
+            sonJeu.PlayLooping();
             isSoundPlaying = true;
             pb_son.Visible = false;     // Cache l'icône de lecture
             pb_soncoupe.Visible = true; // Affiche l'icône de pause
@@ -44,14 +44,14 @@ namespace Styx_Form
         {
             if (!isSoundPlaying)
             {
-                player.PlayLooping();
+                sonJeu.PlayLooping();
                 isSoundPlaying = true;
                 pb_son.Visible = false;    // Cache le bouton de lecture
                 pb_soncoupe.Visible = true;  // Affiche le bouton de pause
             }
             else
             {
-                player.Stop();
+                sonJeu.Stop();
                 isSoundPlaying = false;
                 pb_soncoupe.Visible = false;  // Cache le bouton de pause
                 pb_son.Visible = true;    // Affiche le bouton de lecture
@@ -62,7 +62,7 @@ namespace Styx_Form
         {
             if (isSoundPlaying)
             {
-                player.Stop();
+                sonJeu.Stop();
                 isSoundPlaying = false;
                 pb_soncoupe.Visible = false;  // Cache le bouton de pause
                 pb_son.Visible = true;    // Affiche le bouton de lecture

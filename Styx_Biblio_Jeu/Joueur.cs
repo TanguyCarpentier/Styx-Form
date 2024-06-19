@@ -1,6 +1,7 @@
 ﻿using System;
+using System.Media;
 using System.Collections.Generic;
-using System.Windows.Forms;
+using  System.Windows.Forms;
 using System.ComponentModel;
 using System.Drawing;
 using System.Linq;
@@ -25,6 +26,13 @@ namespace Styx_Biblio_Jeu
         public int MultiplicateurScore;
         public int vie;
         public bool BonusSpeedEnCour;
+
+
+
+        public event Action AttaqueJoueur;
+        public event Action BlesseJoueur;
+        public event Action PickUpBonus;
+        public event Action PickFlamme;
 
 
         public Joueur(Point initialPosition, System.Drawing.Image texture, Size size) : base(initialPosition, texture, size)
@@ -97,6 +105,7 @@ namespace Styx_Biblio_Jeu
                 if (!Invincible || mob.estMort)
                 {
                     vie -= 1;
+                    BlesseJoueur?.Invoke();
                     VerifMort();
                     Invincible = true;
 
@@ -107,6 +116,7 @@ namespace Styx_Biblio_Jeu
                 }
                 else if (ModeTueur)
                 {
+                    AttaqueJoueur?.Invoke();
                     mob.estMort = true;
                     partie.nbEnemis -= 1;
                 }
@@ -186,11 +196,11 @@ namespace Styx_Biblio_Jeu
             if (!estMort && !BonusSpeedEnCour)
             {
                 BonusSpeedEnCour = true;
-                partie.TickSpeed -= 200;
+                partie.TickSpeed -= 150;
 
                 await Task.Delay(10000);
 
-                partie.TickSpeed += 200;
+                partie.TickSpeed += 150;
                 BonusSpeedEnCour = false;
             }
         }
@@ -235,6 +245,7 @@ namespace Styx_Biblio_Jeu
         {
             if (!estMort)
             {
+                
                 string parcour = Lab.AfficheCase(Position.X, Position.Y);
 
                 switch (parcour)
@@ -243,12 +254,14 @@ namespace Styx_Biblio_Jeu
                         Lab.tab[Position.Y, Position.X] = "esp";
                         jeu.score += 1 * MultiplicateurScore;
                         jeu.nbFlammeRestant -= 1;
+                        PickFlamme?.Invoke();
                         return (Position);
 
                     case "dash":
                         Lab.tab[Position.Y, Position.X] = "esp";
                         jeu.score += 1 * MultiplicateurScore;
                         jeu.nbArtefacts -= 1;
+                        PickUpBonus?.Invoke();
                         if (!Dash1PickUp)
                         {
                             Dash1PickUp = true;
@@ -259,6 +272,7 @@ namespace Styx_Biblio_Jeu
                         Lab.tab[Position.Y, Position.X] = "esp";
                         jeu.score += 1 * MultiplicateurScore;
                         jeu.nbArtefacts -= 1;
+                        PickUpBonus?.Invoke();
                         Bonus_Lyre();
                         return (Position);
 
@@ -266,6 +280,7 @@ namespace Styx_Biblio_Jeu
                         Lab.tab[Position.Y, Position.X] = "esp";
                         jeu.score += 1 * MultiplicateurScore;
                         jeu.nbArtefacts -= 1;
+                        PickUpBonus?.Invoke();
                         Bonus_Exp();
                         return (Position);
 
@@ -273,6 +288,7 @@ namespace Styx_Biblio_Jeu
                         Lab.tab[Position.Y, Position.X] = "esp";
                         jeu.score += 1 * MultiplicateurScore;
                         jeu.nbArtefacts -= 1;
+                        PickUpBonus?.Invoke();
                         Bonus_Bou();
                         return (Position);
 
@@ -280,6 +296,7 @@ namespace Styx_Biblio_Jeu
                         Lab.tab[Position.Y, Position.X] = "esp";
                         jeu.score += 1 * MultiplicateurScore;
                         jeu.nbArtefacts -= 1;
+                        PickUpBonus?.Invoke();
                         vie += 1;
                         return (Position);
 
@@ -287,6 +304,7 @@ namespace Styx_Biblio_Jeu
                         Lab.tab[Position.Y, Position.X] = "esp";
                         jeu.score += 1 * MultiplicateurScore;
                         jeu.nbArtefacts -= 1;
+                        PickUpBonus?.Invoke();
                         Bonus_Vitesse(jeu);
                         return (Position);
 
@@ -294,6 +312,7 @@ namespace Styx_Biblio_Jeu
                         Lab.tab[Position.Y, Position.X] = "esp";
                         jeu.score += 1 * MultiplicateurScore;
                         jeu.nbArtefacts -= 1;
+                        PickUpBonus?.Invoke();
                         Bonus_Balance();
                         return (Position);
 
@@ -301,6 +320,7 @@ namespace Styx_Biblio_Jeu
                         Lab.tab[Position.Y, Position.X] = "esp";
                         jeu.score += 1 * MultiplicateurScore;
                         jeu.nbArtefacts -= 1;
+                        PickUpBonus?.Invoke();
                         Bonus_Flocon(jeu);
                         return (Position);
 
@@ -308,6 +328,7 @@ namespace Styx_Biblio_Jeu
                         Point pointe = new Point(0, 0);
                         return (pointe);
                 }
+                
             }
             Point point = new Point(0, 0);
             return (point);
