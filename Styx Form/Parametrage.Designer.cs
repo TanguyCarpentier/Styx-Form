@@ -35,16 +35,17 @@
             pictureBox3 = new PictureBox();
             pb_son = new PictureBox();
             pb_soncoupe = new PictureBox();
+            pbReference = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pb_son).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pb_soncoupe).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbReference).BeginInit();
             SuspendLayout();
             // 
             // pictureBox1
             // 
-
             pictureBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             pictureBox1.BackColor = Color.Transparent;
             pictureBox1.BackgroundImage = (Image)resources.GetObject("pictureBox1.BackgroundImage");
@@ -58,7 +59,6 @@
             // 
             // pictureBox2
             // 
-
             pictureBox2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             pictureBox2.BackColor = Color.Transparent;
             pictureBox2.BackgroundImage = (Image)resources.GetObject("pictureBox2.BackgroundImage");
@@ -69,11 +69,9 @@
             pictureBox2.TabIndex = 9;
             pictureBox2.TabStop = false;
             pictureBox2.Click += btnScoreBoard_Click;
-
             // 
             // pictureBox3
             // 
-
             pictureBox3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             pictureBox3.BackColor = Color.Transparent;
             pictureBox3.BackgroundImage = (Image)resources.GetObject("pictureBox3.BackgroundImage");
@@ -84,11 +82,9 @@
             pictureBox3.TabIndex = 10;
             pictureBox3.TabStop = false;
             pictureBox3.Click += btnClick;
-
             // 
             // pb_son
             // 
-
             pb_son.BackColor = Color.Transparent;
             pb_son.BackgroundImage = (Image)resources.GetObject("pb_son.BackgroundImage");
             pb_son.BackgroundImageLayout = ImageLayout.Stretch;
@@ -98,12 +94,9 @@
             pb_son.TabIndex = 11;
             pb_son.TabStop = false;
             pb_son.Click += pb_son_Click;
-
-
             // 
             // pb_soncoupe
             // 
-
             pb_soncoupe.BackColor = Color.Transparent;
             pb_soncoupe.BackgroundImage = (Image)resources.GetObject("pb_soncoupe.BackgroundImage");
             pb_soncoupe.BackgroundImageLayout = ImageLayout.Stretch;
@@ -113,18 +106,28 @@
             pb_soncoupe.TabIndex = 12;
             pb_soncoupe.TabStop = false;
             pb_soncoupe.Click += pb_soncoupe_Click;
-
-
+            // 
+            // pbReference
+            // 
+            pbReference.BackColor = Color.Transparent;
+            pbReference.BackgroundImage = (Image)resources.GetObject("pbReference.BackgroundImage");
+            pbReference.BackgroundImageLayout = ImageLayout.Stretch;
+            pbReference.Location = new Point(46, 239);
+            pbReference.Name = "pbReference";
+            pbReference.Size = new Size(69, 71);
+            pbReference.TabIndex = 13;
+            pbReference.TabStop = false;
+            pbReference.Click += pbReference_Click;
             // 
             // Pseudo
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(700, 338);
             ControlBox = false;
+            Controls.Add(pbReference);
             Controls.Add(pictureBox3);
             Controls.Add(pictureBox2);
             Controls.Add(pictureBox1);
@@ -132,7 +135,6 @@
             Controls.Add(pb_soncoupe);
             DoubleBuffered = true;
             FormBorderStyle = FormBorderStyle.FixedSingle;
-
             Margin = new Padding(3, 2, 3, 2);
             Name = "Pseudo";
             Text = "Parametrage";
@@ -141,6 +143,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)pb_son).EndInit();
             ((System.ComponentModel.ISupportInitialize)pb_soncoupe).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbReference).EndInit();
             ResumeLayout(false);
         }
 
@@ -151,5 +154,6 @@
         private PictureBox pictureBox3;
         private PictureBox pb_son;
         private PictureBox pb_soncoupe;
+        private PictureBox pbReference;
     }
 }

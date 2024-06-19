@@ -38,12 +38,12 @@
             pbRetour.BackColor = Color.Transparent;
             pbRetour.BackgroundImage = (Image)resources.GetObject("pbRetour.BackgroundImage");
             pbRetour.BackgroundImageLayout = ImageLayout.Stretch;
-            pbRetour.Location = new Point(12, 288);
+            pbRetour.Location = new Point(575, 272);
             pbRetour.Name = "pbRetour";
-            pbRetour.Size = new Size(93, 54);
+            pbRetour.Size = new Size(104, 80);
             pbRetour.TabIndex = 0;
             pbRetour.TabStop = false;
-            pbRetour.Click += this.pbRetour_Click;
+            pbRetour.Click += pbRetour_Click;
             // 
             // Reference
             // 
@@ -52,10 +52,11 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(700, 338);
+            ControlBox = false;
             Controls.Add(pbRetour);
             DoubleBuffered = true;
             Name = "Reference";
-            Text = "Form1";
+            Text = "Les references";
             ((System.ComponentModel.ISupportInitialize)pbRetour).EndInit();
             ResumeLayout(false);
         }

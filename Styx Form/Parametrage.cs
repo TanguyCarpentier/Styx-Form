@@ -68,5 +68,12 @@ namespace Styx_Form
                 pb_son.Visible = true;    // Affiche le bouton de lecture
             }
         }
+
+        private void pbReference_Click(object sender, EventArgs e)
+        {
+            Reference score = new Reference();
+            score.Show();
+            this.Hide();
+        }
     }
 }

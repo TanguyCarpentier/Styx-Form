@@ -16,5 +16,12 @@ namespace Styx_Form
         {
             InitializeComponent();
         }
+
+        private void pbRetour_Click(object sender, EventArgs e)
+        {
+            Pseudo Param = new Pseudo();
+            Param.Show();
+            this.Hide();
+        }
     }
 }
