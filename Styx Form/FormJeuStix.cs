@@ -35,7 +35,7 @@ namespace Styx_Form
             this.WindowState = FormWindowState.Maximized;
 
             Spawn = pnlLaby.Location;
-            Spawn.X += -280;
+            Spawn.X += - 280;
             Spawn.Y += 10;
 
             // Initialisation de Joueur
