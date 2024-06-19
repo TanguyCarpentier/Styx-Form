@@ -130,6 +130,7 @@ namespace Styx_Form
 
             if (partie.VerifFinJeu(joueur))
             {
+                gameTimer.Stop();
                 DialogResult result = MessageBox.Show(
                     "Vous passez au niveau supérieur!",
                     "Niveau Supérieur",
