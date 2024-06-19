@@ -53,10 +53,23 @@ namespace Styx_Biblio_Jeu
                             break;
                     }
                     ConversionCoo();
-                    if (Position == joueur.Position)
+
+                    Point[] tabPos = new Point[4];
+
+                    tabPos[0] = Position;
+                    tabPos[1] = new Point(Position.X + 2, Position.Y);
+                    tabPos[2] = new Point(Position.X, Position.Y + 2);
+                    tabPos[3] = new Point(Position.X, Position.Y - 2);
+                    tabPos[4] = new Point(Position.X - 2, Position.Y);
+
+                    foreach (Point p in tabPos)
                     {
-                        joueur.InterractionMob(this);
+                        if (p == joueur.Position)
+                        {
+                            joueur.InterractionMob(this);
+                        }
                     }
+                    
                 }
             }
         }

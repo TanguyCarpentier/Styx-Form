@@ -178,16 +178,28 @@ namespace Styx_Biblio_Jeu
             }
         }
 
-        public void Bonus_Vitesse()
+        public async Task Bonus_Vitesse(Jeu partie)
         {
+            if (!estMort)
+            {
+                partie.TickSpeed -= 200;
 
+                await Task.Delay(10000);
 
+                partie.TickSpeed += 200;
+            }
         }
 
-        public void Bonus_Flocon()
+        public async Task Bonus_Flocon(Jeu partie)
         {
+            if (!estMort)
+            {
+                partie.TickSpeed += 200;
 
+                await Task.Delay(10000);
 
+                partie.TickSpeed += 200;
+            }
         }
         public void Bonus_Balance()
         {
@@ -268,7 +280,7 @@ namespace Styx_Biblio_Jeu
                         Lab.tab[Position.Y, Position.X] = "esp";
                         jeu.score += 1 * MultiplicateurScore;
                         Lab.compArtefact -= 1;
-                        Bonus_Vitesse();
+                        Bonus_Vitesse(jeu);
                         return (Position);
 
                     case "bal":
@@ -282,7 +294,7 @@ namespace Styx_Biblio_Jeu
                         Lab.tab[Position.Y, Position.X] = "esp";
                         jeu.score += 1 * MultiplicateurScore;
                         Lab.compArtefact -= 1;
-                        Bonus_Flocon();
+                        Bonus_Flocon(jeu);
                         return (Position);
 
                     default:

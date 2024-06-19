@@ -97,6 +97,7 @@ namespace Styx_Form
 
         private void GameTimer_Tick(object sender, EventArgs e)
         {
+            gameTimer.Interval = partie.TickSpeed;
             partie.tempEcoule += gameTimer.Interval;
             // Déplacement du Joueur
             joueur.Move(Laby);
