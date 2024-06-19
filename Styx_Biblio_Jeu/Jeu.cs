@@ -67,9 +67,9 @@
         {
             if (!joueur.estMort)
             {
-                if (nbArtefacts == 0)
+                if (nbArtefacts <10 )
                 {
-                    if (nbFlammeRestant == 0)
+                    if (nbFlammeRestant < 10)
                     {
                         return true;
                     }

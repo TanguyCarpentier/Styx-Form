@@ -117,7 +117,18 @@ namespace Styx_Biblio_Jeu
         public void Draw(Graphics g)
         {
             if (!estMort)
-                g.DrawImage(Texture, new Rectangle(posPixel, Size));
+                //g.DrawImage(Texture, new Rectangle(posPixel, Size));
+                g.DrawImage(ResizeImage(Texture, Size), new Rectangle(posPixel, Size));
+        }
+
+        private Image ResizeImage(Image img, Size newSize)
+        {
+            Bitmap newImg = new Bitmap(newSize.Width, newSize.Height);
+            using (Graphics g = Graphics.FromImage(newImg))
+            {
+                g.DrawImage(img, new Rectangle(0, 0, newSize.Width, newSize.Height));
+            }
+            return newImg;
         }
 
         public bool VerifMort()

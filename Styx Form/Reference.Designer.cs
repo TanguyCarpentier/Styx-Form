@@ -55,6 +55,7 @@
             ControlBox = false;
             Controls.Add(pbRetour);
             DoubleBuffered = true;
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Name = "Reference";
             Text = "Les references";
             ((System.ComponentModel.ISupportInitialize)pbRetour).EndInit();

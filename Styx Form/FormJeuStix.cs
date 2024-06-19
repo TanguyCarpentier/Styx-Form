@@ -23,6 +23,7 @@ namespace Styx_Form
         private int compt1 = 0;
         private Jeu partie;
 
+
         public FormJeuStyx(Jeu jeu)
         {
             InitializeComponent();
@@ -83,6 +84,7 @@ namespace Styx_Form
         }
         private void initialisationEnnemis()
         {
+
             partie.EnnemieList.Add(new Ennemie("1", Spawn, new Point(15, 1), Styx_Form.Properties.Resources.Squelette_Sprite, new Size(40, 40)));
             partie.EnnemieList.Add(new Ennemie("2", Spawn, new Point(1, 15), Styx_Form.Properties.Resources.Squelette_Sprite, new Size(40, 40)));
             partie.EnnemieList.Add(new Ennemie("3", Spawn, new Point(15, 15), Styx_Form.Properties.Resources.Squelette_Sprite, new Size(40, 40)));

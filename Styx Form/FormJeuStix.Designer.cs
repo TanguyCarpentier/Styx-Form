@@ -3,7 +3,7 @@
     partial class FormJeuStyx
     {
         private System.ComponentModel.IContainer components = null;
-        private System.Windows.Forms.Panel pnlLaby;
+        private DoubleBufferedPanel pnlLaby;
 
         protected override void Dispose(bool disposing)
         {
@@ -16,7 +16,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormJeuStyx));
-            pnlLaby = new Panel();
+            pnlLaby = new DoubleBufferedPanel();
             lblPseudoJoueur = new Label();
             lblNbVie = new Label();
             lblScoreJoueur = new Label();
