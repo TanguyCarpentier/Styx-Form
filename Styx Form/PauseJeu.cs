@@ -16,9 +16,9 @@ namespace Styx_Form
     {
         SoundPlayer player = new SoundPlayer(Styx_Form.Properties.Resources.Hell);
         bool isSoundPlaying = false;
-        private Form parentForm;
+        private FormJeuStyx parentForm;
 
-        public PauseJeu(Form parent)
+        public PauseJeu(FormJeuStyx parent)
         {
             InitializeComponent();
             player.Load();
@@ -34,6 +34,7 @@ namespace Styx_Form
 
         private void pbContinuer_Click(object sender, EventArgs e)
         {
+            parentForm.gameTimer.Start();
             this.Close();
         }
 

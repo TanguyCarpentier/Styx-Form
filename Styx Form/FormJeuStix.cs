@@ -15,7 +15,7 @@ namespace Styx_Form
     public partial class FormJeuStyx : Form
     {
         private Joueur joueur;
-        private Timer gameTimer;
+        public Timer gameTimer;
         private Plateau Laby;
         private Point Spawn;
         private int compt2 = 0;
