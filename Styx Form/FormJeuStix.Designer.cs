@@ -1,16 +1,10 @@
 ﻿namespace Styx_Form
 {
-    partial class FormJeuStix
+    partial class FormJeuStyx
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
+        private System.Windows.Forms.Panel pnlLaby;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -19,41 +13,36 @@
             }
             base.Dispose(disposing);
         }
-
-        #region Windows Form Designer generated code
-
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormJeuStyx));
             pnlLaby = new Panel();
             SuspendLayout();
             // 
             // pnlLaby
             // 
-            pnlLaby.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            pnlLaby.Location = new Point(328, 81);
-            pnlLaby.Margin = new Padding(4, 5, 4, 5);
+            pnlLaby.Anchor = AnchorStyles.None;
+            pnlLaby.AutoSize = true;
+            pnlLaby.Location = new Point(289, 0);
             pnlLaby.Name = "pnlLaby";
-            pnlLaby.Size = new Size(986, 690);
+            pnlLaby.Size = new Size(700, 562);
             pnlLaby.TabIndex = 0;
             // 
-            // FormJeuStix
+            // FormJeuStyx
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1976, 1028);
+            AutoSize = true;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            BackgroundImageLayout = ImageLayout.Stretch;
+            ClientSize = new Size(1278, 562);
             Controls.Add(pnlLaby);
-            Margin = new Padding(4, 5, 4, 5);
-            Name = "FormJeuStix";
-            Text = "FormJeuStix";
+            DoubleBuffered = true;
+            Name = "FormJeuStyx";
+            Text = "FormJeuStyx";
+            Load += FormJeuStyx_Load;
             ResumeLayout(false);
+            PerformLayout();
         }
-
-        #endregion
-
-        private Panel pnlLaby;
     }
 }

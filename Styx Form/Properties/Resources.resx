@@ -118,19 +118,84 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="balance" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\balance.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bouclier" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bouclier.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="casque_off" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\casque_off.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="casque_on" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\casque_on.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="chaussure" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\chaussure.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="coeur" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\coeur.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="flamme" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\flamme.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="flamme2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\flamme2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="flocon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\flocon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FormJeuBack" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FormJeuBack.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="labytestY" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\labytestY.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="logo_styx_petit" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logo styx petit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+
   <data name="son" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\son.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="son_coupé" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="son_coupe" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\son coupé.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+
+  <data name="Lyre" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Lyre.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="lyre2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\lyre2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="multiplicateur_exp" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\multiplicateur-exp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mur" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mur.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mur1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mur1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mur3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mur3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Oedype_sansfond" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Oedype_sansfond.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="over" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\over.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="plume" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\plume.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Squelette_Sprite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Squelette_Sprite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TestPlay" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TestPlay.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="You_died" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\You_died.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+
   </data>
 </root>
