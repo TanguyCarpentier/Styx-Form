@@ -17,12 +17,13 @@ namespace Styx_Form
             InitializeComponent();
         }
 
-        private void button4_Click(object sender, EventArgs e)
+
+        private void Scoreboard_Load(object sender, EventArgs e)
         {
-            Application.Exit();
+
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void RETOUR_Click(object sender, EventArgs e)
         {
             Pseudo Param = new Pseudo();
             Param.Show();

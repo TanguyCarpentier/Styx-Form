@@ -1,16 +1,24 @@
-  namespace Styx_Form
+using System;
+using System.Windows.Forms;
+using System.Media;
+
+namespace Styx_Form
 {
     public partial class Pseudo : Form
     {
+        SoundPlayer player = new SoundPlayer(@"D:\Téléchargements\Hell.wav");
+        bool isSoundPlaying = false;
+
         public Pseudo()
         {
             InitializeComponent();
+            player.Load();
 
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
+            // Démarrer la lecture du son au démarrage de l'application
+            player.PlayLooping();
+            isSoundPlaying = true;
+            pb_son.Visible = false;     // Cache l'icône de lecture
+            pb_soncoupe.Visible = true; // Affiche l'icône de pause
         }
 
         private void btnJoueur_Click(object sender, EventArgs e)
@@ -27,13 +35,37 @@
             this.Hide();
         }
 
-        private void pBCasque_Click(object sender, EventArgs e)
+        private void btnClick(object sender, EventArgs e)
         {
-            if (pBCasque.Image != Styx_Form.Properties.Resources.casque_on)
-                pBCasque.Image = Styx_Form.Properties.Resources.casque_on;
-            else 
+            Application.Exit();
+        }
+
+        private void pb_son_Click(object sender, EventArgs e)
+        {
+            if (!isSoundPlaying)
             {
-                pBCasque.Image = Styx_Form.Properties.Resources.casque_off;
+                player.PlayLooping();
+                isSoundPlaying = true;
+                pb_son.Visible = false;    // Cache le bouton de lecture
+                pb_soncoupe.Visible = true;  // Affiche le bouton de pause
+            }
+            else
+            {
+                player.Stop();
+                isSoundPlaying = false;
+                pb_soncoupe.Visible = false;  // Cache le bouton de pause
+                pb_son.Visible = true;    // Affiche le bouton de lecture
+            }
+        }
+
+        private void pb_soncoupe_Click(object sender, EventArgs e)
+        {
+            if (isSoundPlaying)
+            {
+                player.Stop();
+                isSoundPlaying = false;
+                pb_soncoupe.Visible = false;  // Cache le bouton de pause
+                pb_son.Visible = true;    // Affiche le bouton de lecture
             }
         }
     }

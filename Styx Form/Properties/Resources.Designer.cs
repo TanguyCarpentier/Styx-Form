@@ -183,9 +183,11 @@ namespace Styx_Form.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Lyre {
+
+        internal static System.Drawing.Bitmap son {
             get {
-                object obj = ResourceManager.GetObject("Lyre", resourceCulture);
+                object obj = ResourceManager.GetObject("son", resourceCulture);
+
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -193,12 +195,11 @@ namespace Styx_Form.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap lyre2 {
+
+        internal static System.Drawing.Bitmap son_coupe {
             get {
-                object obj = ResourceManager.GetObject("lyre2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
+                object obj = ResourceManager.GetObject("son_coupe", resourceCulture);
+
         
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
@@ -296,6 +297,7 @@ namespace Styx_Form.Properties {
         internal static System.Drawing.Bitmap You_died {
             get {
                 object obj = ResourceManager.GetObject("You_died", resourceCulture);
+
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

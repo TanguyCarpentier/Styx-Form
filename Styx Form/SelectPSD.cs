@@ -17,22 +17,29 @@ namespace Styx_Form
             InitializeComponent();
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Pseudo Param = new Pseudo();
-            Param.Show();
-            this.Hide();
-        }
-
         private void btnPlay_Click(object sender, EventArgs e)
         {
             FormJeuStyx formJeuStix = new FormJeuStyx(txtPseudo.Text);
             formJeuStix.Show();
+            this.Hide();
+        }
+
+
+
+        private void txtPseudo_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ptnQuitter_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            Pseudo Param = new Pseudo();
+            Param.Show();
             this.Hide();
         }
     }

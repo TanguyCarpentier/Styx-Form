@@ -28,96 +28,128 @@
         /// </summary>
         private void InitializeComponent()
         {
-            pBCasque = new PictureBox();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Pseudo));
             backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            groupBox1 = new GroupBox();
-            btnQuitter = new Button();
-            btnScoreBoard = new Button();
-            btnJoueur = new Button();
-            ((System.ComponentModel.ISupportInitialize)pBCasque).BeginInit();
-            groupBox1.SuspendLayout();
+            pictureBox1 = new PictureBox();
+            pictureBox2 = new PictureBox();
+            pictureBox3 = new PictureBox();
+            pb_son = new PictureBox();
+            pb_soncoupe = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pb_son).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pb_soncoupe).BeginInit();
             SuspendLayout();
             // 
-            // pBCasque
+            // pictureBox1
             // 
-            pBCasque.Image = Properties.Resources.casque_off;
-            pBCasque.Location = new Point(6, 249);
-            pBCasque.Margin = new Padding(3, 2, 3, 2);
-            pBCasque.Name = "pBCasque";
-            pBCasque.Size = new Size(74, 71);
-            pBCasque.TabIndex = 0;
-            pBCasque.TabStop = false;
-            pBCasque.Click += pBCasque_Click;
+
+            pictureBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            pictureBox1.BackColor = Color.Transparent;
+            pictureBox1.BackgroundImage = (Image)resources.GetObject("pictureBox1.BackgroundImage");
+            pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
+            pictureBox1.Location = new Point(224, -16);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(258, 153);
+            pictureBox1.TabIndex = 8;
+            pictureBox1.TabStop = false;
+            pictureBox1.Click += btnJoueur_Click;
             // 
-            // groupBox1
+            // pictureBox2
             // 
-            groupBox1.Controls.Add(btnQuitter);
-            groupBox1.Controls.Add(btnScoreBoard);
-            groupBox1.Controls.Add(btnJoueur);
-            groupBox1.Controls.Add(pBCasque);
-            groupBox1.Location = new Point(130, 9);
-            groupBox1.Margin = new Padding(3, 2, 3, 2);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Padding = new Padding(3, 2, 3, 2);
-            groupBox1.Size = new Size(437, 320);
-            groupBox1.TabIndex = 1;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "MenuPrincipal";
+
+            pictureBox2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            pictureBox2.BackColor = Color.Transparent;
+            pictureBox2.BackgroundImage = (Image)resources.GetObject("pictureBox2.BackgroundImage");
+            pictureBox2.BackgroundImageLayout = ImageLayout.Stretch;
+            pictureBox2.Location = new Point(224, 98);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(258, 153);
+            pictureBox2.TabIndex = 9;
+            pictureBox2.TabStop = false;
+            pictureBox2.Click += btnScoreBoard_Click;
+
             // 
-            // btnQuitter
+            // pictureBox3
             // 
-            btnQuitter.Location = new Point(129, 215);
-            btnQuitter.Margin = new Padding(3, 2, 3, 2);
-            btnQuitter.Name = "btnQuitter";
-            btnQuitter.Size = new Size(193, 38);
-            btnQuitter.TabIndex = 3;
-            btnQuitter.Text = "Quitter";
-            btnQuitter.UseVisualStyleBackColor = true;
-            btnQuitter.Click += button3_Click;
+
+            pictureBox3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            pictureBox3.BackColor = Color.Transparent;
+            pictureBox3.BackgroundImage = (Image)resources.GetObject("pictureBox3.BackgroundImage");
+            pictureBox3.BackgroundImageLayout = ImageLayout.Stretch;
+            pictureBox3.Location = new Point(224, 213);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(258, 153);
+            pictureBox3.TabIndex = 10;
+            pictureBox3.TabStop = false;
+            pictureBox3.Click += btnClick;
+
             // 
-            // btnScoreBoard
+            // pb_son
             // 
-            btnScoreBoard.Location = new Point(129, 154);
-            btnScoreBoard.Margin = new Padding(3, 2, 3, 2);
-            btnScoreBoard.Name = "btnScoreBoard";
-            btnScoreBoard.Size = new Size(193, 38);
-            btnScoreBoard.TabIndex = 2;
-            btnScoreBoard.Text = "ScoreBoard";
-            btnScoreBoard.UseVisualStyleBackColor = true;
-            btnScoreBoard.Click += btnScoreBoard_Click;
+
+            pb_son.BackColor = Color.Transparent;
+            pb_son.BackgroundImage = (Image)resources.GetObject("pb_son.BackgroundImage");
+            pb_son.BackgroundImageLayout = ImageLayout.Stretch;
+            pb_son.Location = new Point(568, 255);
+            pb_son.Name = "pb_son";
+            pb_son.Size = new Size(77, 55);
+            pb_son.TabIndex = 11;
+            pb_son.TabStop = false;
+            pb_son.Click += pb_son_Click;
+
+
             // 
-            // btnJoueur
+            // pb_soncoupe
             // 
-            btnJoueur.Location = new Point(129, 94);
-            btnJoueur.Margin = new Padding(3, 2, 3, 2);
-            btnJoueur.Name = "btnJoueur";
-            btnJoueur.Size = new Size(193, 38);
-            btnJoueur.TabIndex = 1;
-            btnJoueur.Text = "Jouer";
-            btnJoueur.UseVisualStyleBackColor = true;
-            btnJoueur.Click += btnJoueur_Click;
+
+            pb_soncoupe.BackColor = Color.Transparent;
+            pb_soncoupe.BackgroundImage = (Image)resources.GetObject("pb_soncoupe.BackgroundImage");
+            pb_soncoupe.BackgroundImageLayout = ImageLayout.Stretch;
+            pb_soncoupe.Location = new Point(568, 255);
+            pb_soncoupe.Name = "pb_soncoupe";
+            pb_soncoupe.Size = new Size(77, 55);
+            pb_soncoupe.TabIndex = 12;
+            pb_soncoupe.TabStop = false;
+            pb_soncoupe.Click += pb_soncoupe_Click;
+
+
             // 
             // Pseudo
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(700, 338);
-            Controls.Add(groupBox1);
+            ControlBox = false;
+            Controls.Add(pictureBox3);
+            Controls.Add(pictureBox2);
+            Controls.Add(pictureBox1);
+            Controls.Add(pb_son);
+            Controls.Add(pb_soncoupe);
+            DoubleBuffered = true;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+
             Margin = new Padding(3, 2, 3, 2);
             Name = "Pseudo";
             Text = "Parametrage";
-            ((System.ComponentModel.ISupportInitialize)pBCasque).EndInit();
-            groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pb_son).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pb_soncoupe).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
-
-        private PictureBox pBCasque;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private GroupBox groupBox1;
-        private Button btnJoueur;
-        private Button btnQuitter;
-        private Button btnScoreBoard;
+        private PictureBox pictureBox1;
+        private PictureBox pictureBox2;
+        private PictureBox pictureBox3;
+        private PictureBox pb_son;
+        private PictureBox pb_soncoupe;
     }
 }
