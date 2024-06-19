@@ -35,11 +35,13 @@
             pictureBox3 = new PictureBox();
             pb_son = new PictureBox();
             pb_soncoupe = new PictureBox();
+            pbReference = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pb_son).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pb_soncoupe).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbReference).BeginInit();
             SuspendLayout();
             // 
             // pictureBox1
@@ -104,6 +106,20 @@
             pb_soncoupe.TabIndex = 12;
             pb_soncoupe.TabStop = false;
             pb_soncoupe.Click += pb_soncoupe_Click;
+
+            // 
+            // pbReference
+            // 
+            pbReference.BackColor = Color.Transparent;
+            pbReference.BackgroundImage = (Image)resources.GetObject("pbReference.BackgroundImage");
+            pbReference.BackgroundImageLayout = ImageLayout.Stretch;
+            pbReference.Location = new Point(46, 239);
+            pbReference.Name = "pbReference";
+            pbReference.Size = new Size(69, 71);
+            pbReference.TabIndex = 13;
+            pbReference.TabStop = false;
+            pbReference.Click += pbReference_Click;
+
             // 
             // Pseudo
             // 
@@ -113,6 +129,7 @@
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(700, 338);
             ControlBox = false;
+            Controls.Add(pbReference);
             Controls.Add(pictureBox3);
             Controls.Add(pictureBox2);
             Controls.Add(pictureBox1);
@@ -128,6 +145,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)pb_son).EndInit();
             ((System.ComponentModel.ISupportInitialize)pb_soncoupe).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbReference).EndInit();
             ResumeLayout(false);
         }
 
@@ -138,5 +156,6 @@
         private PictureBox pictureBox3;
         private PictureBox pb_son;
         private PictureBox pb_soncoupe;
+        private PictureBox pbReference;
     }
 }
