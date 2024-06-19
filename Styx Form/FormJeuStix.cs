@@ -41,6 +41,8 @@ namespace Styx_Form
             // Initialisation de Joueur
             joueur = new Joueur(Spawn, Styx_Form.Properties.Resources.Oedype_sansfond, new Size(30, 28));
 
+            //Initialisation Scoreboard
+            lblPseudoJoueur.Text = "Pseudo du joueur: "+Pseudo;
 
             initialisationEnnemis();
 
