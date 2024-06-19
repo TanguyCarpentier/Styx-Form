@@ -11,6 +11,7 @@
         public int nbFlammeRestant;
         public int tempEcoule;
         public int niveauEnCour;
+        public int TickSpeed;
 
         public Jeu()
         {
@@ -21,6 +22,7 @@
             nbEnemis = 0;
             nbFlammeRestant = 0;
             tempEcoule = 0;
+            TickSpeed = 300;
             EnnemieList = new List<Ennemie>();
 
         }

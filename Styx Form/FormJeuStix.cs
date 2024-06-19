@@ -40,13 +40,14 @@ namespace Styx_Form
             Spawn.Y += 10;
 
             // Initialisation de Joueur
-            joueur = new Joueur(Spawn, Styx_Form.Properties.Resources.over, new Size(30, 28));
+            joueur = new Joueur(Spawn, Styx_Form.Properties.Resources.Oedype_sansfond, new Size(30, 28));
 
 
+            initialisationEnnemis();
 
             // Initialisation du Timer
             gameTimer = new Timer();
-            gameTimer.Interval = 300; // 100 ms = 0.1 seconde
+            gameTimer.Interval = partie.TickSpeed; // 300 ms = 0.3 seconde
             gameTimer.Tick += GameTimer_Tick;
             gameTimer.Start();
 
@@ -66,6 +67,12 @@ namespace Styx_Form
             CreateGrid(Laby);
             CenterPanel(pnlLaby);
 
+            
+
+        }
+        private void initialisationEnnemis()
+        {
+            partie.EnnemieList.Add(new Ennemie("1",Spawn, new Point (15,1), Styx_Form.Properties.Resources.over, new Size(30,30)));
         }
         private void RemovePictureBoxByName(Panel panel, string pictureBoxName)
         {
@@ -93,6 +100,8 @@ namespace Styx_Form
             partie.tempEcoule += gameTimer.Interval;
             // Déplacement du Joueur
             joueur.Move(Laby);
+
+            partie.MoveAllEnemies(Laby, joueur);
 
             Point Collision;
             Collision = joueur.CollisionEntiteNM(Laby, partie);
@@ -127,7 +136,7 @@ namespace Styx_Form
                     
                     break;
                 case Keys.Space:
-                    joueur.Dash(Laby);
+                    joueur.Dash(Laby, partie);
                     break;
             }
         }
@@ -136,7 +145,11 @@ namespace Styx_Form
         {
             // Dessiner le Joueur
             joueur.Draw(e.Graphics);
-            //joueur.Draw(e.Graphics);
+            //Dessiner les ennemies
+            foreach (Ennemie ennemi in partie.EnnemieList)
+            {
+                ennemi.Draw(e.Graphics);
+            }
         }
         private void CenterPanel(Panel panel)
         {

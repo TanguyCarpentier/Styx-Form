@@ -243,6 +243,16 @@ namespace Styx_Form.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Oedype_sansfond {
+            get {
+                object obj = ResourceManager.GetObject("Oedype_sansfond", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap over {
             get {
                 object obj = ResourceManager.GetObject("over", resourceCulture);

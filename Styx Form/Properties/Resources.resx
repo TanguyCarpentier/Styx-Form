@@ -172,6 +172,9 @@
   <data name="mur3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\mur3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Oedype_sansfond" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Oedype_sansfond.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="over" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\over.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

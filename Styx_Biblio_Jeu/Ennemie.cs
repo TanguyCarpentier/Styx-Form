@@ -9,17 +9,19 @@ namespace Styx_Biblio_Jeu
 {
     public class Ennemie : Entite
     {
+        public string Name;
         public bool estMort;
         private Random random;
         public int Speed;
 
-        public Ennemie(Point PosLaby,Point initialPosition, System.Drawing.Image texture, Size size) : base(initialPosition, texture, size)
+        public Ennemie(string name, Point PosLaby,Point initialPosition, System.Drawing.Image texture, Size size) : base(PosLaby, texture, size)
         {
-
+            
+            Name = name;
             posPixel = initialPosition;
             Speed = 2;
             estMort = false;
-            Position = PosLaby;
+            Position = initialPosition;
             Size = size;
             Texture = texture;
             random = new Random();
@@ -29,10 +31,11 @@ namespace Styx_Biblio_Jeu
 
         public void Move(Plateau ptab, Joueur joueur)
         {
+            CurrentDirection = GetNextDirection(ptab);
             if (CollisionMur(ptab))
             {
-                Direction nextDirection = GetNextDirection();
-                switch (nextDirection)
+                
+                switch (CurrentDirection)
                 {
                     case Direction.Up:
                         Position = new Point(Position.X, Position.Y - Speed);
@@ -44,14 +47,18 @@ namespace Styx_Biblio_Jeu
                         Position = new Point(Position.X - Speed, Position.Y);
                         break;
                     case Direction.Right:
-                        Position = new Point(Position.X + Speed);
+                        Position = new Point(Position.X + Speed, Position.Y);
                         break;
                 }
                 ConversionCoo();
+                if (Position == joueur.Position)
+                {
+                    joueur.InterractionMob(this);
+                }
             }
         }
 
-        private Direction GetNextDirection()
+        private Direction GetNextDirection(Plateau ptab)
         {
 
             Direction[] directions = [Direction.Up, Direction.Down, Direction.Left, Direction.Right];

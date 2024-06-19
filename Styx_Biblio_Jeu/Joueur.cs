@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using static System.Net.Mime.MediaTypeNames;
 using Timer = System.Timers.Timer;
+using Microsoft.VisualBasic;
 
 
 namespace Styx_Biblio_Jeu
@@ -39,7 +40,7 @@ namespace Styx_Biblio_Jeu
             Invincible = false;
             ModeTueur = false;
             MultiplicateurScore = 1;
-            vie = 3;
+            vie = 2;
 
         }
 
@@ -87,13 +88,20 @@ namespace Styx_Biblio_Jeu
             return estMort;
         }
 
-        public void InterractionMob(Ennemie mob)
+        public async Task InterractionMob(Ennemie mob)
         {
             if (!estMort) 
             {
                 if (!Invincible)
                 {
                     vie -= 1;
+                    VerifMort();
+                    Invincible = true;
+
+                    await Task.Delay(2000); // Attendre 10 secondes
+
+                    Invincible = false;
+
                 }
                 else if (ModeTueur)
                 {
@@ -102,7 +110,7 @@ namespace Styx_Biblio_Jeu
             }
         }
 
-        public void Dash(Plateau ptab)
+        public void Dash(Plateau ptab, Jeu partie)
         {
             if (!estMort && Dash1PickUp)
             {
@@ -116,6 +124,16 @@ namespace Styx_Biblio_Jeu
                 {
                     i++;
                     Move(ptab);
+                    foreach (Ennemie mob in partie.EnnemieList)
+                    {
+                        if (!mob.estMort)
+                        {
+                            if (Position == mob.Position)
+                            {
+                                InterractionMob(mob);
+                            }
+                        }
+                    }
                 }
                 Invincible = false;
                 ModeTueur = false;
