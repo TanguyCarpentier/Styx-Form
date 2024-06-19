@@ -33,7 +33,8 @@ namespace Styx_Form
 
             // Initialisation de Joueur
             joueur = new Joueur(Spawn, Styx_Form.Properties.Resources.over, new Size(30, 29));
-            lblPseudoJoueur.Text = "Pseudo du Joueur: "+Pseudo;
+            lblPseudoJoueur.Text = "Pseudo du Joueur: "+Pseudo; //Liasion quand le joueur entre son pseudo il s'affiche
+                                                                //dans le scoreboard
 
             // Initialisation du Timer
             gameTimer = new Timer();
