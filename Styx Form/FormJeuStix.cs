@@ -16,7 +16,6 @@ namespace Styx_Form
     {
         private Joueur joueur;
         private Timer gameTimer;
-        //private PictureBox joueurPictureBox;
         private Plateau Laby;
         private Point Spawn;
 
@@ -111,8 +110,34 @@ namespace Styx_Form
             {
                 RemovePictureBoxByName(pnlLaby, $"pic{Collision.Y}{Collision.X}");
             }
+
+            if (joueur.VerifMort())
+            {
+                MortDuJoueur();
+            }
             // Redessiner le panel
             pnlLaby.Invalidate();
+        }
+
+        public void MortDuJoueur()
+        {
+            gameTimer.Stop();
+            using (YouDie gameOverForm = new YouDie())
+            {
+                if (gameOverForm.ShowDialog() == DialogResult.OK)
+                {
+                    // Logique pour retourner au menu principal
+                    ReturnToMainMenu();
+                }
+            }
+        }
+        private void ReturnToMainMenu()
+        {
+            // Logique pour retourner au menu principal
+            // Par exemple, cacher le formulaire actuel et montrer le menu principal
+            this.Hide();
+            Pseudo mainMenu = new Pseudo();
+            mainMenu.Show();
         }
 
         private void FormJeuStyx_KeyDown(object sender, KeyEventArgs e)
