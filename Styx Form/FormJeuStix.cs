@@ -16,6 +16,7 @@ namespace Styx_Form
     {
         private Joueur joueur;
         public Timer gameTimer;
+        public Timer fpsTimer;
         private Plateau Laby;
         private Point Spawn;
         private int compt2 = 0;
@@ -53,6 +54,12 @@ namespace Styx_Form
             gameTimer.Interval = partie.TickSpeed; // 300 ms = 0.3 seconde
             gameTimer.Tick += GameTimer_Tick;
             gameTimer.Start();
+
+            //Init du Timer 2
+            fpsTimer = new Timer();
+            fpsTimer.Interval = 5;
+            fpsTimer.Tick += fpsTimer_Tick;
+            fpsTimer.Start();
 
             // Ajout du gestionnaire d'événements pour les touches
             this.KeyDown += FormJeuStyx_KeyDown;
@@ -102,6 +109,10 @@ namespace Styx_Form
                 Console.WriteLine("PictureBox not found.");
             }
         }
+        private void fpsTimer_Tick(object sender, EventArgs e)
+        {
+            pnlLaby.Invalidate();
+        }
 
         private void GameTimer_Tick(object sender, EventArgs e)
         {
@@ -149,7 +160,7 @@ namespace Styx_Form
                 }
             }
             // Redessiner le panel
-            pnlLaby.Invalidate();
+            
         }
 
         public void MortDuJoueur()
