@@ -6,7 +6,7 @@ namespace Styx_Form
 {
     public partial class Pseudo : Form
     {
-        SoundPlayer player = new SoundPlayer(@"D:\Téléchargements\Hell.wav");
+        SoundPlayer player = new SoundPlayer(Styx_Form.Properties.Resources.Hell);
         bool isSoundPlaying = false;
 
         public Pseudo()
