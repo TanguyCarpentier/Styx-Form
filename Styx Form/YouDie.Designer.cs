@@ -28,12 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "YouDie";
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(YouDie));
+            btnReturnToMenu = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)btnReturnToMenu).BeginInit();
+            SuspendLayout();
+            // 
+            // btnReturnToMenu
+            // 
+            btnReturnToMenu.BackgroundImage = (Image)resources.GetObject("btnReturnToMenu.BackgroundImage");
+            btnReturnToMenu.BackgroundImageLayout = ImageLayout.Stretch;
+            btnReturnToMenu.Location = new Point(263, 291);
+            btnReturnToMenu.Name = "btnReturnToMenu";
+            btnReturnToMenu.Size = new Size(266, 115);
+            btnReturnToMenu.TabIndex = 0;
+            btnReturnToMenu.TabStop = false;
+            // 
+            // YouDie
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(800, 450);
+            Controls.Add(btnReturnToMenu);
+            Name = "YouDie";
+            Text = "YouDie";
+            ((System.ComponentModel.ISupportInitialize)btnReturnToMenu).EndInit();
+            ResumeLayout(false);
         }
 
         #endregion
+
+        private PictureBox btnReturnToMenu;
     }
 }

@@ -30,9 +30,11 @@ namespace Styx_Form
             this.ClientSize = new Size(width, height);
             this.FormBorderStyle = FormBorderStyle.None;
 
-            Button btnReturnToMenu = new Button();
-            btnReturnToMenu.Text = "Retour au menu principal";
-            btnReturnToMenu.Size = new Size(200, 50);
+            PictureBox btnReturnToMenu = new PictureBox();
+            btnReturnToMenu.BackgroundImage = Properties.Resources.MenuP;
+            btnReturnToMenu.BackgroundImageLayout = ImageLayout.Stretch;
+            btnReturnToMenu.BackColor = Color.Transparent;
+            btnReturnToMenu.Size = new Size(258 , 153);
             btnReturnToMenu.Location = new Point((this.ClientSize.Width - btnReturnToMenu.Width) / 2, ((this.ClientSize.Height - btnReturnToMenu.Height) / 2)+400);
             btnReturnToMenu.Click += new EventHandler(this.BtnReturnToMenu_Click);
             this.Controls.Add(btnReturnToMenu);
