@@ -15,7 +15,7 @@ namespace Styx_Biblio_Jeu
 {
     public class Joueur : Entite
     {
-        
+
         public bool estMort;
         public int Speed;
         public bool Dash1PickUp;
@@ -24,14 +24,14 @@ namespace Styx_Biblio_Jeu
         public bool ModeTueur;
         public int MultiplicateurScore;
         public int vie;
-        
+
 
         public Joueur(Point initialPosition, System.Drawing.Image texture, Size size) : base(initialPosition, texture, size)
         {
             posPixel = initialPosition;
             Speed = 2;
             estMort = false;
-            Position = new Point (1,1);
+            Position = new Point(1, 1);
             Size = size;
             Texture = texture;
             StartLaby = initialPosition;
@@ -78,7 +78,7 @@ namespace Styx_Biblio_Jeu
         {
             if (vie < 1)
             {
-                estMort= true;
+                estMort = true;
 
             }
             else
@@ -90,9 +90,9 @@ namespace Styx_Biblio_Jeu
 
         public async Task InterractionMob(Ennemie mob)
         {
-            if (!estMort) 
+            if (!estMort)
             {
-                if (!Invincible||mob.estMort)
+                if (!Invincible || mob.estMort)
                 {
                     vie -= 1;
                     VerifMort();
@@ -120,7 +120,7 @@ namespace Styx_Biblio_Jeu
                 Invincible = true;
                 ModeTueur = true;
 
-                while(i < DashSpeed)
+                while (i < DashSpeed)
                 {
                     i++;
                     Move(ptab);
@@ -214,81 +214,84 @@ namespace Styx_Biblio_Jeu
 
         public Point CollisionEntiteNM(Plateau Lab, Jeu jeu)
         {
-            
-            string parcour = Lab.AfficheCase(Position.X, Position.Y);
-
-            switch (parcour)
+            if (!estMort)
             {
-                case "fla":
-                    Lab.tab[Position.Y, Position.X] = "esp";
-                    jeu.score += 1*MultiplicateurScore;
-                    Lab.compFlamme -= 1;
-                    return (Position);
+                string parcour = Lab.AfficheCase(Position.X, Position.Y);
 
-                case "dash":
-                    Lab.tab[Position.Y, Position.X] = "esp";
-                    jeu.score += 1*MultiplicateurScore;
-                    Lab.compArtefact -= 1;
-                    if (!Dash1PickUp)
-                    {
-                        Dash1PickUp = true;
-                    }
-                    return (Position);
+                switch (parcour)
+                {
+                    case "fla":
+                        Lab.tab[Position.Y, Position.X] = "esp";
+                        jeu.score += 1 * MultiplicateurScore;
+                        Lab.compFlamme -= 1;
+                        return (Position);
 
-                case "lyre":
-                    Lab.tab[Position.Y, Position.X] = "esp";
-                    jeu.score += 1*MultiplicateurScore;
-                    Lab.compArtefact -= 1;
-                    Bonus_Lyre();
-                    return (Position);
+                    case "dash":
+                        Lab.tab[Position.Y, Position.X] = "esp";
+                        jeu.score += 1 * MultiplicateurScore;
+                        Lab.compArtefact -= 1;
+                        if (!Dash1PickUp)
+                        {
+                            Dash1PickUp = true;
+                        }
+                        return (Position);
 
-                case "exp":
-                    Lab.tab[Position.Y, Position.X] = "esp";
-                    jeu.score += 1 * MultiplicateurScore;
-                    Lab.compArtefact -= 1;
-                    Bonus_Exp();
-                    return(Position);
+                    case "lyre":
+                        Lab.tab[Position.Y, Position.X] = "esp";
+                        jeu.score += 1 * MultiplicateurScore;
+                        Lab.compArtefact -= 1;
+                        Bonus_Lyre();
+                        return (Position);
 
-                case "bou":
-                    Lab.tab[Position.Y, Position.X] = "esp";
-                    jeu.score += 1 * MultiplicateurScore;
-                    Lab.compArtefact -= 1;
-                    Bonus_Bou();
-                    return (Position);
+                    case "exp":
+                        Lab.tab[Position.Y, Position.X] = "esp";
+                        jeu.score += 1 * MultiplicateurScore;
+                        Lab.compArtefact -= 1;
+                        Bonus_Exp();
+                        return (Position);
 
-                case "coe":
-                    Lab.tab[Position.Y, Position.X] = "esp";
-                    jeu.score += 1 * MultiplicateurScore;
-                    Lab.compArtefact -= 1;
-                    vie += 1;
-                    return (Position);
+                    case "bou":
+                        Lab.tab[Position.Y, Position.X] = "esp";
+                        jeu.score += 1 * MultiplicateurScore;
+                        Lab.compArtefact -= 1;
+                        Bonus_Bou();
+                        return (Position);
 
-                case "vit":
-                    Lab.tab[Position.Y, Position.X] = "esp";
-                    jeu.score += 1 * MultiplicateurScore;
-                    Lab.compArtefact -= 1;
-                    Bonus_Vitesse();
-                    return (Position);
+                    case "coe":
+                        Lab.tab[Position.Y, Position.X] = "esp";
+                        jeu.score += 1 * MultiplicateurScore;
+                        Lab.compArtefact -= 1;
+                        vie += 1;
+                        return (Position);
 
-                case "bal":
-                    Lab.tab[Position.Y, Position.X] = "esp";
-                    jeu.score += 1 * MultiplicateurScore;
-                    Lab.compArtefact -= 1;
-                    Bonus_Balance();
-                    return (Position);
+                    case "vit":
+                        Lab.tab[Position.Y, Position.X] = "esp";
+                        jeu.score += 1 * MultiplicateurScore;
+                        Lab.compArtefact -= 1;
+                        Bonus_Vitesse();
+                        return (Position);
 
-                case "flo":
-                    Lab.tab[Position.Y, Position.X] = "esp";
-                    jeu.score += 1 * MultiplicateurScore;
-                    Lab.compArtefact -= 1;
-                    Bonus_Flocon();
-                    return (Position);
+                    case "bal":
+                        Lab.tab[Position.Y, Position.X] = "esp";
+                        jeu.score += 1 * MultiplicateurScore;
+                        Lab.compArtefact -= 1;
+                        Bonus_Balance();
+                        return (Position);
 
-                default:
-                    Point point = new Point(0,0);
-                    return (point);
-            }       
-            
+                    case "flo":
+                        Lab.tab[Position.Y, Position.X] = "esp";
+                        jeu.score += 1 * MultiplicateurScore;
+                        Lab.compArtefact -= 1;
+                        Bonus_Flocon();
+                        return (Position);
+
+                    default:
+                        Point pointe = new Point(0, 0);
+                        return (pointe);
+                }
+            }
+            Point point = new Point(0, 0);
+            return (point);
         }
 
     }
