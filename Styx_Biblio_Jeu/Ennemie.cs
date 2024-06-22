@@ -85,6 +85,29 @@ namespace Styx_Biblio_Jeu
         private Direction GetNextDirection(Plateau ptab)
         {
 
+            int NbMethode = 1; //nombre de méthode de déplacement
+
+            int ChoixMethode = random.Next(NbMethode);
+
+            Direction direction =Direction.Right;
+
+            switch (ChoixMethode) //chaque case représente une méthode
+            {
+                case 0:
+                    direction = AleaNoWall(ptab);
+                    break;
+
+                case 1: 
+                    direction = AleaNoWall(ptab);// à changer 
+                    break;
+            }
+
+
+            return direction;
+        }
+
+        private Direction AleaNoWall (Plateau ptab)
+        {
             Direction[] directions = [Direction.Up, Direction.Down, Direction.Left, Direction.Right];
             List<Direction> directionList = new List<Direction>(directions);
 
@@ -95,7 +118,7 @@ namespace Styx_Biblio_Jeu
             if (!CollisionMur(ptab))
                 directionList.Remove(Direction.Down);
             CurrentDirection = Direction.Up;
-            if (!CollisionMur(ptab) )
+            if (!CollisionMur(ptab))
                 directionList.Remove(Direction.Up);
             CurrentDirection = Direction.Left;
             if (!CollisionMur(ptab))
